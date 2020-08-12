@@ -1,0 +1,59 @@
+<template>
+  <div :class="{ 'bg-dark': isDark }">
+    <HeaderLayout :article="headerInfo" />
+    <div class="container-fluid px-lg-0 px-md-0 py-4">
+      <div
+        class="col-xl-6 offset-xl-3 col-lg-8 offset-lg-2 p-lg-0 col-md-10 offset-md-1 p-md-0 col-12"
+      >
+        <div class="page">
+          <div class="post monospace" :class="{ 'dark-article': isDark }">
+            <nuxt-content :document="article" />
+
+            <!-- <pre>{{ article }}</pre> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+<script>
+import HeaderLayout from "@/components/HeaderLayout";
+export default {
+  components: { HeaderLayout },
+
+  async asyncData({ $content, params }) {
+    const article = await $content("articles", params.slug).fetch();
+
+    return { article };
+  },
+
+  data() {
+    return {
+      isDark: false,
+    };
+  },
+
+  computed: {
+    headerInfo(article) {
+      return {
+        title: this.article.title,
+        date: this.article.updatedAt,
+        description: this.article.description,
+        category: this.article.category,
+        // type: this.article.attributes.type,
+        // tags: this.article.attributes.tags,
+        img: this.article.img,
+        imgAlt: this.article.imgAlt,
+        headerLayout: this.article.headerLayout,
+      };
+    },
+  },
+
+  methods: {
+    formatDate(date) {
+      const options = { year: "numeric", month: "long", day: "numeric" };
+      return new Date(date).toLocaleDateString("pt-br", options);
+    },
+  },
+};
+</script>
