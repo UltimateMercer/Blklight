@@ -2,29 +2,54 @@
   <b-navbar tag="nav" toggleable="md" type="dark" variant="dark" fixed="top">
     <div class="container">
       <b-navbar-brand>
-        <nuxt-link to="/" class="navbar-brand mx-2">
+        <nuxt-link to="/" class="navbar-brand mx-2 py-2">
           <strong>
             BLKLIGHT
           </strong>
         </nuxt-link>
       </b-navbar-brand>
+      <b-navbar-nav class="ml-auto">
+        <b-nav-form>
+          <button
+            class="btn btn-dark"
+            title="Modo noturno"
+            @click.prevent="darkMode"
+          >
+            <font-awesome-icon :icon="['fas', 'adjust']" />
+          </button>
+        </b-nav-form>
+      </b-navbar-nav>
     </div>
   </b-navbar>
 </template>
 <script>
 import Vue from "vue";
+import { mapMutations, mapGetters } from "vuex";
+
 import { NavbarPlugin } from "bootstrap-vue";
+
 Vue.use(NavbarPlugin);
 
 export default {
   name: "Navbar",
+
   data() {
-    return {
-      route: this.$nuxt.$route.path,
-    };
+    return {};
   },
 
-  computed: {},
+  computed: { ...mapGetters(["isDarkMode"]) },
+
+  methods: {
+    ...mapMutations({
+      darkMode: "darkMode",
+    }),
+
+    // darkMode() {
+    //   this.isDark = !this.isDark;
+    //   localStorage.setItem("isDark", this.isDark);
+    //   this.$store.commit("isDark");
+    // },
+  },
 };
 </script>
 <style lang="scss">

@@ -1,26 +1,26 @@
 <template>
-  <div>
-    <div class="container mt-5">
-      <nuxt-link
-        to="/DevCorporation"
-        class="btn btn-outline-v2-dark btn-raised"
-      >
-        DevCorporation
+  <div :class="{ 'bg-dark': isDarkMode }">
+    <div class="container mt-5 pt-5">
+      <nuxt-link to="/DevCorporation" class="btn btn-primary btn-raised">
+        Dev Corporation
       </nuxt-link>
-      <nuxt-link to="/Nerdstation" class="btn btn-outline-v2-dark btn-raised">
+      <nuxt-link to="/Nerdstation" class="btn btn-orange btn-raised">
         Nerdstation
       </nuxt-link>
     </div>
 
     <div class="container-fluid mt-5 mb-4">
       <div
-        class="col-lg-10 col-md-12 col-12 offset-lg-1 offset-md-0 offset-0 p-md-0"
+        class="col-xl-10 col-lg-12 col-md-12 col-12 offset-xl-1 offset-lg-0 offset-md-0 offset-0 p-md-0"
       >
         <Featured :featureds="featureds" />
       </div>
     </div>
     <div class="container mb-4">
-      <h3 class="marker marker-dark marker-title">
+      <h3
+        class="marker marker-title"
+        :class="isDarkMode ? 'marker-light' : 'marker-dark'"
+      >
         <span>
           <strong>Últimas notícias</strong>
         </span>
@@ -32,7 +32,8 @@
           class="col-lg-4 col-md-6 col-12"
         >
           <div
-            class="card card-raised card-background neon-shadow-dark view mb-3"
+            class="card card-raised card-background view mb-3"
+            :class="isDarkMode ? 'neon-shadow-light' : 'neon-shadow-dark'"
           >
             <img
               :src="imageSrc(article)"
@@ -65,6 +66,8 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+
 import Featured from "@/components/Featured";
 import DuotoneFilters from "@/components/DuotoneFilters";
 
@@ -92,6 +95,10 @@ export default {
     };
   },
 
+  computed: {
+    ...mapGetters(["isDarkMode"]),
+  },
+
   methods: {
     formatDate(date) {
       const time = new Date(date);
@@ -107,6 +114,5 @@ export default {
       return image;
     },
   },
-  computed: {},
 };
 </script>

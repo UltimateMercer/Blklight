@@ -6,7 +6,8 @@
       class="col-lg-4 col-md-8 col-12 offset-lg-0 offset-md-2"
     >
       <div
-        class="card card-background card-raised card-featured-post neon-shadow-dark view mb-4"
+        class="card card-background card-raised card-featured-post view mb-4"
+        :class="isDarkMode ? 'neon-shadow-light' : 'neon-shadow-dark'"
       >
         <img
           :src="article.img"
@@ -41,6 +42,8 @@
   </div>
 </template>
 <script>
+import { mapGetters } from "vuex";
+
 import { format } from "date-fns";
 import { ptBR } from "date-fns/locale";
 
@@ -53,6 +56,8 @@ export default {
       default: null,
     },
   },
+
+  computed: { ...mapGetters(["isDarkMode"]) },
 
   methods: {
     formatDate(date) {

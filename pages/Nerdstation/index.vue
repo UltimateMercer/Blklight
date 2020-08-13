@@ -12,7 +12,7 @@
                 <span
                   class="marker marker-light border-badge-dark marker-title"
                 >
-                  //Nerdstation
+                  Nerdstation
                 </span>
               </strong>
             </h1>

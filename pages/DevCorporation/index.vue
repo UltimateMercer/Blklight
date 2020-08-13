@@ -12,7 +12,7 @@
                 <span
                   class="marker marker-light border-badge-dark marker-title"
                 >
-                  //Dev Corporation
+                  Dev Corporation
                 </span>
               </strong>
             </h1>

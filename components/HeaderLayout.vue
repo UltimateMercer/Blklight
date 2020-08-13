@@ -391,12 +391,18 @@
         >
           <div class="header-simple-info mt-3 mb-0 mx-lg-0">
             <h1 class="blog-title">
-              <span class="marker marker-dark">
+              <span
+                class="marker"
+                :class="isDarkMode ? 'marker-light' : 'marker-dark'"
+              >
                 {{ article.title }}
               </span>
             </h1>
             <h5 class="blog-meta">
-              <span class="marker marker-dark">
+              <span
+                class="marker"
+                :class="isDarkMode ? 'marker-light' : 'marker-dark'"
+              >
                 {{ dateFormat }}
               </span>
             </h5>
@@ -435,6 +441,8 @@
   </div>
 </template>
 <script>
+import { mapGetters } from "vuex";
+
 import { format } from "date-fns";
 import { ptBR } from "date-fns/locale";
 
@@ -455,6 +463,8 @@ export default {
   },
 
   computed: {
+    ...mapGetters(["isDarkMode"]),
+
     imageSrc() {
       const image = this.article.imgAlt
         ? this.article.imgAlt
