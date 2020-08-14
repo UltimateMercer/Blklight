@@ -4,7 +4,8 @@ description: Learning how to use @nuxt/content to create a blog
 img: https://i.imgur.com/WH3nZum.png
 imgAlt: ""
 alt: my first blog post
-category: "LPJ"
+channel: "dev-corporation"
+category: "front-end"
 isFeatured: true
 headerLayout: ""
 ---

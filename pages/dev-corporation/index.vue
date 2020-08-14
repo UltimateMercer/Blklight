@@ -4,9 +4,9 @@
       class="bg-primary shadow-image mb-4"
       style="width: 100%; min-height: 150px;"
     >
-      <div class="container pt-5">
+      <div class="container mt-2 pt-5">
         <div class="card card-plain">
-          <div class="card-body">
+          <div class="card-body px-0">
             <h1 class="mb-3">
               <strong>
                 <span
@@ -17,77 +17,80 @@
               </strong>
             </h1>
             <div class="d-lg-flex mb-3">
-              <a
+              <nuxt-link
+                :to="{ name: 'dev-corporation-index' }"
                 class="badge badge-tag badge-light badge-pill border-badge-dark my-1"
-                href="https://github.com/UltimateMercer"
-                target="_blank"
-                rel="noopener"
+              >
+                <font-awesome-icon :icon="['fas', 'home']" />
+              </nuxt-link>
+              <nuxt-link
+                class="badge badge-tag badge-light badge-pill border-badge-dark my-1"
+                :to="{
+                  name: 'dev-corporation-index-category',
+                  params: { category: 'front-end' },
+                }"
                 title="Acessar github"
               >
                 Front-end
-              </a>
-              <a
+              </nuxt-link>
+              <nuxt-link
                 class="badge badge-tag badge-light badge-pill border-badge-dark my-1"
-                href="https://www.facebook.com/UltimateMercer"
-                target="_blank"
-                rel="noopener"
+                :to="{
+                  name: 'dev-corporation-index-category',
+                  params: { category: 'back-end' },
+                }"
                 title="Acessar facebook"
               >
                 Back-end
-              </a>
-              <a
+              </nuxt-link>
+              <nuxt-link
                 class="badge badge-tag badge-light badge-pill border-badge-dark my-1"
-                href="https://www.behance.net/ultimatemercer"
-                target="_blank"
-                rel="noopener"
+                :to="{
+                  name: 'dev-corporation-index-category',
+                  params: { category: 'design' },
+                }"
                 title="Behance"
               >
                 Design
-              </a>
-              <a
+              </nuxt-link>
+              <nuxt-link
                 class="badge badge-tag badge-light badge-pill border-badge-dark my-1"
-                href="https://github.com/UltimateMercer"
-                target="_blank"
-                rel="noopener"
+                :to="{
+                  name: 'dev-corporation-index-category',
+                  params: { category: 'jobs' },
+                }"
                 title="Linkedin"
               >
                 Jobs
-              </a>
-
-              <a
-                class="badge badge-tag badge-light badge-pill border-badge-dark my-1"
-                href="https://medium.com/@ultimatemercer"
-                target="_blank"
-                rel="noopener"
-                title="Medium"
-              >
-                Medium
-              </a>
+              </nuxt-link>
             </div>
-
-            <div class="input-group">
-              <input
-                type="text"
-                class="form-control form-dark text-dark bg-transparent"
-                placeholder="Pesquisar"
-                aria-label="Pesquisar"
-                aria-describedby="button-addon2"
-              />
-              <div class="input-group-append">
-                <button
-                  id="button-addon2"
-                  class="btn btn-light border-badge-dark"
-                  type="button"
-                >
-                  <font-awesome-icon :icon="['fas', 'search']" size="lg" />
-                </button>
+            <form @submit.prevent="onSearch">
+              <div class="input-group">
+                <input
+                  v-model="search"
+                  type="text"
+                  class="form-control form-dark text-dark bg-transparent"
+                  placeholder="Pesquisar"
+                  aria-label="Pesquisar"
+                  aria-describedby="search"
+                />
+                <div class="input-group-append">
+                  <button
+                    id="search"
+                    class="btn btn-light border-badge-dark"
+                    type="submit"
+                  >
+                    <font-awesome-icon :icon="['fas', 'search']" size="lg" />
+                  </button>
+                </div>
               </div>
-            </div>
+            </form>
           </div>
         </div>
       </div>
     </header>
-    <div class="container mb-4">
+    <nuxt-child />
+    <!-- <div class="container mb-4">
       <h2 class="mt-3 mb-3"><strong> Artigos recentes </strong></h2>
       <div class="row">
         <div
@@ -121,7 +124,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
 
@@ -141,6 +144,12 @@ export default {
     };
   },
 
+  data() {
+    return {
+      search: "",
+    };
+  },
+
   methods: {
     formatDate(date) {
       const time = new Date(date);
@@ -155,6 +164,13 @@ export default {
       const image = article.imgAlt ? article.imgAlt : article.img;
 
       return image;
+    },
+
+    onSearch() {
+      this.$router.push({
+        name: "dev-corporation-index-search",
+        params: { search: this.search },
+      });
     },
   },
 };

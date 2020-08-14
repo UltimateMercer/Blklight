@@ -1,5 +1,11 @@
 <template>
-  <b-navbar tag="nav" toggleable="md" type="dark" variant="dark" fixed="top">
+  <b-navbar
+    tag="nav"
+    toggleable="md"
+    type="dark"
+    fixed="top"
+    :variant="navbarVariant"
+  >
     <div class="container">
       <b-navbar-brand>
         <nuxt-link to="/" class="navbar-brand mx-2 py-2">
@@ -8,6 +14,13 @@
           </strong>
         </nuxt-link>
       </b-navbar-brand>
+      <template v-if="this.$route.path === '/dev-corporation'">
+        <b-nav-text>
+          <nuxt-link :to="this.$route.path">
+            /Dev Corporation
+          </nuxt-link>
+        </b-nav-text>
+      </template>
       <b-navbar-nav class="ml-auto">
         <b-nav-form>
           <button
@@ -37,7 +50,18 @@ export default {
     return {};
   },
 
-  computed: { ...mapGetters(["isDarkMode"]) },
+  computed: {
+    ...mapGetters(["isDarkMode"]),
+    navbarVariant() {
+      if (this.$route.path === "/dev-corporation") {
+        return "primary";
+      } else if (this.$route.path === "/Nerdstation") {
+        return "orange";
+      } else {
+        return "dark";
+      }
+    },
+  },
 
   methods: {
     ...mapMutations({

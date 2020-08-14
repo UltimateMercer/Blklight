@@ -1,9 +1,10 @@
 ---
-title: My first Blog Post
+title: Lady Gaga's Awakening
 description: Learning how to use @nuxt/content to create a blog
 img: https://i.imgur.com/PfaL9wP.jpg
 imgAlt: ""
 alt: my first blog post
+channel: "dev-corporation"
 category: "LPJ"
 isFeatured: ""
 headerLayout: ""

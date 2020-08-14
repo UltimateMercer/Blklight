@@ -4,7 +4,7 @@
       class="bg-orange shadow-image mb-4"
       style="width: 100%; min-height: 150px;"
     >
-      <div class="container pt-5">
+      <div class="container mt-2 pt-5">
         <div class="card card-plain">
           <div class="card-body">
             <h1 class="mb-3">

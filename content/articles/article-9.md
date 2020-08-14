@@ -1,12 +1,13 @@
 ---
-title: My second Blog Post
-description: Learning how to use @nuxt/content to create a blog
+title: Sasha Grey's Awakening
+description: Twitch lives
 img: https://i.imgur.com/WH3nZum.png
 imgAlt: ""
 alt: my first blog post
+channel: "dev-corporation"
 category: "LPJ"
 isFeatured: ""
-headerLayout: ""
+headerLayout: "parallax"
 ---
 
 # Amorem Ixione

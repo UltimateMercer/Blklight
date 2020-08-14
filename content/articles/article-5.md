@@ -4,7 +4,8 @@ description: Arte produzida para avaliação na disciplina de Tipografia 1, do c
 img: https://i.imgur.com/jlu6jwf.jpg
 imgAlt: ""
 alt: my first blog post
-category: "Atr"
+channel: "dev-corporation"
+category: "design"
 isFeatured: true
 headerLayout: "square-profile"
 ---
