@@ -6,11 +6,11 @@
     >
       <div class="container mt-2 pt-5">
         <div class="card card-plain">
-          <div class="card-body">
+          <div class="card-body px-0">
             <h1 class="mb-3">
               <strong>
                 <span
-                  class="marker marker-light border-badge-dark marker-title"
+                  class="marker marker-dark border-badge-light marker-title"
                 >
                   Nerdstation
                 </span>
@@ -18,7 +18,7 @@
             </h1>
             <div class="d-lg-flex mb-3">
               <a
-                class="badge badge-tag badge-light badge-pill border-badge-dark my-1"
+                class="badge badge-tag badge-dark border-badge-light my-1"
                 href="https://github.com/UltimateMercer"
                 target="_blank"
                 rel="noopener"
@@ -27,7 +27,7 @@
                 Front-end
               </a>
               <a
-                class="badge badge-tag badge-light badge-pill border-badge-dark my-1"
+                class="badge badge-tag badge-dark border-badge-light my-1"
                 href="https://www.facebook.com/UltimateMercer"
                 target="_blank"
                 rel="noopener"
@@ -36,7 +36,7 @@
                 Back-end
               </a>
               <a
-                class="badge badge-tag badge-light badge-pill border-badge-dark my-1"
+                class="badge badge-tag badge-dark border-badge-light my-1"
                 href="https://www.behance.net/ultimatemercer"
                 target="_blank"
                 rel="noopener"
@@ -45,7 +45,7 @@
                 Design
               </a>
               <a
-                class="badge badge-tag badge-light badge-pill border-badge-dark my-1"
+                class="badge badge-tag badge-dark border-badge-light my-1"
                 href="https://github.com/UltimateMercer"
                 target="_blank"
                 rel="noopener"
@@ -55,7 +55,7 @@
               </a>
 
               <a
-                class="badge badge-tag badge-light badge-pill border-badge-dark my-1"
+                class="badge badge-tag badge-dark border-badge-light my-1"
                 href="https://medium.com/@ultimatemercer"
                 target="_blank"
                 rel="noopener"
@@ -74,11 +74,7 @@
                 aria-describedby="button-addon2"
               />
               <div class="input-group-append">
-                <button
-                  class="btn btn-light border-badge-dark"
-                  type="button"
-                  id="button-addon2"
-                >
+                <button class="btn btn-dark" type="button" id="button-addon2">
                   <font-awesome-icon :icon="['fas', 'search']" size="lg" />
                 </button>
               </div>
@@ -113,7 +109,13 @@
                 {{ formatDate(article.updatedAt) }}
               </span>
 
-              <nuxt-link :to="article.slug" class="stretched-link"></nuxt-link>
+              <nuxt-link
+                :to="{
+                  name: `${article.channel}-slug`,
+                  params: { slug: `${article.slug}` },
+                }"
+                class="stretched-link"
+              ></nuxt-link>
             </div>
           </div>
         </div>
@@ -126,9 +128,9 @@
 export default {
   async asyncData({ $content, params }) {
     const articles = await $content("articles", params.slug)
-      .only(["title", "img", "imgAlt", "slug", "updatedAt"])
+      .only(["title", "img", "imgAlt", "channel", "slug", "updatedAt"])
       .sortBy("updatedAt", "desc")
-      .where({ category: "LPJ" })
+      .where({ channel: "nerdstation" })
       .fetch();
 
     return {

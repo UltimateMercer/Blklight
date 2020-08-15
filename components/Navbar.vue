@@ -14,10 +14,23 @@
           </strong>
         </nuxt-link>
       </b-navbar-brand>
-      <template v-if="this.$route.path === '/dev-corporation'">
+      <template
+        v-if="
+          this.$route.name === 'dev-corporation-index' ||
+          this.$route.name === 'dev-corporation-index-category' ||
+          this.$route.name === 'dev-corporation-index-search'
+        "
+      >
         <b-nav-text>
           <nuxt-link :to="this.$route.path">
             /Dev Corporation
+          </nuxt-link>
+        </b-nav-text>
+      </template>
+      <template v-if="this.$route.path === '/nerdstation'">
+        <b-nav-text>
+          <nuxt-link :to="this.$route.path">
+            /Nerdstation
           </nuxt-link>
         </b-nav-text>
       </template>
@@ -53,9 +66,10 @@ export default {
   computed: {
     ...mapGetters(["isDarkMode"]),
     navbarVariant() {
-      if (this.$route.path === "/dev-corporation") {
+      if (this.$route.name === "dev-corporation-index-*") {
+        console.log(this.$route);
         return "primary";
-      } else if (this.$route.path === "/Nerdstation") {
+      } else if (this.$route.path === "/nerdstation") {
         return "orange";
       } else {
         return "dark";

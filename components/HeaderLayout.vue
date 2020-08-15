@@ -1,7 +1,7 @@
 <template>
   <div>
     <div v-if="headerTemplate === 'portrait-left'">
-      <div class="header-content header-h-full d-md-inline-flex mb-4">
+      <div class="header-content header-h-full d-md-inline-flex mb-3">
         <div class="header-image-half header-h-full view">
           <div
             v-lazy:background-image="imageSrc"
@@ -55,7 +55,7 @@
     </div>
 
     <div v-if="headerTemplate === 'portrait-right'">
-      <div class="header-content header-h-full d-md-inline-flex mb-4">
+      <div class="header-content header-h-full d-md-inline-flex mb-3">
         <div class="header-info-half header-h-full">
           <div class="h-100 d-flex flex-column justify-content-end">
             <h1 class="blog-title">
@@ -110,7 +110,7 @@
 
     <div v-if="headerTemplate === 'landscape'">
       <div
-        class="header-content header-h-full d-md-inline-flex shadow-image mb-4"
+        class="header-content header-h-full d-md-inline-flex shadow-image mb-3"
       >
         <div class="header-info header-h-full">
           <div class="h-100 d-flex flex-column justify-content-end">
@@ -161,10 +161,10 @@
     </div>
 
     <div v-if="headerTemplate === 'parallax'">
-      <div class="header-simple mt-5">
+      <div class="header-simple mt-5 mb-3">
         <div
           v-lazy:background-image="imageSrc"
-          class="header-simple-image-parallax view mb-4"
+          class="header-simple-image-parallax view mb-2"
         >
           <div class="mask parallax-mask texture-mask-4"></div>
         </div>
@@ -172,17 +172,13 @@
       <div
         class="col-xl-6 offset-xl-3 col-lg-8 offset-lg-2 p-lg-0 col-md-10 offset-md-1 p-md-0 col-12"
       >
-        <div class="header-simple-info mb-0">
+        <div class="header-simple-info mb-0 mx-lg-0">
           <h1 class="blog-title">
-            <span class="marker marker-dark marker-title">
+            <span class="marker marker-dark">
               {{ article.title }}
             </span>
           </h1>
-          <h5 v-if="article.description" class="blog-meta">
-            <span class="marker marker-dark">
-              {{ article.description }}
-            </span>
-          </h5>
+
           <h5 class="blog-meta">
             <span class="marker marker-dark">
               {{ dateFormat }}

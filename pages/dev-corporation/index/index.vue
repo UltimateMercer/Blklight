@@ -29,7 +29,13 @@
                   {{ formatDate(article.updatedAt) }}
                 </span>
               </div>
-              <nuxt-link :to="article.slug" class="stretched-link"></nuxt-link>
+              <nuxt-link
+                :to="{
+                  name: `${article.channel}-slug`,
+                  params: { slug: `${article.slug}` },
+                }"
+                class="stretched-link"
+              ></nuxt-link>
             </div>
           </div>
         </div>
@@ -44,7 +50,7 @@ import { ptBR } from "date-fns/locale";
 export default {
   async asyncData({ $content, params }) {
     const articles = await $content("articles", params.slug)
-      .only(["title", "img", "imgAlt", "slug", "updatedAt"])
+      .only(["title", "img", "imgAlt", "channel", "slug", "updatedAt"])
       .sortBy("updatedAt", "desc")
       .where({ channel: "dev-corporation" })
       .fetch();

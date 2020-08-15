@@ -19,12 +19,12 @@
             <div class="d-lg-flex mb-3">
               <nuxt-link
                 :to="{ name: 'dev-corporation-index' }"
-                class="badge badge-tag badge-light badge-pill border-badge-dark my-1"
+                class="badge badge-tag badge-light border-badge-dark my-1"
               >
                 <font-awesome-icon :icon="['fas', 'home']" />
               </nuxt-link>
               <nuxt-link
-                class="badge badge-tag badge-light badge-pill border-badge-dark my-1"
+                class="badge badge-tag badge-light border-badge-dark my-1"
                 :to="{
                   name: 'dev-corporation-index-category',
                   params: { category: 'front-end' },
@@ -34,7 +34,7 @@
                 Front-end
               </nuxt-link>
               <nuxt-link
-                class="badge badge-tag badge-light badge-pill border-badge-dark my-1"
+                class="badge badge-tag badge-light border-badge-dark my-1"
                 :to="{
                   name: 'dev-corporation-index-category',
                   params: { category: 'back-end' },
@@ -44,7 +44,7 @@
                 Back-end
               </nuxt-link>
               <nuxt-link
-                class="badge badge-tag badge-light badge-pill border-badge-dark my-1"
+                class="badge badge-tag badge-light border-badge-dark my-1"
                 :to="{
                   name: 'dev-corporation-index-category',
                   params: { category: 'design' },
@@ -54,7 +54,7 @@
                 Design
               </nuxt-link>
               <nuxt-link
-                class="badge badge-tag badge-light badge-pill border-badge-dark my-1"
+                class="badge badge-tag badge-light border-badge-dark my-1"
                 :to="{
                   name: 'dev-corporation-index-category',
                   params: { category: 'jobs' },
@@ -65,7 +65,7 @@
               </nuxt-link>
             </div>
             <form @submit.prevent="onSearch">
-              <div class="input-group">
+              <div class="input-group mb-2">
                 <input
                   v-model="search"
                   type="text"
@@ -75,11 +75,7 @@
                   aria-describedby="search"
                 />
                 <div class="input-group-append">
-                  <button
-                    id="search"
-                    class="btn btn-light border-badge-dark"
-                    type="submit"
-                  >
+                  <button id="search" class="btn btn-dark" type="submit">
                     <font-awesome-icon :icon="['fas', 'search']" size="lg" />
                   </button>
                 </div>
@@ -89,6 +85,9 @@
         </div>
       </div>
     </header>
+    <div class="container">
+      <p>{{ this.$route.name }}</p>
+    </div>
     <nuxt-child />
     <!-- <div class="container mb-4">
       <h2 class="mt-3 mb-3"><strong> Artigos recentes </strong></h2>

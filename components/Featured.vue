@@ -33,7 +33,10 @@
           </div>
           <nuxt-link
             tag="a"
-            :to="article.slug"
+            :to="{
+              name: `${article.channel}-slug`,
+              params: { slug: `${article.slug}` },
+            }"
             class="stretched-link"
           ></nuxt-link>
         </div>

@@ -1,20 +1,19 @@
 <template>
   <div :class="{ 'bg-dark': isDarkMode }">
-    <div class="container mt-5 pt-5">
-      <nuxt-link to="/dev-corporation" class="btn btn-primary btn-raised">
-        Dev Corporation
-      </nuxt-link>
-      <nuxt-link to="/Nerdstation" class="btn btn-orange btn-raised">
-        Nerdstation
-      </nuxt-link>
-    </div>
-
-    <div class="container-fluid mt-5 mb-4">
+    <div class="container-fluid mt-5 pt-4">
       <div
         class="col-xl-10 col-lg-12 col-md-12 col-12 offset-xl-1 offset-lg-0 offset-md-0 offset-0 p-md-0"
       >
         <Featured :featureds="featureds" />
       </div>
+    </div>
+    <div class="container my-3">
+      <nuxt-link to="/dev-corporation" class="btn btn-primary btn-raised">
+        Dev Corporation
+      </nuxt-link>
+      <nuxt-link to="/nerdstation" class="btn btn-orange btn-raised">
+        Nerdstation
+      </nuxt-link>
     </div>
     <div class="container mb-4">
       <h3
@@ -55,7 +54,19 @@
                   {{ formatDate(article.updatedAt) }}
                 </span>
               </div>
-              <nuxt-link :to="article.slug" class="stretched-link"></nuxt-link>
+              <div class="card-subinfo">
+                <span class="badge badge-dark">
+                  {{ article.channel }}
+                </span>
+              </div>
+
+              <nuxt-link
+                :to="{
+                  name: `${article.channel}-slug`,
+                  params: { slug: `${article.slug}` },
+                }"
+                class="stretched-link"
+              ></nuxt-link>
             </div>
           </div>
         </div>
@@ -78,13 +89,29 @@ export default {
   components: { Featured, DuotoneFilters },
   async asyncData({ $content, params }) {
     const featureds = await $content("articles", params.slug)
-      .only(["title", "img", "slug", "updatedAt", "isFeatured"])
+      .only([
+        "title",
+        "img",
+        "imgAlt",
+        "slug",
+        "channel",
+        "updatedAt",
+        "isFeatured",
+      ])
       .sortBy("updatedAt", "desc")
       .where({ isFeatured: true })
       .fetch();
 
     const articles = await $content("articles", params.slug)
-      .only(["title", "img", "imgAlt", "slug", "isFeatured", "updatedAt"])
+      .only([
+        "title",
+        "img",
+        "imgAlt",
+        "channel",
+        "slug",
+        "isFeatured",
+        "updatedAt",
+      ])
       .sortBy("updatedAt", "desc")
       .where({ isFeatured: "" })
       .fetch();
@@ -113,6 +140,13 @@ export default {
 
       return image;
     },
+
+    // channelSlug(article) {
+    //   const channel = article.channel;
+    //   const slug = article.slug;
+    //   const path = `/${channel}-${slug}`;
+    //   return path;
+    // },
   },
 };
 </script>
