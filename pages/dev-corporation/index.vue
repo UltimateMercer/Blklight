@@ -25,11 +25,7 @@
               </nuxt-link>
               <nuxt-link
                 class="badge badge-tag badge-light border-badge-dark my-1"
-                :to="{
-                  name: 'dev-corporation-index-category',
-                  params: { category: 'front-end' },
-                }"
-                title="Acessar github"
+                :to="{ name: 'dev-corporation-index-front-end' }"
               >
                 Front-end
               </nuxt-link>
@@ -88,88 +84,60 @@
     <div class="container">
       <p>{{ this.$route.name }}</p>
     </div>
-    <nuxt-child />
-    <!-- <div class="container mb-4">
-      <h2 class="mt-3 mb-3"><strong> Artigos recentes </strong></h2>
-      <div class="row">
-        <div
-          v-for="(article, i) in articles"
-          :key="i"
-          class="col-lg-4 col-md-6 col-12"
-        >
-          <div class="card card-raised card-background view mb-3">
-            <img
-              :src="imageSrc(article)"
-              class="card-background-image"
-              alt=""
-            />
-            <div
-              class="card-img-overlay h-100 d-flex flex-column justify-content-end"
-            >
-              <h5 class="">
-                <span class="marker marker-dark marker-title">
-                  {{ article.title }}
-                </span>
-              </h5>
-              <div class="card-subinfo">
-                <span class="badge badge-dark">
-                  {{ formatDate(article.updatedAt) }}
-                </span>
-              </div>
-              <nuxt-link :to="article.slug" class="stretched-link"></nuxt-link>
-            </div>
 
-            <div class="mask texture-mask-2"></div>
-          </div>
-        </div>
-      </div>
-    </div> -->
+    <h3 v-if="categories">
+      Not Null
+    </h3>
+
+    <ul v-if="results.length">
+      <li v-for="result of results" :key="result.slug">
+        <NuxtLink
+          :to="{ name: 'blog-slug', params: { slug: result.slug } }"
+          class="text-dark"
+          >{{ result.title }}</NuxtLink
+        >
+      </li>
+    </ul>
+    <nuxt-child />
   </div>
 </template>
 
 <script>
-import { format } from "date-fns";
-import { ptBR } from "date-fns/locale";
 export default {
-  async asyncData({ $content, params }) {
-    const articles = await $content("articles", params.slug)
-      .only(["title", "img", "imgAlt", "slug", "updatedAt"])
-      .sortBy("updatedAt", "desc")
-      .where({ category: "LPJ" })
-      .fetch();
-
-    return {
-      articles,
-    };
-  },
-
   data() {
     return {
       search: "",
+      categories: "",
+      results: [],
     };
   },
 
+  watch: {
+    async category(categories) {
+      if (!categories) {
+        this.results = [];
+        return;
+      }
+
+      this.results = await this.$content("articles")
+        .only(["title", "channel", "category", "slug"])
+        .sortBy("createdAt", "asc")
+        .where({ channel: "dev-corporation" })
+        .search("category", categories)
+        .fetch();
+    },
+  },
+
   methods: {
-    formatDate(date) {
-      const time = new Date(date);
-      const formattedDate = format(new Date(time), "dd MMM yyyy", {
-        locale: ptBR,
-      });
-
-      return formattedDate;
-    },
-
-    imageSrc(article) {
-      const image = article.imgAlt ? article.imgAlt : article.img;
-
-      return image;
-    },
-
     onSearch() {
       this.$router.push({
         name: "dev-corporation-index-search",
         params: { search: this.search },
       });
+    },
+
+    getCategory(category) {
+      this.categories = category;
     },
   },
 };

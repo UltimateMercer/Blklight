@@ -15,7 +15,21 @@
         Nerdstation
       </nuxt-link>
     </div>
-    <div class="container mb-4">
+
+    <div class="container-fluid bg-dark shadow-image">
+      <div class="container py-3">
+        <input
+          v-model="query"
+          type="search"
+          class="form-control form-control-lg form-light text-light bg-transparent"
+          placeholder="Pesquisar"
+          aria-label="Pesquisar"
+          aria-describedby="search"
+        />
+      </div>
+    </div>
+
+    <div v-if="results.length === 0" class="container mt-4 mb-4">
       <h3
         class="marker marker-title"
         :class="isDarkMode ? 'marker-light' : 'marker-dark'"
@@ -72,6 +86,19 @@
         </div>
       </div>
     </div>
+
+    <div v-if="results.length > 0" class="container my-4">
+      <h2 class="mt-3 mb-3"><strong> Artigos recentes </strong></h2>
+      <div class="row">
+        <div
+          v-for="(article, i) in results"
+          :key="i"
+          class="col-lg-4 col-md-6 col-12"
+        >
+          <Cards :article="article" />
+        </div>
+      </div>
+    </div>
     <DuotoneFilters />
   </div>
 </template>
@@ -100,6 +127,7 @@ export default {
       ])
       .sortBy("updatedAt", "desc")
       .where({ isFeatured: true })
+      .limit(3)
       .fetch();
 
     const articles = await $content("articles", params.slug)
@@ -122,8 +150,38 @@ export default {
     };
   },
 
+  data() {
+    return {
+      query: "",
+      results: [],
+    };
+  },
+
   computed: {
     ...mapGetters(["isDarkMode"]),
+  },
+
+  watch: {
+    async query(query) {
+      if (!query) {
+        this.results = [];
+        return;
+      }
+
+      this.results = await this.$content("articles")
+        .only([
+          "title",
+          "img",
+          "imgAlt",
+          "channel",
+          "slug",
+          "isFeatured",
+          "updatedAt",
+        ])
+        .sortBy("updatedAt", "desc")
+        .search(query)
+        .fetch();
+    },
   },
 
   methods: {
@@ -140,13 +198,6 @@ export default {
 
       return image;
     },
-
-    // channelSlug(article) {
-    //   const channel = article.channel;
-    //   const slug = article.slug;
-    //   const path = `/${channel}-${slug}`;
-    //   return path;
-    // },
   },
 };
 </script>

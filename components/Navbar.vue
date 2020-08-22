@@ -67,7 +67,7 @@ export default {
     ...mapGetters(["isDarkMode"]),
     navbarVariant() {
       if (this.$route.name === "dev-corporation-index-*") {
-        console.log(this.$route);
+        console.log(this.$route.params);
         return "primary";
       } else if (this.$route.path === "/nerdstation") {
         return "orange";

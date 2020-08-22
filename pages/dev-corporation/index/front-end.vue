@@ -14,6 +14,8 @@
               class="card-background-image"
               alt=""
             />
+            <div class="mask texture-mask-2"></div>
+
             <div
               class="card-img-overlay h-100 d-flex flex-column justify-content-end"
             >
@@ -30,13 +32,11 @@
               <nuxt-link
                 :to="{
                   name: `${article.channel}-slug`,
-                  params: { slug: article.slug },
+                  params: { slug: `${article.slug}` },
                 }"
                 class="stretched-link"
               ></nuxt-link>
             </div>
-
-            <div class="mask texture-mask-2"></div>
           </div>
         </div>
       </div>
@@ -47,15 +47,20 @@
 <script>
 import { format } from "date-fns";
 import { ptBR } from "date-fns/locale";
-
 export default {
   async asyncData({ $content, params }) {
-    // eslint-disable-next-line nuxt/no-this-in-fetch-data
-
     const articles = await $content("articles", params.slug)
-      .only(["title", "img", "imgAlt", "channel", "slug", "updatedAt"])
+      .only([
+        "title",
+        "img",
+        "imgAlt",
+        "channel",
+        "category",
+        "slug",
+        "updatedAt",
+      ])
       .sortBy("updatedAt", "desc")
-      .where({ category: params.category })
+      .where({ channel: "dev-corporation", category: "front-end" })
       .fetch();
 
     return {

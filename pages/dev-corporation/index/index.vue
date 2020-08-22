@@ -8,36 +8,7 @@
           :key="i"
           class="col-lg-4 col-md-6 col-12"
         >
-          <div class="card card-raised card-background view mb-3">
-            <img
-              :src="imageSrc(article)"
-              class="card-background-image"
-              alt=""
-            />
-            <div class="mask texture-mask-2"></div>
-
-            <div
-              class="card-img-overlay h-100 d-flex flex-column justify-content-end"
-            >
-              <h5 class="">
-                <span class="marker marker-dark marker-title">
-                  {{ article.title }}
-                </span>
-              </h5>
-              <div class="card-subinfo">
-                <span class="badge badge-dark">
-                  {{ formatDate(article.updatedAt) }}
-                </span>
-              </div>
-              <nuxt-link
-                :to="{
-                  name: `${article.channel}-slug`,
-                  params: { slug: `${article.slug}` },
-                }"
-                class="stretched-link"
-              ></nuxt-link>
-            </div>
-          </div>
+          <Cards :article="article" />
         </div>
       </div>
     </div>
@@ -47,7 +18,12 @@
 <script>
 import { format } from "date-fns";
 import { ptBR } from "date-fns/locale";
+
+import Cards from "~/components/Cards";
+
 export default {
+  components: { Cards },
+
   async asyncData({ $content, params }) {
     const articles = await $content("articles", params.slug)
       .only(["title", "img", "imgAlt", "channel", "slug", "updatedAt"])

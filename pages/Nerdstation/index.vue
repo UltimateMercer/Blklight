@@ -74,7 +74,7 @@
                 aria-describedby="button-addon2"
               />
               <div class="input-group-append">
-                <button class="btn btn-dark" type="button" id="button-addon2">
+                <button id="button-addon2" class="btn btn-dark" type="button">
                   <font-awesome-icon :icon="['fas', 'search']" size="lg" />
                 </button>
               </div>

@@ -1,16 +1,8 @@
 <template>
   <div>
     <div class="container mb-4">
-      <h2 class="mt-3 mb-3">
-        <strong> Resultados da pesquisa: {{ articleStats }} </strong>
-      </h2>
-
-      <template v-if="articles.length === 0">
-        <h1 class="text-center my-5">
-          <strong> :( Nenhum resultado encontrado!!</strong>
-        </h1>
-      </template>
-      <div v-else class="row">
+      <h2 class="mt-3 mb-3"><strong> Artigos recentes </strong></h2>
+      <div class="row">
         <div
           v-for="(article, i) in articles"
           :key="i"
@@ -22,6 +14,8 @@
               class="card-background-image"
               alt=""
             />
+            <div class="mask texture-mask-2"></div>
+
             <div
               class="card-img-overlay h-100 d-flex flex-column justify-content-end"
             >
@@ -35,10 +29,14 @@
                   {{ formatDate(article.updatedAt) }}
                 </span>
               </div>
-              <nuxt-link :to="article.slug" class="stretched-link"></nuxt-link>
+              <nuxt-link
+                :to="{
+                  name: `${article.channel}-slug`,
+                  params: { slug: `${article.slug}` },
+                }"
+                class="stretched-link"
+              ></nuxt-link>
             </div>
-
-            <div class="mask texture-mask-2"></div>
           </div>
         </div>
       </div>
@@ -49,27 +47,25 @@
 <script>
 import { format } from "date-fns";
 import { ptBR } from "date-fns/locale";
-
 export default {
   async asyncData({ $content, params }) {
-    // eslint-disable-next-line nuxt/no-this-in-fetch-data
-
     const articles = await $content("articles", params.slug)
-      .only(["title", "img", "imgAlt", "slug", "updatedAt"])
+      .only([
+        "title",
+        "img",
+        "imgAlt",
+        "channel",
+        "category",
+        "slug",
+        "updatedAt",
+      ])
       .sortBy("updatedAt", "desc")
-      .where({ channel: "dev-corporation" })
-      .search(params.search)
+      .where({ channel: "dev-corporation", category: "front-end" })
       .fetch();
 
     return {
       articles,
     };
-  },
-
-  computed: {
-    articleStats() {
-      return this.articles.length;
-    },
   },
 
   methods: {
