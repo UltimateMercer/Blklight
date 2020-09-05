@@ -10,7 +10,7 @@
             <nuxt-content :document="article" />
             <p>{{ this.$route.n }}</p>
 
-            <pre>{{ article }}</pre>
+            <!-- <pre>{{ article }}</pre> -->
           </div>
         </div>
       </div>
@@ -50,13 +50,6 @@ export default {
         imgAlt: this.article.imgAlt,
         headerLayout: this.article.headerLayout,
       };
-    },
-  },
-
-  methods: {
-    formatDate(date) {
-      const options = { year: "numeric", month: "long", day: "numeric" };
-      return new Date(date).toLocaleDateString("pt-br", options);
     },
   },
 };

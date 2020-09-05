@@ -1,5 +1,5 @@
 ---
-title: Navedex
+title: Navedex - Front-end challenge
 description: Learning how to use @nuxt/content to create a blog
 img: https://scontent.fpet4-1.fna.fbcdn.net/v/t1.0-9/64443730_2461085627264073_2093662059899125760_n.png?_nc_cat=109&_nc_sid=174925&_nc_ohc=o4zSzuCQR1UAX-5Lxms&_nc_ht=scontent.fpet4-1.fna&oh=ff825dfee7435a8ec51afe10e8c39814&oe=5F644BFB
 imgAlt: ""

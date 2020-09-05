@@ -7,7 +7,7 @@ alt: my first blog post
 channel: "nerdstation"
 
 category: "LPJ"
-isFeatured: ""
+isFeatured: true
 headerLayout: "portrait-left"
 ---
 

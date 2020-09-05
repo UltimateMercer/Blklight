@@ -18,6 +18,11 @@ A estética do poster foi pensado e desenvolvido da seguinte maneira, primeirame
 
 Todo o poster foi desenvolvido e manipulado usando o Adobe Photoshop, e a ideia foi criar um poster que transmitisse para o público a necessidade de se unir novamente um time de heróis, centrado na figura da Capitã Marvel, para prevenir futuras ameaças.
 
+<figure class="figure">
+  <img src="https://i.imgur.com/jlu6jwf.jpg" class="figure-img img-fluid mb-1" alt="Join New Avengers">
+  <figcaption class="figure-caption">A caption for the above image.</figcaption>
+</figure>
+
 <img src="https://i.imgur.com/jlu6jwf.jpg"
      alt="Join New Avengers"
      class="img-fluid" />

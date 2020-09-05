@@ -2,7 +2,7 @@
   <div>
     <div v-if="headerTemplate === 'portrait-left'">
       <div class="header-content header-h-full d-md-inline-flex mb-3">
-        <div class="header-image-half header-h-full view">
+        <div class="header-image-half header-h-full header-border-right view">
           <div
             v-lazy:background-image="imageSrc"
             class="header-image-background header-h-full"
@@ -98,7 +98,7 @@
             </div>
           </div>
         </div>
-        <div class="header-image-half header-h-full view">
+        <div class="header-image-half header-h-full header-border-left view">
           <div
             v-lazy:background-image="imageSrc"
             class="header-image-background header-h-full"

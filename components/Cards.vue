@@ -1,6 +1,6 @@
 <template>
   <div
-    class="card card-raised card-background view mb-3"
+    class="card card-flat card-background view mb-3"
     :class="isDarkMode ? 'neon-shadow-light' : 'neon-shadow-dark'"
   >
     <img :src="imageSrc(article)" class="card-background-image" alt="" />
@@ -8,16 +8,16 @@
 
     <div class="card-img-overlay h-100 d-flex flex-column justify-content-end">
       <h5 class="">
-        <span class="marker marker-dark marker-title">
-          {{ article.title }}
-        </span>
+        <strong>
+          <span class="marker marker-dark">
+            {{ article.title }}
+          </span>
+        </strong>
       </h5>
       <div class="card-subinfo">
         <span class="badge badge-dark">
           {{ formatDate(article.updatedAt) }}
         </span>
-      </div>
-      <div class="card-subinfo">
         <span class="badge badge-dark">
           {{ article.channel }}
         </span>

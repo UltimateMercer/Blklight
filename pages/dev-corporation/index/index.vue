@@ -1,7 +1,9 @@
 <template>
-  <div>
-    <div class="container mb-4">
-      <h2 class="mt-3 mb-3"><strong> Artigos recentes </strong></h2>
+  <div :class="{ 'bg-dark': isDarkMode }">
+    <div class="container pb-4">
+      <h2 class="pt-3 mb-2" :class="isDarkMode ? 'text-light' : ''">
+        <strong> Artigos recentes </strong>
+      </h2>
       <div class="row">
         <div
           v-for="(article, i) in articles"
@@ -16,6 +18,8 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+
 import { format } from "date-fns";
 import { ptBR } from "date-fns/locale";
 
@@ -34,6 +38,10 @@ export default {
     return {
       articles,
     };
+  },
+
+  computed: {
+    ...mapGetters(["isDarkMode"]),
   },
 
   methods: {

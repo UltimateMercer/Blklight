@@ -14,14 +14,17 @@
       <nuxt-link to="/nerdstation" class="btn btn-orange btn-raised">
         Nerdstation
       </nuxt-link>
+      <nuxt-link to="/search" class="btn btn-orange btn-raised">
+        Pesquisar
+      </nuxt-link>
     </div>
 
-    <div class="container-fluid bg-dark shadow-image">
+    <div class="container-fluid bg-dark">
       <div class="container py-3">
         <input
           v-model="query"
           type="search"
-          class="form-control form-control-lg form-light text-light bg-transparent"
+          class="form-control form-light text-light bg-transparent"
           placeholder="Pesquisar"
           aria-label="Pesquisar"
           aria-describedby="search"
@@ -29,12 +32,12 @@
       </div>
     </div>
 
-    <div v-if="results.length === 0" class="container mt-4 mb-4">
-      <h3
-        class="marker marker-title"
-        :class="isDarkMode ? 'marker-light' : 'marker-dark'"
-      >
-        <span>
+    <div v-if="results.length === 0 && !query" class="container mt-4 mb-4">
+      <h3>
+        <span
+          class="marker marker-title"
+          :class="isDarkMode ? 'marker-light' : 'marker-dark'"
+        >
           <strong>Últimas notícias</strong>
         </span>
       </h3>
@@ -44,45 +47,7 @@
           :key="i"
           class="col-lg-4 col-md-6 col-12"
         >
-          <div
-            class="card card-raised card-background view mb-3"
-            :class="isDarkMode ? 'neon-shadow-light' : 'neon-shadow-dark'"
-          >
-            <img
-              :src="imageSrc(article)"
-              class="card-background-image"
-              alt=""
-            />
-            <div class="mask texture-mask-2"></div>
-
-            <div
-              class="card-img-overlay h-100 d-flex flex-column justify-content-end"
-            >
-              <h5 class="">
-                <span class="marker marker-dark marker-title">
-                  {{ article.title }}
-                </span>
-              </h5>
-              <div class="card-subinfo">
-                <span class="badge badge-dark">
-                  {{ formatDate(article.updatedAt) }}
-                </span>
-              </div>
-              <div class="card-subinfo">
-                <span class="badge badge-dark">
-                  {{ article.channel }}
-                </span>
-              </div>
-
-              <nuxt-link
-                :to="{
-                  name: `${article.channel}-slug`,
-                  params: { slug: `${article.slug}` },
-                }"
-                class="stretched-link"
-              ></nuxt-link>
-            </div>
-          </div>
+          <Cards :article="article" />
         </div>
       </div>
     </div>
@@ -99,6 +64,10 @@
         </div>
       </div>
     </div>
+    <div v-if="results.length === 0 && query" class="container">
+      <h1 class="text-center">:( Nada encontrado!</h1>
+    </div>
+
     <DuotoneFilters />
   </div>
 </template>
@@ -108,12 +77,13 @@ import { mapGetters } from "vuex";
 
 import Featured from "@/components/Featured";
 import DuotoneFilters from "@/components/DuotoneFilters";
+import Cards from "@/components/Cards";
 
 import { format } from "date-fns";
 import { ptBR } from "date-fns/locale";
 
 export default {
-  components: { Featured, DuotoneFilters },
+  components: { Featured, DuotoneFilters, Cards },
   async asyncData({ $content, params }) {
     const featureds = await $content("articles", params.slug)
       .only([
@@ -142,6 +112,7 @@ export default {
       ])
       .sortBy("updatedAt", "desc")
       .where({ isFeatured: "" })
+      .limit(9)
       .fetch();
 
     return {
