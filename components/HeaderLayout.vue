@@ -24,28 +24,22 @@
             <div class="d-flex">
               <div class="mt-1">
                 <span
-                  v-if="article.category === 'Design'"
-                  class="badge badge-tag badge-uv mx-0"
+                  v-if="article.channel === 'dev-corporation'"
+                  class="badge badge-tag badge-primary mx-0"
                 >
-                  {{ article.category }}
+                  Dev Corporation
                 </span>
                 <span
-                  v-if="article.category === 'Dev'"
-                  class="badge badge-tag badge-primary text-dark mx-0"
-                >
-                  {{ article.category }}
-                </span>
-                <span
-                  v-if="article.type === 'Pro'"
-                  class="badge badge-tag badge-dark mx-0"
-                >
-                  {{ article.type }}
-                </span>
-                <span
-                  v-if="article.type === 'Pessoal'"
+                  v-if="article.channel === 'nerdstation'"
                   class="badge badge-tag badge-orange mx-0"
                 >
-                  {{ article.type }}
+                  Nerdstation
+                </span>
+                <span
+                  v-if="article.category"
+                  class="badge badge-tag badge-dark mx-0"
+                >
+                  {{ article.category }}
                 </span>
               </div>
             </div>
@@ -71,28 +65,22 @@
             <div class="d-flex">
               <div class="mt-1">
                 <span
-                  v-if="article.category === 'Design'"
-                  class="badge badge-tag badge-uv mx-0"
+                  v-if="article.channel === 'dev-corporation'"
+                  class="badge badge-tag badge-primary mx-0"
                 >
-                  {{ article.category }}
+                  Dev Corporation
                 </span>
                 <span
-                  v-if="article.category === 'Dev'"
-                  class="badge badge-tag badge-primary text-dark mx-0"
-                >
-                  {{ article.category }}
-                </span>
-                <span
-                  v-if="article.type === 'Pro'"
-                  class="badge badge-tag badge-dark mx-0"
-                >
-                  {{ article.type }}
-                </span>
-                <span
-                  v-if="article.type === 'Pessoal'"
+                  v-if="article.channel === 'nerdstation'"
                   class="badge badge-tag badge-orange mx-0"
                 >
-                  {{ article.type }}
+                  Nerdstation
+                </span>
+                <span
+                  v-if="article.category"
+                  class="badge badge-tag badge-dark mx-0"
+                >
+                  {{ article.category }}
                 </span>
               </div>
             </div>
@@ -482,13 +470,7 @@ export default {
     },
 
     headerTemplate() {
-      const layoutTemplate = [
-        "image-top",
-        "parallax",
-        "portrait-left",
-        "portrait-right",
-        "landscape",
-      ];
+      const layoutTemplate = ["portrait-left", "portrait-right"];
       const num = Math.floor(Math.random() * layoutTemplate.length);
 
       const layout = this.article.headerLayout

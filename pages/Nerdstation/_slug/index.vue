@@ -39,6 +39,7 @@ export default {
         date: this.article.updatedAt,
         description: this.article.description,
         category: this.article.category,
+        channel: this.article.channel,
         // type: this.article.attributes.type,
         // tags: this.article.attributes.tags,
         img: this.article.img,

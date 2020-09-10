@@ -1,18 +1,16 @@
 <template>
-  <div
-    class="card card-horizontal-post mb-4"
-    :class="isDarkMode ? 'bg-darkest' : ''"
-  >
+  <div class="card card-plain p-1 mb-3" :class="isDarkMode ? 'bg-darkest' : ''">
     <div class="row">
-      <div class="col-lg-5 col-md-4 col-12">
-        <div
-          v-lazy:background-image="imageSrc(article)"
-          class="card-horizontal-post-avatar"
-        ></div>
+      <div class="col-md-5 col-12">
+        <img
+          v-lazy="imageSrc(article)"
+          class="card-img-fit rounded"
+          style="height: 225px !important; width: 100% !important;"
+        />
       </div>
-      <div class="col-lg-7 col-md-8 col-12">
-        <div class="card-body pl-lg-0" :class="isDarkMode ? 'text-light' : ''">
-          <h4 class="card-featured-title mb-2">
+      <div class="col-md-7 col-12">
+        <div class="p-2" :class="isDarkMode ? 'text-light' : ''">
+          <h4 class="card-featured-title my-2">
             <span
               class="marker"
               :class="isDarkMode ? 'marker-light' : 'marker-dark'"
@@ -30,8 +28,11 @@
               {{ article.channel }}
             </span>
           </div>
+          <p class="mb-2">
+            {{ article.description }}
+          </p>
 
-          <div class="mt-4">
+          <div class="">
             <nuxt-link
               :to="{
                 name: `${article.channel}-slug`,

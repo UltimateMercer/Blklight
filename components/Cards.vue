@@ -1,9 +1,13 @@
 <template>
   <div
     class="card card-flat card-background view mb-3"
-    :class="isDarkMode ? 'neon-shadow-light' : 'neon-shadow-dark'"
+    :class="isDarkMode ? 'neon-shadow-darkblue' : 'neon-shadow-uv'"
   >
-    <img :src="imageSrc(article)" class="card-background-image" alt="" />
+    <img
+      v-lazy="imageSrc(article)"
+      class="card-background-image duotone-cyberpunk-y"
+      alt=""
+    />
     <div class="mask texture-mask-2"></div>
 
     <div class="card-img-overlay h-100 d-flex flex-column justify-content-end">
@@ -14,13 +18,11 @@
           </span>
         </strong>
       </h5>
-      <div class="card-subinfo">
+      <div class="card-subinfo d-flex">
         <span class="badge badge-dark">
           {{ formatDate(article.updatedAt) }}
         </span>
-        <span class="badge badge-dark">
-          {{ article.channel }}
-        </span>
+        <ChannelBadge :channel="article.channel" />
       </div>
 
       <nuxt-link
@@ -38,8 +40,12 @@ import { mapGetters } from "vuex";
 
 import { format } from "date-fns";
 import { ptBR } from "date-fns/locale";
+
+import ChannelBadge from "@/components/ChannelBadge";
 export default {
   name: "Cards",
+
+  components: { ChannelBadge },
 
   props: {
     article: {

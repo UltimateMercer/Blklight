@@ -7,11 +7,11 @@
     >
       <div
         class="card card-background card-flat card-featured-post view mb-4"
-        :class="isDarkMode ? 'neon-shadow-light' : 'neon-shadow-dark'"
+        :class="isDarkMode ? 'neon-shadow-darkblue' : 'neon-shadow-uv'"
       >
         <img
           :src="article.img"
-          class="card-background-image featured-image"
+          class="card-background-image featured-image duotone-cyberpunk-y"
           alt="Image Post"
         />
         <div class="mask texture-mask-2"></div>
@@ -26,13 +26,11 @@
               </strong>
             </span>
           </h4>
-          <div class="card-subinfo">
+          <div class="card-subinfo d-flex">
             <span class="badge badge-dark">
               {{ formatDate(article.updatedAt) }}
             </span>
-            <span class="badge badge-dark">
-              {{ article.channel }}
-            </span>
+            <ChannelBadge :channel="article.channel" />
           </div>
           <nuxt-link
             tag="a"
@@ -52,9 +50,12 @@ import { mapGetters } from "vuex";
 
 import { format } from "date-fns";
 import { ptBR } from "date-fns/locale";
+import ChannelBadge from "@/components/ChannelBadge";
 
 export default {
   name: "Featured",
+
+  components: { ChannelBadge },
 
   props: {
     featureds: {

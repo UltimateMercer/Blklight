@@ -14,7 +14,8 @@
       <nuxt-link to="/nerdstation" class="btn btn-orange btn-raised">
         Nerdstation
       </nuxt-link>
-      <nuxt-link to="/search" class="btn btn-orange btn-raised">
+      <nuxt-link to="/search" class="btn btn-outline-v2-dark btn-raised">
+        <font-awesome-icon :icon="['fas', 'search']" />
         Pesquisar
       </nuxt-link>
     </div>

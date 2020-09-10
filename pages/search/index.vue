@@ -18,7 +18,10 @@
         Pesquise um assunto de seu interesse...
       </strong>
     </h1>
-    <MasonryCards :articles="results" />
+    <div v-for="(result, i) in results" :key="i">
+      <CardsHorizontal :article="result" />
+    </div>
+    <!-- <MasonryCards :articles="results" /> -->
 
     <div v-if="results.length === 0 && query" class="container">
       <h1 class="text-center mt-5">:( Nada encontrado!</h1>
@@ -26,10 +29,11 @@
   </div>
 </template>
 <script>
-import MasonryCards from "@/components/MasonryCards";
+// import MasonryCards from "@/components/MasonryCards";
+import CardsHorizontal from "@/components/CardsHorizontal";
 
 export default {
-  components: { MasonryCards },
+  components: { CardsHorizontal },
 
   data() {
     return {
@@ -50,6 +54,7 @@ export default {
           "title",
           "img",
           "imgAlt",
+          "description",
           "channel",
           "slug",
           "isFeatured",

@@ -6,7 +6,6 @@
       v-for="(article, i) in articles"
       :key="i"
       class="col-lg-4 col-md-6 col-12 grid-item"
-      :class="channelColor(article.channel)"
     >
       <div class="card card-flat card-masonry">
         <div class="card-masonry-area-image with-hover-overlay">
@@ -27,13 +26,11 @@
               {{ article.title }}
             </span>
           </h5>
-          <span class="mb-2">
+          <span class="d-flex mb-2">
             <span class="badge badge-dark">
               {{ formatDate(article.updatedAt) }}
             </span>
-            <span class="badge badge-dark">
-              {{ article.channel }}
-            </span>
+            <ChannelBadge :channel="article.channel" />
           </span>
           <div>
             <router-link
@@ -55,9 +52,11 @@
 <script>
 import { format } from "date-fns";
 import { ptBR } from "date-fns/locale";
+import ChannelBadge from "@/components/ChannelBadge";
 
 export default {
   name: "MasonryCards",
+  components: { ChannelBadge },
 
   props: {
     articles: {
