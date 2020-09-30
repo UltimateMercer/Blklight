@@ -1,13 +1,9 @@
 <template>
   <div
     class="card card-flat card-background view mb-3"
-    :class="isDarkMode ? 'neon-shadow-darkblue' : 'neon-shadow-uv'"
+    :class="isDarkMode ? 'neon-shadow-darkblue' : 'neon-shadow-dark'"
   >
-    <img
-      v-lazy="imageSrc(article)"
-      class="card-background-image duotone-cyberpunk-y"
-      alt=""
-    />
+    <img v-lazy="imageSrc(article)" class="card-background-image" alt="" />
     <div class="mask texture-mask-2"></div>
 
     <div class="card-img-overlay h-100 d-flex flex-column justify-content-end">

@@ -10,7 +10,7 @@
         :class="isDarkMode ? 'neon-shadow-darkblue' : 'neon-shadow-uv'"
       >
         <img
-          :src="article.img"
+          v-lazy="article.img"
           class="card-background-image featured-image duotone-cyberpunk-y"
           alt="Image Post"
         />
