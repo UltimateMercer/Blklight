@@ -1,17 +1,12 @@
 <template>
   <div class="row">
-    <div
-      v-for="(article, i) in featureds"
-      :key="i"
-      class="col-lg-4 col-md-8 col-12 offset-lg-0 offset-md-2"
-    >
+    <div v-for="(article, i) in featureds" :key="i" class="col-12">
       <div
-        class="card card-background card-flat card-featured-post view mb-4"
-        :class="isDarkMode ? 'neon-shadow-darkblue' : 'neon-shadow-uv'"
+        class="card card-raised card-flat card-background hover-card card-featured-post view mb-4"
       >
         <img
           v-lazy="article.img"
-          class="card-background-image featured-image duotone-cyberpunk-y"
+          class="card-background-image featured-image"
           alt="Image Post"
         />
         <div class="mask texture-mask-2"></div>
@@ -19,8 +14,8 @@
         <div
           class="card-img-overlay h-100 d-flex flex-column justify-content-end"
         >
-          <h4 class="card-featured-title">
-            <span class="marker marker-dark">
+          <h4 class="exo-font" style="font-style: italic;">
+            <span class="marker marker-dark px-1">
               <strong>
                 {{ article.title }}
               </strong>
@@ -39,7 +34,8 @@
               params: { slug: `${article.slug}` },
             }"
             class="stretched-link"
-          ></nuxt-link>
+          >
+          </nuxt-link>
         </div>
       </div>
     </div>
@@ -78,3 +74,14 @@ export default {
   },
 };
 </script>
+<style lang="scss">
+.hover-card {
+  &:hover {
+    transition: ease-out 0.1s;
+    // -webkit-box-shadow: 8px 8px 0px 0px rgba(18, 18, 18, 1);
+    // -moz-box-shadow: 8px 8px 0px 0px rgba(18, 18, 18, 1);
+    // box-shadow: 8px 8px 0px 0px rgba(18, 18, 18, 1);
+    box-shadow: 8px 8px 0px 0px rgba(0, 123, 255, 1);
+  }
+}
+</style>

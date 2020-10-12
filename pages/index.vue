@@ -20,7 +20,7 @@
       </nuxt-link>
     </div>
 
-    <div class="container-fluid bg-dark">
+    <!-- <div class="container-fluid bg-dark">
       <div class="container py-3">
         <input
           v-model="query"
@@ -31,9 +31,9 @@
           aria-describedby="search"
         />
       </div>
-    </div>
+    </div> -->
 
-    <div v-if="results.length === 0 && !query" class="container mt-4 mb-4">
+    <div v-if="results.length === 0 && !query" class="container px-4 mt-4 mb-4">
       <h3>
         <span
           class="marker marker-title"
@@ -53,7 +53,7 @@
       </div>
     </div>
 
-    <div v-if="results.length > 0" class="container my-4">
+    <!-- <div v-if="results.length > 0" class="container my-4">
       <h2 class="mt-3 mb-3"><strong> Artigos recentes </strong></h2>
       <div class="row">
         <div
@@ -64,10 +64,10 @@
           <Cards :article="article" />
         </div>
       </div>
-    </div>
-    <div v-if="results.length === 0 && query" class="container">
+    </div> -->
+    <!-- <div v-if="results.length === 0 && query" class="container">
       <h1 class="text-center">:( Nada encontrado!</h1>
-    </div>
+    </div> -->
 
     <DuotoneFilters />
   </div>
@@ -98,7 +98,7 @@ export default {
       ])
       .sortBy("updatedAt", "desc")
       .where({ isFeatured: true })
-      .limit(3)
+      .limit(1)
       .fetch();
 
     const articles = await $content("articles", params.slug)
@@ -173,3 +173,8 @@ export default {
   },
 };
 </script>
+<style lang="scss">
+.exo-font {
+  font-family: "Exo", "IBM Plex Sans Condensed", "Fira Code", monospace !important;
+}
+</style>

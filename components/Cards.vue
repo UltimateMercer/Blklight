@@ -1,13 +1,10 @@
 <template>
-  <div
-    class="card card-flat card-background view mb-3"
-    :class="isDarkMode ? 'neon-shadow-darkblue' : 'neon-shadow-dark'"
-  >
+  <div class="card card-flat card-raised hover-card card-background view mb-3">
     <img v-lazy="imageSrc(article)" class="card-background-image" alt="" />
     <div class="mask texture-mask-2"></div>
 
     <div class="card-img-overlay h-100 d-flex flex-column justify-content-end">
-      <h5 class="">
+      <h5 class="exo-font" style="font-style: italic;">
         <strong>
           <span class="marker marker-dark">
             {{ article.title }}

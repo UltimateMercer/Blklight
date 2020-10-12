@@ -374,17 +374,17 @@
           class="col-xl-6 offset-xl-3 col-lg-8 offset-lg-2 p-lg-0 col-md-10 offset-md-1 p-md-0 col-12"
         >
           <div class="header-simple-info mt-3 mb-0 mx-lg-0">
-            <h1 class="blog-title">
+            <h1 class="blog-title exo-font" style="font-style: italic;">
               <span
-                class="marker"
+                class="marker px-1"
                 :class="isDarkMode ? 'marker-light' : 'marker-dark'"
               >
                 {{ article.title }}
               </span>
             </h1>
-            <h5 class="blog-meta">
+            <h5 class="blog-meta exo-font" style="font-style: italic;">
               <span
-                class="marker"
+                class="marker px-1"
                 :class="isDarkMode ? 'marker-light' : 'marker-dark'"
               >
                 {{ dateFormat }}

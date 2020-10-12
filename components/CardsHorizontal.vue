@@ -1,16 +1,19 @@
 <template>
-  <div class="card card-plain p-1 mb-3" :class="isDarkMode ? 'bg-darkest' : ''">
+  <div
+    class="card card-flat hover-card card-plain mb-4"
+    :class="isDarkMode ? 'bg-darkest' : ''"
+  >
     <div class="row">
       <div class="col-md-5 col-12">
         <img
           v-lazy="imageSrc(article)"
-          class="card-img-fit rounded"
+          class="card-img-fit"
           style="height: 225px !important; width: 100% !important;"
         />
       </div>
       <div class="col-md-7 col-12">
         <div class="p-2" :class="isDarkMode ? 'text-light' : ''">
-          <h4 class="card-featured-title my-2">
+          <h4 class="exo-font my-2" style="font-style: italic;">
             <span
               class="marker"
               :class="isDarkMode ? 'marker-light' : 'marker-dark'"
