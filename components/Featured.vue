@@ -77,11 +77,12 @@ export default {
 <style lang="scss">
 .hover-card {
   &:hover {
-    transition: ease-out 0.1s;
+    transition: ease-in 0.2s;
     // -webkit-box-shadow: 8px 8px 0px 0px rgba(18, 18, 18, 1);
     // -moz-box-shadow: 8px 8px 0px 0px rgba(18, 18, 18, 1);
     // box-shadow: 8px 8px 0px 0px rgba(18, 18, 18, 1);
-    box-shadow: 8px 8px 0px 0px rgba(0, 123, 255, 1);
+    //box-shadow: 8px 8px 0px 0px rgba(0, 123, 255, 1);
+    box-shadow: 6px 6px 1px 0px rgba(72, 11, 255, 1);
   }
 }
 </style>

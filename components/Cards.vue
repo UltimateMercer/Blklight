@@ -6,7 +6,7 @@
     <div class="card-img-overlay h-100 d-flex flex-column justify-content-end">
       <h5 class="exo-font" style="font-style: italic;">
         <strong>
-          <span class="marker marker-dark">
+          <span class="marker marker-dark px-1">
             {{ article.title }}
           </span>
         </strong>

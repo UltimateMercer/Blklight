@@ -36,7 +36,7 @@
     <div v-if="results.length === 0 && !query" class="container px-4 mt-4 mb-4">
       <h3>
         <span
-          class="marker marker-title"
+          class="marker marker-title px-2"
           :class="isDarkMode ? 'marker-light' : 'marker-dark'"
         >
           <strong>Últimas notícias</strong>

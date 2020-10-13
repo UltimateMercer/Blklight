@@ -8,14 +8,14 @@
         <img
           v-lazy="imageSrc(article)"
           class="card-img-fit"
-          style="height: 225px !important; width: 100% !important;"
+          style="height: 250px !important; width: 100% !important;"
         />
       </div>
       <div class="col-md-7 col-12">
-        <div class="p-2" :class="isDarkMode ? 'text-light' : ''">
+        <div class="p-3" :class="isDarkMode ? 'text-light' : ''">
           <h4 class="exo-font my-2" style="font-style: italic;">
             <span
-              class="marker"
+              class="marker px-1"
               :class="isDarkMode ? 'marker-light' : 'marker-dark'"
             >
               <strong>
@@ -31,19 +31,23 @@
               {{ article.channel }}
             </span>
           </div>
-          <p class="mb-2">
+          <p class="mb-3">
             {{ article.description }}
           </p>
 
-          <div class="">
+          <div class="text-right mb-2">
             <nuxt-link
               :to="{
                 name: `${article.channel}-slug`,
                 params: { slug: `${article.slug}` },
               }"
-              class="btn btn-dark btn-sm"
-              >Acessar</nuxt-link
+              class="btn btn-sm"
+              :class="isDarkMode ? 'btn-outline-indigo' : 'btn-outline-uv'"
             >
+              <font-awesome-icon :icon="['fab', 'readme']" size="lg" />
+
+              Leia mais
+            </nuxt-link>
           </div>
         </div>
       </div>
