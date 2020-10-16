@@ -1,40 +1,64 @@
 <template>
-  <div class="card card-flat card-raised hover-card card-background view mb-3">
-    <img v-lazy="imageSrc(article)" class="card-background-image" alt="" />
+  <div
+    class="card card-background hover-card view mb-4"
+    :class="[
+      { 'card-featured-post': isFeatured },
+      { 'card-flat': isFlat },
+      { 'card-raised': isRaised },
+    ]"
+  >
+    <img
+      v-lazy="imageSrc(article)"
+      class="card-background-image"
+      :class="{ 'featured-image': isFeatured }"
+      :alt="article.title"
+    />
     <div class="mask texture-mask-2"></div>
 
     <div class="card-img-overlay h-100 d-flex flex-column justify-content-end">
-      <h5 class="exo-font" style="font-style: italic;">
-        <strong>
+      <template v-if="isFeatured">
+        <h4 class="exo-font" style="font-style: italic;">
           <span class="marker marker-dark px-1">
-            {{ article.title }}
+            <strong>
+              {{ article.title }}
+            </strong>
           </span>
-        </strong>
-      </h5>
+        </h4>
+      </template>
+      <template v-else>
+        <h5 class="exo-font" style="font-style: italic;">
+          <span class="marker marker-dark px-1">
+            <strong>
+              {{ article.title }}
+            </strong>
+          </span>
+        </h5>
+      </template>
+
       <div class="card-subinfo d-flex">
         <span class="badge badge-dark">
           {{ formatDate(article.updatedAt) }}
         </span>
         <ChannelBadge :channel="article.channel" />
       </div>
-
       <nuxt-link
+        tag="a"
         :to="{
           name: `${article.channel}-slug`,
           params: { slug: `${article.slug}` },
         }"
         class="stretched-link"
-      ></nuxt-link>
+      >
+      </nuxt-link>
     </div>
   </div>
 </template>
-<script>
-import { mapGetters } from "vuex";
 
+<script>
 import { format } from "date-fns";
 import { ptBR } from "date-fns/locale";
-
 import ChannelBadge from "@/components/ChannelBadge";
+
 export default {
   name: "Cards",
 
@@ -45,10 +69,18 @@ export default {
       type: Object,
       default: null,
     },
-  },
-
-  computed: {
-    ...mapGetters(["isDarkMode"]),
+    isFeatured: {
+      type: Boolean,
+      default: false,
+    },
+    isRaised: {
+      type: Boolean,
+      default: false,
+    },
+    isFlat: {
+      type: Boolean,
+      default: false,
+    },
   },
 
   methods: {
@@ -68,3 +100,15 @@ export default {
   },
 };
 </script>
+<style lang="scss">
+.hover-card {
+  &:hover {
+    transition: ease-in-out 0.2s;
+    // -webkit-box-shadow: 8px 8px 0px 0px rgba(18, 18, 18, 1);
+    // -moz-box-shadow: 8px 8px 0px 0px rgba(18, 18, 18, 1);
+    // box-shadow: 8px 8px 0px 0px rgba(18, 18, 18, 1);
+    //box-shadow: 8px 8px 0px 0px rgba(0, 123, 255, 1);
+    box-shadow: 6px 6px 1px 0px rgba(72, 11, 255, 1);
+  }
+}
+</style>

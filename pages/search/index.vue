@@ -1,6 +1,6 @@
 <template>
   <div :class="{ 'bg-dark': isDarkMode }">
-    <div class="container my-4 pt-5">
+    <div class="container mt-4 py-5">
       <div class="card card-flat bg-dark mb-4">
         <div class="card-body">
           <input

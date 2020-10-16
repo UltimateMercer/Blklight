@@ -1,19 +1,22 @@
 <template>
   <div
-    class="card card-flat hover-card card-plain mb-4"
+    class="card card-flat hover-card mb-4"
     :class="isDarkMode ? 'bg-darkest' : ''"
   >
     <div class="row">
       <div class="col-md-5 col-12">
-        <img
-          v-lazy="imageSrc(article)"
-          class="card-img-fit"
-          style="height: 250px !important; width: 100% !important;"
-        />
+        <div class="view">
+          <img
+            v-lazy="imageSrc(article)"
+            class="card-img-fit"
+            style="height: 275px !important; width: 100% !important;"
+          />
+          <div class="mask texture-mask-2"></div>
+        </div>
       </div>
       <div class="col-md-7 col-12">
         <div class="p-3" :class="isDarkMode ? 'text-light' : ''">
-          <h4 class="exo-font my-2" style="font-style: italic;">
+          <h4 class="exo-font mt-1 mb-2" style="font-style: italic;">
             <span
               class="marker px-1"
               :class="isDarkMode ? 'marker-light' : 'marker-dark'"
@@ -42,7 +45,7 @@
                 params: { slug: `${article.slug}` },
               }"
               class="btn btn-sm"
-              :class="isDarkMode ? 'btn-outline-indigo' : 'btn-outline-uv'"
+              :class="isDarkMode ? 'btn-outline-uv' : 'btn-outline-uv'"
             >
               <font-awesome-icon :icon="['fab', 'readme']" size="lg" />
 

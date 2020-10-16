@@ -15,7 +15,7 @@
   </div>
 </template>
 <script>
-import Cards from "@/components/Cards";
+import Cards from "@/components/CardsOld";
 
 export default {
   components: {

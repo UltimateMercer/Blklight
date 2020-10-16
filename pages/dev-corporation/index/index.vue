@@ -23,7 +23,7 @@ import { mapGetters } from "vuex";
 import { format } from "date-fns";
 import { ptBR } from "date-fns/locale";
 
-import Cards from "~/components/Cards";
+import Cards from "~/components/CardsOld";
 
 export default {
   components: { Cards },
