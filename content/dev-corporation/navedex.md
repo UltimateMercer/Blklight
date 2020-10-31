@@ -10,7 +10,6 @@ isFeatured: true
 headerLayout: "portrait-left"
 ---
 
-## **Navedex - Front-end challenge**
 
 Projeto desenvolvido utilizando:
 

@@ -12,12 +12,18 @@
         <div class="header-info-half header-h-full">
           <div class="h-100 d-flex flex-column justify-content-end">
             <h1 class="blog-title">
-              <span class="marker marker-dark title">
-                {{ article.title }}
+              <span
+                class="marker marker-title"
+                :class="isDarkMode ? 'marker-light' : 'marker-dark'"
+              >
+                <em> {{ article.title }}</em>
               </span>
             </h1>
             <h5 class="blog-meta">
-              <span class="marker marker-dark sm-mark">
+              <span
+                class="marker"
+                :class="isDarkMode ? 'marker-light' : 'marker-dark'"
+              >
                 {{ dateFormat }}
               </span>
             </h5>
@@ -53,12 +59,20 @@
         <div class="header-info-half header-h-full">
           <div class="h-100 d-flex flex-column justify-content-end">
             <h1 class="blog-title">
-              <span class="marker marker-dark title">
-                {{ article.title }}
+              <span
+                class="marker marker-title"
+                :class="isDarkMode ? 'marker-light' : 'marker-dark'"
+              >
+                <em>
+                  {{ article.title }}
+                </em>
               </span>
             </h1>
             <h5 class="blog-meta">
-              <span class="marker marker-dark sm-mark">
+              <span
+                class="marker"
+                :class="isDarkMode ? 'marker-light' : 'marker-dark'"
+              >
                 {{ dateFormat }}
               </span>
             </h5>
@@ -103,7 +117,7 @@
         <div class="header-info header-h-full">
           <div class="h-100 d-flex flex-column justify-content-end">
             <h1 class="blog-title">
-              <span class="marker marker-dark title">
+              <span class="marker marker-dark marker-title">
                 {{ article.title }}
               </span>
             </h1>
@@ -149,7 +163,7 @@
     </div>
 
     <div v-if="headerTemplate === 'parallax'">
-      <div class="header-simple mt-5 mb-3">
+      <div class="header-simple mb-3">
         <div
           v-lazy:background-image="imageSrc"
           class="header-simple-image-parallax view mb-2"
@@ -162,7 +176,10 @@
       >
         <div class="header-simple-info mb-0 mx-lg-0">
           <h1 class="blog-title">
-            <span class="marker marker-dark">
+            <span
+              class="marker marker-title"
+              :class="isDarkMode ? 'marker-light' : 'marker-dark'"
+            >
               {{ article.title }}
             </span>
           </h1>
@@ -207,7 +224,7 @@
     </div>
 
     <div v-if="headerTemplate === 'square-profile'">
-      <div class="container-fluid mt-5 p-0">
+      <div class="container-fluid p-0 mb-3">
         <div class="container p-0">
           <div class="col-12 pt-lg-3 py-2 px-3">
             <div class="header-profile">
@@ -228,20 +245,23 @@
                 <div class="col-lg-8 col-md-8 col-xs-12 col-12">
                   <div class="head-text my-3">
                     <h1 class="blog-title">
-                      <span class="marker marker-dark marker-title">
-                        {{ article.title }}
+                      <span
+                        class=""
+                        :class="isDarkMode ? 'text-light' : 'text-dark'"
+                      >
+                        <em> {{ article.title }}</em>
                       </span>
                     </h1>
                     <template v-if="article.description">
                       <h5 class="blog-meta">
-                        <span class="marker marker-dark sm-mark">
+                        <span :class="isDarkMode ? 'text-light' : 'text-dark'">
                           {{ article.description }}
                         </span>
                       </h5>
                     </template>
 
                     <h5 class="blog-meta">
-                      <span class="marker marker-dark sm-mark">
+                      <span :class="isDarkMode ? 'text-light' : 'text-dark'">
                         {{ dateFormat }}
                       </span>
                     </h5>
@@ -283,10 +303,10 @@
     </div>
 
     <div v-if="headerTemplate === 'circle-profile'">
-      <div class="container-fluid p-0">
+      <div class="container-fluid p-0 mb-3">
         <div class="container p-0">
           <div class="col-12 pt-lg-3 py-2 px-3">
-            <div class="header-profile mt-4">
+            <div class="header-profile">
               <div class="row">
                 <div class="col-lg-4 col-md-4 col-xs-12 col-12">
                   <div
@@ -354,7 +374,7 @@
     </div>
 
     <div v-if="headerTemplate === 'image-top'">
-      <div class="container-fluid p-0 mt-4">
+      <div class="container-fluid p-0">
         <div class="col-lg-10 offset-lg-1 col-12 p-lg-0">
           <div class="header-simple">
             <div
@@ -376,7 +396,7 @@
           <div class="header-simple-info mt-3 mb-0 mx-lg-0">
             <h1 class="blog-title exo-font" style="font-style: italic;">
               <span
-                class="marker px-1"
+                class="marker marker-title"
                 :class="isDarkMode ? 'marker-light' : 'marker-dark'"
               >
                 {{ article.title }}

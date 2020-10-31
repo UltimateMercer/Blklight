@@ -127,12 +127,13 @@
 <script>
 export default {
   async asyncData({ $content, params }) {
-    const articles = await $content("articles", params.slug)
+    const articles = await $content("nerdstation", params.slug)
       .only(["title", "img", "imgAlt", "channel", "slug", "updatedAt"])
       .sortBy("updatedAt", "desc")
       .where({ channel: "nerdstation" })
       .fetch();
 
+    console.log(articles);
     return {
       articles,
     };

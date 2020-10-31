@@ -2,7 +2,7 @@
 title: Join New Avengers
 description: Arte produzida para avaliação na disciplina de Tipografia 1, do curso de Design Digital.
 img: https://i.imgur.com/jlu6jwf.jpg
-imgAlt: ""
+imgAlt: https://i.imgur.com/uIY2t68.jpg
 alt: my first blog post
 channel: "dev-corporation"
 category: "design"

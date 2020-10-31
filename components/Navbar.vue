@@ -1,14 +1,8 @@
 <template>
-  <b-navbar
-    tag="nav"
-    toggleable="md"
-    type="dark"
-    fixed="top"
-    :variant="navbarVariant"
-  >
+  <b-navbar tag="nav" toggleable="md" type="dark" :variant="navbarVariant">
     <div class="container">
       <b-navbar-brand>
-        <nuxt-link to="/" class="navbar-brand mx-2 py-2">
+        <nuxt-link to="/" class="navbar-brand mx-2 py-2 exo-font">
           <strong>
             BLKLIGHT
           </strong>
@@ -36,8 +30,11 @@
       </template>
       <b-navbar-nav class="ml-auto">
         <b-nav-form>
+          <nuxt-link to="/search" class="btn btn-outline-light">
+            <font-awesome-icon :icon="['fas', 'search']" />
+          </nuxt-link>
           <button
-            class="btn btn-dark"
+            class="btn btn-outline-light"
             title="Modo noturno"
             @click.prevent="darkMode"
           >

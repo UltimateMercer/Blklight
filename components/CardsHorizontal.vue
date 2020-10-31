@@ -1,14 +1,14 @@
 <template>
   <div
-    class="card card-flat hover-card mb-4"
-    :class="isDarkMode ? 'bg-darkest' : ''"
+    class="card card-flat card-raised mb-4"
+    :class="isDarkMode ? 'bg-darkest hover-card-teal' : 'hover-card-uv'"
   >
     <div class="row">
       <div class="col-md-5 col-12">
         <div class="view">
           <img
             v-lazy="imageSrc(article)"
-            class="card-img-fit"
+            class="card-img-fit cyberpunk-effect"
             style="height: 275px !important; width: 100% !important;"
           />
           <div class="mask texture-mask-2"></div>
@@ -16,16 +16,13 @@
       </div>
       <div class="col-md-7 col-12">
         <div class="p-3" :class="isDarkMode ? 'text-light' : ''">
-          <h4 class="exo-font mt-1 mb-2" style="font-style: italic;">
-            <span
-              class="marker px-1"
-              :class="isDarkMode ? 'marker-light' : 'marker-dark'"
-            >
+          <h3 class="exo-font mt-1 mb-2" style="font-style: italic;">
+            <span class="">
               <strong>
                 {{ article.title }}
               </strong>
             </span>
-          </h4>
+          </h3>
           <div class="card-subinfo mb-2">
             <span class="badge badge-dark">
               {{ formatDate(article.updatedAt) }}
@@ -45,7 +42,7 @@
                 params: { slug: `${article.slug}` },
               }"
               class="btn btn-sm"
-              :class="isDarkMode ? 'btn-outline-uv' : 'btn-outline-uv'"
+              :class="isDarkMode ? 'btn-outline-teal' : 'btn-outline-uv'"
             >
               <font-awesome-icon :icon="['fab', 'readme']" size="lg" />
 
@@ -55,6 +52,7 @@
         </div>
       </div>
     </div>
+    <ImageFilter />
   </div>
 </template>
 <script>
@@ -62,8 +60,13 @@ import { mapGetters } from "vuex";
 
 import { format } from "date-fns";
 import { ptBR } from "date-fns/locale";
+
+import ImageFilter from "@/components/ImageFilter";
+
 export default {
   name: "CardsHorizontal",
+
+  components: { ImageFilter },
 
   props: {
     article: {

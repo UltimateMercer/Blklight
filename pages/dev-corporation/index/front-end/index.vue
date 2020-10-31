@@ -49,7 +49,7 @@ import { format } from "date-fns";
 import { ptBR } from "date-fns/locale";
 export default {
   async asyncData({ $content, params }) {
-    const articles = await $content("articles", params.slug)
+    const articles = await $content("dev-corporation", params.slug)
       .only([
         "title",
         "img",

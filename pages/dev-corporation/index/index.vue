@@ -29,7 +29,7 @@ export default {
   components: { Cards },
 
   async asyncData({ $content, params }) {
-    const articles = await $content("articles", params.slug)
+    const articles = await $content("dev-corporation", params.slug)
       .only(["title", "img", "imgAlt", "channel", "slug", "updatedAt"])
       .sortBy("updatedAt", "desc")
       .where({ channel: "dev-corporation" })

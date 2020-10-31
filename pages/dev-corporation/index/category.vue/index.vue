@@ -24,7 +24,7 @@ export default {
 
   async asyncData({ $content, params }) {
     if (!params.query.category) {
-      const articles = await $content("articles")
+      const articles = await $content("dev-corporation")
         .only([
           "title",
           "img",
@@ -43,7 +43,7 @@ export default {
       };
     }
 
-    const articles = await $content("articles", params.slug)
+    const articles = await $content("dev-corporation", params.slug)
       .only([
         "title",
         "img",

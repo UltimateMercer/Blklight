@@ -1,25 +1,12 @@
 <template>
   <div :class="{ 'bg-dark': isDarkMode }">
-    <div class="container-fluid pt-4">
-      <div
-        class="col-xl-10 col-lg-12 col-md-12 col-12 offset-xl-1 offset-lg-0 offset-md-0 offset-0 p-md-0 px-1"
-        v-for="(featured, i) in featureds"
-        :key="i"
-      >
-        <NewCards :article="featured" :isFeatured="true" :isFlat="true" />
-      </div>
-    </div>
-
-    <div
-      v-if="results.length === 0 && !query"
-      class="container px-md-0 px-4 mt-4 mb-4"
-    >
+    <div class="container px-md-0 px-4 pt-3 mb-4">
       <h2>
         <span
           class="marker marker-title"
           :class="isDarkMode ? 'marker-light' : 'marker-dark'"
         >
-          <strong> <em> Últimas notícias</em></strong>
+          <strong> <em> Todos os artigos</em></strong>
         </span>
       </h2>
       <div class="row">
@@ -30,29 +17,12 @@
         >
           <NewCards
             :article="article"
-            :isFeatured="true"
+            :isFeatured="false"
             :isRaised="true"
-            :isFlat="false"
+            :isFlat="true"
           />
         </div>
-        <div class="col-6 offset-3">
-          <nuxt-link to="all-posts" class="btn btn-uv mx-auto d-block"
-            >Ver mais artigos</nuxt-link
-          >
-        </div>
       </div>
-    </div>
-    <div class="container my-3">
-      <nuxt-link to="/dev-corporation" class="btn btn-primary btn-raised">
-        Dev Corporation
-      </nuxt-link>
-      <nuxt-link to="/nerdstation" class="btn btn-orange btn-raised">
-        Nerdstation
-      </nuxt-link>
-      <nuxt-link to="/search" class="btn btn-outline-v2-dark btn-raised">
-        <font-awesome-icon :icon="['fas', 'search']" />
-        Pesquisar
-      </nuxt-link>
     </div>
 
     <DuotoneFilters />
@@ -71,40 +41,13 @@ import { ptBR } from "date-fns/locale";
 export default {
   components: { DuotoneFilters, NewCards },
   async asyncData({ $content, params }) {
-    const featureds = await $content({ deep: true }, params.slug)
-      .only([
-        "title",
-        "img",
-        "imgAlt",
-        "slug",
-        "dir",
-        "channel",
-        "updatedAt",
-        "isFeatured",
-      ])
-      .sortBy("updatedAt", "desc")
-      .where({ isFeatured: true })
-      .limit(1)
-      .fetch();
-
     const articles = await $content({ deep: true }, params.slug)
-      .only([
-        "title",
-        "img",
-        "imgAlt",
-        "channel",
-        "slug",
-        "dir",
-        "isFeatured",
-        "updatedAt",
-      ])
+      .only(["title", "img", "imgAlt", "channel", "slug", "dir", "updatedAt"])
       .sortBy("updatedAt", "desc")
-      .where({ isFeatured: "" })
-      .limit(9)
+
       .fetch();
 
     return {
-      featureds,
       articles,
     };
   },

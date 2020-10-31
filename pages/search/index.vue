@@ -1,6 +1,6 @@
 <template>
   <div :class="{ 'bg-dark': isDarkMode }">
-    <div class="container mt-4 py-5">
+    <div class="container py-3">
       <div class="card card-flat bg-dark mb-4">
         <div class="card-body">
           <input
@@ -25,7 +25,7 @@
       <!-- <MasonryCards :articles="results" /> -->
 
       <div v-if="results.length === 0 && query" class="container">
-        <h1 class="text-center mt-5">:( Nada encontrado!</h1>
+        <h1 class="text-center mt-5"><strong> :( Nada encontrado!</strong></h1>
       </div>
     </div>
   </div>
@@ -55,7 +55,7 @@ export default {
         return;
       }
 
-      this.results = await this.$content("articles")
+      this.results = await this.$content({ deep: true })
         .only([
           "title",
           "img",

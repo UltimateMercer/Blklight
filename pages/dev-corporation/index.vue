@@ -119,7 +119,7 @@ export default {
         return;
       }
 
-      this.results = await this.$content("articles")
+      this.results = await this.$content("dev-corporation")
         .only(["title", "channel", "category", "slug"])
         .sortBy("createdAt", "asc")
         .where({ channel: "dev-corporation" })

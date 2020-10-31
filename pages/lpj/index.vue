@@ -33,7 +33,7 @@
 <script>
 export default {
   async asyncData({ $content, params }) {
-    const articles = await $content("articles", params.slug)
+    const articles = await $content({ deep: true }, params.slug)
       .only(["title", "img", "slug", "updatedAt"])
       .sortBy("updatedAt", "desc")
       .where({ category: "LPJ" })
