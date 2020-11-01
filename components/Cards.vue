@@ -16,6 +16,11 @@
         :alt="article.title"
       />
       <div class="mask texture-mask-2"></div>
+      <!-- <div class="card-img-overlay d-flex">
+        <div class="ml-auto">
+          <button class="btn btn-uv btn-sm">Ler mais</button>
+        </div>
+      </div> -->
 
       <div
         class="card-img-overlay h-100 d-flex flex-column justify-content-end"
@@ -32,9 +37,7 @@
         <template v-else>
           <h5 class="exo-font" style="font-style: italic;">
             <span class="marker marker-dark px-1">
-              <strong>
-                {{ article.title }}
-              </strong>
+              {{ article.title }}
             </span>
           </h5>
         </template>
@@ -44,7 +47,34 @@
             {{ formatDate(article.updatedAt) }}
           </span>
           <ChannelBadge :channel="article.channel" />
+          <!-- <div class="ml-auto">
+            <nuxt-link
+              tag="a"
+              :to="{
+                name: `${slugName}-slug`,
+                params: { slug: `${article.slug}` },
+              }"
+              class="badge badge-uv"
+            >
+              <font-awesome-icon :icon="['fab', 'readme']" />
+              Ler mais
+            </nuxt-link>
+          </div> -->
         </div>
+        <!-- <div class="ml-auto">
+          <nuxt-link
+            tag="a"
+            :to="{
+              name: `${slugName}-slug`,
+              params: { slug: `${article.slug}` },
+            }"
+            class="badge badge-uv btn-rounded"
+          >
+            <font-awesome-icon :icon="['fab', 'readme']" />
+            Ler mais
+          </nuxt-link>
+        </div> -->
+
         <nuxt-link
           tag="a"
           :to="{
@@ -67,6 +97,8 @@ import { format } from "date-fns";
 import { ptBR } from "date-fns/locale";
 import ChannelBadge from "@/components/ChannelBadge";
 import ImageFilter from "@/components/ImageFilter";
+
+// Vue.component("b-tooltip", BTooltip);
 
 export default {
   name: "Cards",
@@ -122,15 +154,16 @@ export default {
 .hover-card {
   &-uv {
     &:hover {
-      transition: ease-in-out 0.2s;
+      transition: all ease-in-out 0.2s;
       //box-shadow: 8px 8px 0px 0px rgba(0, 123, 255, 1);
-      box-shadow: 6px 6px 1px 0px rgba(72, 11, 255, 1);
+      //box-shadow: 6px 6px 1px 0px rgba(72, 11, 255, 1);
+      box-shadow: 6px 6px 1px 1px rgba(72, 11, 255, 1);
     }
   }
   &-teal {
     &:hover {
-      transition: ease-in-out 0.2s;
-      box-shadow: 6px 6px 1px 0px rgba(0, 191, 165, 1);
+      transition: all ease-in-out 0.2s;
+      box-shadow: 6px 6px 1px 1px rgba(0, 255, 175, 1);
     }
   }
 }

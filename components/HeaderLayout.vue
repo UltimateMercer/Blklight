@@ -163,62 +163,65 @@
     </div>
 
     <div v-if="headerTemplate === 'parallax'">
-      <div class="header-simple mb-3">
+      <div class="header-simple mb-4">
+        <div
+          class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1 p-lg-0 col-md-10 offset-md-1 p-md-0 col-12"
+        >
+          <div class="header-simple-info mb-0 mx-lg-0">
+            <h1 class="blog-title">
+              <span
+                class="marker marker-title"
+                :class="isDarkMode ? 'marker-light' : 'marker-dark'"
+              >
+                <em> {{ article.title }}</em>
+              </span>
+            </h1>
+
+            <h5 class="blog-meta">
+              <span
+                class="marker"
+                :class="isDarkMode ? 'marker-light' : 'marker-dark'"
+              >
+                {{ dateFormat }}
+              </span>
+            </h5>
+            <div class="d-flex">
+              <div class="mt-1">
+                <span>
+                  <span
+                    v-if="article.category === 'Design'"
+                    class="badge badge-tag badge-uv mx-0"
+                  >
+                    {{ article.category }}
+                  </span>
+                </span>
+                <span
+                  v-if="article.category === 'Dev'"
+                  class="badge badge-tag badge-primary text-dark mx-0"
+                >
+                  {{ article.category }}
+                </span>
+                <span
+                  v-if="article.type === 'Pro'"
+                  class="badge badge-tag badge-dark mx-0"
+                >
+                  {{ article.type }}
+                </span>
+                <span
+                  v-if="article.type === 'Pessoal'"
+                  class="badge badge-tag badge-orange mx-0"
+                >
+                  {{ article.type }}
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
         <div
           v-lazy:background-image="imageSrc"
           class="header-simple-image-parallax view mb-2"
         >
           <div class="mask parallax-mask texture-mask-4"></div>
-        </div>
-      </div>
-      <div
-        class="col-xl-6 offset-xl-3 col-lg-8 offset-lg-2 p-lg-0 col-md-10 offset-md-1 p-md-0 col-12"
-      >
-        <div class="header-simple-info mb-0 mx-lg-0">
-          <h1 class="blog-title">
-            <span
-              class="marker marker-title"
-              :class="isDarkMode ? 'marker-light' : 'marker-dark'"
-            >
-              {{ article.title }}
-            </span>
-          </h1>
-
-          <h5 class="blog-meta">
-            <span class="marker marker-dark">
-              {{ dateFormat }}
-            </span>
-          </h5>
-          <div class="d-flex">
-            <div class="mt-1">
-              <span>
-                <span
-                  v-if="article.category === 'Design'"
-                  class="badge badge-tag badge-uv mx-0"
-                >
-                  {{ article.category }}
-                </span>
-              </span>
-              <span
-                v-if="article.category === 'Dev'"
-                class="badge badge-tag badge-primary text-dark mx-0"
-              >
-                {{ article.category }}
-              </span>
-              <span
-                v-if="article.type === 'Pro'"
-                class="badge badge-tag badge-dark mx-0"
-              >
-                {{ article.type }}
-              </span>
-              <span
-                v-if="article.type === 'Pessoal'"
-                class="badge badge-tag badge-orange mx-0"
-              >
-                {{ article.type }}
-              </span>
-            </div>
-          </div>
         </div>
       </div>
     </div>

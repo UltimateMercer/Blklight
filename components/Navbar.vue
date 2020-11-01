@@ -1,5 +1,5 @@
 <template>
-  <b-navbar tag="nav" toggleable="md" type="dark" :variant="navbarVariant">
+  <b-navbar tag="nav" toggleable="md" type="dark" variant="uv">
     <div class="container">
       <b-navbar-brand>
         <nuxt-link to="/" class="navbar-brand mx-2 py-2 exo-font">

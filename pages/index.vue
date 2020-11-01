@@ -54,6 +54,9 @@
         Pesquisar
       </nuxt-link>
     </div>
+    <div>
+      <Stories />
+    </div>
 
     <DuotoneFilters />
   </div>
@@ -64,12 +67,13 @@ import { mapGetters } from "vuex";
 
 import DuotoneFilters from "@/components/DuotoneFilters";
 import NewCards from "@/components/Cards";
+import Stories from "@/components/StoriesCard";
 
 import { format } from "date-fns";
 import { ptBR } from "date-fns/locale";
 
 export default {
-  components: { DuotoneFilters, NewCards },
+  components: { DuotoneFilters, NewCards, Stories },
   async asyncData({ $content, params }) {
     const featureds = await $content({ deep: true }, params.slug)
       .only([
