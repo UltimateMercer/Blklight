@@ -1,12 +1,12 @@
 ---
 title: My fifth Blog Post
 description: Learning how to use @nuxt/content to create a blog
-img: https://i.imgur.com/jlu6jwf.jpg
+img: https://i.imgur.com/LXiVKt8.png
 imgAlt: ""
 alt: my first blog post
 channel: "nerdstation"
 category: "Atr"
-isFeatured: ""
+isFeatured: false
 headerLayout: ""
 ---
 

@@ -6,10 +6,9 @@ imgAlt: ""
 alt: my first blog post
 channel: "dev-corporation"
 category: "LPJ"
-isFeatured: true
+isFeatured: false
 headerLayout: "portrait-left"
 ---
-
 
 Projeto desenvolvido utilizando:
 

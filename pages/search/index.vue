@@ -1,7 +1,10 @@
 <template>
-  <div :class="{ 'bg-dark': isDarkMode }">
-    <div class="container py-3">
-      <div class="card card-flat bg-dark mb-4">
+  <div>
+    <div class="container py-4">
+      <div
+        class="card card-flat p-1 mb-4"
+        :class="isDarkMode ? 'bg-darkest ' : 'bg-dark '"
+      >
         <div class="card-body">
           <input
             v-model="query"
@@ -13,19 +16,37 @@
           />
         </div>
       </div>
-      <h1 v-if="results.length === 0 && !query" class="text-center mt-5">
+      <h1
+        v-if="results.length === 0 && !query"
+        class="text-center py-5"
+        :class="isDarkMode ? 'text-light' : 'text-dark'"
+      >
         <strong>
           <font-awesome-icon :icon="['fas', 'search']" />
           Pesquise um assunto de seu interesse...
         </strong>
       </h1>
-      <div v-for="(result, i) in results" :key="i">
-        <CardsHorizontal :article="result" />
+      <div class="row">
+        <div
+          v-for="(result, i) in results"
+          :key="i"
+          class="col-lg-4 col-md-6 col-12"
+        >
+          <Cards :article="result" :isFlat="true" :isRaised="true" />
+        </div>
       </div>
-      <!-- <MasonryCards :articles="results" /> -->
+
+      <!-- <div v-for="(result, i) in results" :key="i">
+        <CardsHorizontal :article="result" />
+      </div> -->
 
       <div v-if="results.length === 0 && query" class="container">
-        <h1 class="text-center mt-5"><strong> :( Nada encontrado!</strong></h1>
+        <h1
+          class="text-center py-5"
+          :class="isDarkMode ? 'text-light' : 'text-dark'"
+        >
+          <strong> :( Nada encontrado!</strong>
+        </h1>
       </div>
     </div>
   </div>
@@ -33,10 +54,11 @@
 <script>
 import { mapGetters } from "vuex";
 // import MasonryCards from "@/components/MasonryCards";
-import CardsHorizontal from "@/components/CardsHorizontal";
+// import CardsHorizontal from "@/components/CardsHorizontal";
+import Cards from "@/components/Cards";
 
 export default {
-  components: { CardsHorizontal },
+  components: { Cards },
 
   data() {
     return {
@@ -62,6 +84,7 @@ export default {
           "imgAlt",
           "description",
           "channel",
+          "dir",
           "slug",
           "isFeatured",
           "updatedAt",
@@ -73,3 +96,10 @@ export default {
   },
 };
 </script>
+<style lang="scss">
+.placeholder-dark {
+  ::placeholder {
+    color: #121212 !important;
+  }
+}
+</style>

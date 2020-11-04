@@ -1,7 +1,7 @@
 ---
-title: Lady Gaga's Awakening
+title: Mockup Frontmatter
 description: Learning how to use @nuxt/content to create a blog
-img: https://i.imgur.com/PfaL9wP.jpg
+img: https://i.imgur.com/oO5abXP.jpg
 imgAlt: ""
 alt: my first blog post
 channel: "dev-corporation"
@@ -20,6 +20,16 @@ sed et infectis decipere a. Clausit sub quid mediis tenuit, medendi gemitu
 purpureum vana una pius tradiderat stabat omnia pater conplecti. Arma undas cui
 Atrides ramos Quid, data mundi hoc Dixerat [ipsis](#hac) verticibus aliquid
 tamen facit.
+
+title: Mockup Frontmatter
+description: Learning how to use @nuxt/content to create a blog
+img: https://i.imgur.com/ofsYttz.jpg
+imgAlt: ""
+alt: my first blog post
+channel: "dev-corporation"
+category: "LPJ"
+isFeatured: ""
+headerLayout: ""
 
 > Tenere tundit, ora causa milite pretiumque adpellare ad dubio. Voce pericli
 > ibat; iamque animos, eras Nyseus bello nimia faciem ab guttur pictae facta

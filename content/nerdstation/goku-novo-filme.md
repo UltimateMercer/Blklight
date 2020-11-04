@@ -5,9 +5,8 @@ img: https://i.imgur.com/mBMURAy.png
 imgAlt: ""
 alt: my first blog post
 channel: "nerdstation"
-
 category: "LPJ"
-isFeatured: ""
+isFeatured: false
 headerLayout: "portrait-left"
 ---
 

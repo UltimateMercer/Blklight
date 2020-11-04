@@ -1,7 +1,7 @@
 <template>
   <div>
     <div v-if="headerTemplate === 'portrait-left'">
-      <div class="header-content header-h-full d-md-inline-flex mb-3">
+      <div class="header-content header-h-full d-md-inline-flex mb-4">
         <div class="header-image-half header-h-full header-border-right view">
           <div
             v-lazy:background-image="imageSrc"
@@ -55,7 +55,7 @@
     </div>
 
     <div v-if="headerTemplate === 'portrait-right'">
-      <div class="header-content header-h-full d-md-inline-flex mb-3">
+      <div class="header-content header-h-full d-md-inline-flex mb-4">
         <div class="header-info-half header-h-full">
           <div class="h-100 d-flex flex-column justify-content-end">
             <h1 class="blog-title">
@@ -112,7 +112,7 @@
 
     <div v-if="headerTemplate === 'landscape'">
       <div
-        class="header-content header-h-full d-md-inline-flex shadow-image mb-3"
+        class="header-content header-h-full d-md-inline-flex shadow-image mb-4"
       >
         <div class="header-info header-h-full">
           <div class="h-100 d-flex flex-column justify-content-end">
@@ -227,7 +227,7 @@
     </div>
 
     <div v-if="headerTemplate === 'square-profile'">
-      <div class="container-fluid p-0 mb-3">
+      <div class="container-fluid p-0 mb-4">
         <div class="container p-0">
           <div class="col-12 pt-lg-3 py-2 px-3">
             <div class="header-profile">
@@ -306,7 +306,7 @@
     </div>
 
     <div v-if="headerTemplate === 'circle-profile'">
-      <div class="container-fluid p-0 mb-3">
+      <div class="container-fluid p-0 mb-4">
         <div class="container p-0">
           <div class="col-12 pt-lg-3 py-2 px-3">
             <div class="header-profile">
@@ -377,7 +377,7 @@
     </div>
 
     <div v-if="headerTemplate === 'image-top'">
-      <div class="container-fluid p-0">
+      <div class="container-fluid p-0 mb-4">
         <div class="col-lg-10 offset-lg-1 col-12 p-lg-0">
           <div class="header-simple">
             <div

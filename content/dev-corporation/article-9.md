@@ -6,7 +6,7 @@ imgAlt: ""
 alt: my first blog post
 channel: "dev-corporation"
 category: "LPJ"
-isFeatured: ""
+isFeatured: false
 headerLayout: "parallax"
 ---
 

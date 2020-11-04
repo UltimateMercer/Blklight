@@ -7,13 +7,9 @@ alt: my first blog post
 channel: "nerdstation"
 category: "LPJ"
 isFeatured: true
+isStories: false
 headerLayout: "parallax"
 ---
-
-| Syntax    | Description |   Test Text |
-| :-------- | :---------: | ----------: |
-| Header    |    Title    | Here's this |
-| Paragraph |    Text     |    And more |
 
 # Descendunt signa noviens
 
@@ -29,6 +25,11 @@ tamen facit.
 > Tenere tundit, ora causa milite pretiumque adpellare ad dubio. Voce pericli
 > ibat; iamque animos, eras Nyseus bello nimia faciem ab guttur pictae facta
 > rubescere comes.
+
+| Syntax    | Description |   Test Text |
+| :-------- | :---------: | ----------: |
+| Header    |    Title    | Here's this |
+| Paragraph |    Text     |    And more |
 
 ## Sanguine iacerent occulto et tenuisse facis sacerdos
 
@@ -62,3 +63,5 @@ salutem namque caelitibus, at ecce sed deos pericla captus cur soror vos.
 Spatio in, fuit non litora infelix fleverunt partim, non Achivi elementa
 maerentes quoque tendentes! Simillima casus tamen retro antiquum deus nefas,
 fati poscitur pervigilem moenibus meruit.
+
+<img src="https://scontent.fpet4-1.fna.fbcdn.net/v/t1.0-9/119666223_769789693595927_5075852023088274328_o.jpg?_nc_cat=103&ccb=2&_nc_sid=730e14&_nc_eui2=AeE1-ZPzAcwgWzWZxdNitTJX7jxjuxBfHlzuPGO7EF8eXDPyM4dNrChAAxXU6sf8bgCvDs9_Z3sUCT_6LOUOkWkl&_nc_ohc=QVCW7DeX-o4AX_WdbP-&_nc_ht=scontent.fpet4-1.fna&oh=99f437fd2c83077a8a10da068cf3eb8b&oe=5FC4E07C" class="img-fluid my-3">

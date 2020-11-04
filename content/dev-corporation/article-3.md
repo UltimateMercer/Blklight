@@ -1,12 +1,12 @@
 ---
 title: My third Blog Post
 description: Learning how to use @nuxt/content to create a blog
-img: https://i.imgur.com/ILvw4HT.jpg
+img: https://i.imgur.com/YafiDEc.png
 imgAlt: ""
 alt: my first blog post
 channel: "dev-corporation"
 category: "LPJ"
-isFeatured: ""
+isFeatured: false
 headerLayout: ""
 ---
 

@@ -1,8 +1,7 @@
 <template>
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    class="svg-filters"
-    style="display: block;"
+    style="display: block; width: auto !important; height: 0 !important;"
   >
     <filter
       id="cyberpunk-ult"
@@ -77,7 +76,19 @@ export default {};
 <style lang="scss">
 .hover-card {
   &-uv,
-  &-teal {
+  &-yellow {
+    &:hover {
+      .cyberpunk-effect {
+        transition: 1s ease-in;
+        filter: url("#cyberpunk-ult");
+      }
+    }
+  }
+}
+
+.hover-stories {
+  &-uv,
+  &-yellow {
     &:hover {
       .cyberpunk-effect {
         transition: 1s ease-in;

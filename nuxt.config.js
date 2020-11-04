@@ -38,7 +38,7 @@ export default {
    */
   css: [],
   loading: {
-    color: "#121212",
+    color: "#ffff00",
     height: "8px",
   },
   /*
@@ -98,7 +98,7 @@ export default {
   content: {
     markdown: {
       prism: {
-        theme: false,
+        theme: "prism-themes/themes/prism-dracula.css",
       },
     },
   },

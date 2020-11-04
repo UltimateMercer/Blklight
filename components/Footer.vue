@@ -1,0 +1,93 @@
+<template>
+  <footer class="mt-auto">
+    <div class="container-fluid bg-dark">
+      <div class="container py-5">
+        <div class="row">
+          <div class="col-12 col-md">
+            <img
+              class="img-fluid brand mb-2"
+              src="https://ultimatemercer.github.io/_nuxt/img/logo-light.974aca4.png"
+              alt="Ultimate Mercer Logo"
+              width="65"
+            />
+            <small class="d-block mb-3 text-muted">&copy;2020</small>
+          </div>
+          <div class="col-6 col-md">
+            <h5>
+              <span class="marker marker-light marker-link">Redes sociais</span>
+            </h5>
+            <ul class="list-unstyled">
+              <li class="">
+                <a
+                  href="mailto:juliancunha2010@hotmail.com"
+                  class="text-light"
+                  target="_blank"
+                  rel="noopener"
+                  title="E-mail"
+                >
+                  <font-awesome-icon :icon="['fas', 'envelope']" size="lg" />
+                  E-mail
+                </a>
+              </li>
+              <li>
+                <a
+                  class="text-light"
+                  href="https://github.com/UltimateMercer"
+                  target="_blank"
+                  rel="noopener"
+                  title="Acessar github"
+                >
+                  <font-awesome-icon :icon="['fab', 'github']" size="lg" />
+                  Github
+                </a>
+              </li>
+
+              <li>
+                <a
+                  href="https://www.instagram.com/ultimatemercer/"
+                  class="text-light mb-2"
+                  target="_blank"
+                  rel="noopener"
+                  title="Instagram"
+                >
+                  <font-awesome-icon :icon="['fab', 'instagram']" size="lg" />
+                  Instagram
+                </a>
+              </li>
+
+              <li>
+                <a
+                  href="https://medium.com/@ultimatemercer"
+                  class="text-light"
+                  target="_blank"
+                  rel="noopener"
+                  title="Medium"
+                >
+                  <font-awesome-icon :icon="['fab', 'medium-m']" size="lg" />
+                  Medium
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-6 col-md">
+            <h5>
+              <span class="marker marker-light marker-link">Projetos</span>
+            </h5>
+            <ul class="list-unstyled text-small">
+              <li>
+                <nuxt-link class="text-light" to="/projects"
+                  >Meus projetos</nuxt-link
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+</template>
+<script>
+export default {
+  name: "Footer",
+};
+</script>

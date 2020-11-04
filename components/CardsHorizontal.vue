@@ -1,7 +1,7 @@
 <template>
   <div
     class="card card-flat card-raised mb-4"
-    :class="isDarkMode ? 'bg-darkest hover-card-teal' : 'hover-card-uv'"
+    :class="isDarkMode ? 'bg-darkest hover-card-yellow' : 'hover-card-uv'"
   >
     <div class="row">
       <div class="col-md-5 col-12">
@@ -9,13 +9,15 @@
           <img
             v-lazy="imageSrc(article)"
             class="card-img-fit cyberpunk-effect"
-            style="height: 275px !important; width: 100% !important;"
+            style="height: 300px !important; width: 100% !important;"
           />
           <div class="mask texture-mask-2"></div>
         </div>
       </div>
       <div class="col-md-7 col-12">
         <div class="p-3" :class="isDarkMode ? 'text-light' : ''">
+          <ChannelBadge :channel="article.channel" :isTag="true" />
+
           <h3 class="exo-font mt-1 mb-2" style="font-style: italic;">
             <span class="">
               <strong>
@@ -26,9 +28,6 @@
           <div class="card-subinfo mb-2">
             <span class="badge badge-dark">
               {{ formatDate(article.updatedAt) }}
-            </span>
-            <span class="badge badge-dark">
-              {{ article.channel }}
             </span>
           </div>
           <p class="mb-3">
@@ -41,18 +40,16 @@
                 name: `${article.channel}-slug`,
                 params: { slug: `${article.slug}` },
               }"
-              class="btn btn-sm"
-              :class="isDarkMode ? 'btn-outline-teal' : 'btn-outline-uv'"
+              class="btn"
+              :class="isDarkMode ? 'btn-outline-neon-yellow' : 'btn-outline-uv'"
             >
-              <font-awesome-icon :icon="['fab', 'readme']" size="lg" />
-
-              Leia mais
+              Leia mais...
             </nuxt-link>
           </div>
         </div>
       </div>
     </div>
-    <ImageFilter />
+    <!-- <ImageFilter /> -->
   </div>
 </template>
 <script>
@@ -61,12 +58,12 @@ import { mapGetters } from "vuex";
 import { format } from "date-fns";
 import { ptBR } from "date-fns/locale";
 
-import ImageFilter from "@/components/ImageFilter";
+import ChannelBadge from "@/components/ChannelBadge";
 
 export default {
   name: "CardsHorizontal",
 
-  components: { ImageFilter },
+  components: { ChannelBadge },
 
   props: {
     article: {

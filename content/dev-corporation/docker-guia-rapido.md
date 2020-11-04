@@ -6,13 +6,16 @@ imgAlt: ""
 alt: my first blog post
 channel: "dev-corporation"
 category: "design"
-isFeatured: ""
+isFeatured: false
 headerLayout: "square-profile"
 ---
 
 ```javascript
 //lista todos os containers
 docker ps -a
+export default {
+  nuxt: 'is the best'
+}
 ```
 
 // lista todos os containers <br />

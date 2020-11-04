@@ -1,5 +1,5 @@
 export const state = () => ({
-  isDark: loadState("darkMode") || false,
+  isDark: loadState("darkMode") || true,
 });
 
 export const mutations = {
@@ -19,6 +19,6 @@ function loadState(key) {
   try {
     return JSON.parse(window.localStorage.getItem(key));
   } catch (err) {
-    return false;
+    return true;
   }
 }

@@ -6,7 +6,7 @@ imgAlt: https://i.imgur.com/uIY2t68.jpg
 alt: my first blog post
 channel: "dev-corporation"
 category: "design"
-isFeatured: true
+isFeatured: false
 headerLayout: "square-profile"
 ---
 

@@ -6,7 +6,7 @@ imgAlt: ""
 alt: my first blog post
 channel: "nerdstation"
 category: "LPJ"
-isFeatured: ""
+isFeatured: false
 headerLayout: "landscape"
 ---
 

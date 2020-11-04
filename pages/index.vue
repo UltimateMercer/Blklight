@@ -1,6 +1,6 @@
 <template>
   <div :class="{ 'bg-dark': isDarkMode }">
-    <div class="container-fluid pt-4">
+    <div class="container-fluid pt-4 pb-2">
       <div
         class="col-xl-10 col-lg-12 col-md-12 col-12 offset-xl-1 offset-lg-0 offset-md-0 offset-0 p-md-0 px-1"
         v-for="(featured, i) in featureds"
@@ -32,13 +32,13 @@
             :article="article"
             :isFeatured="true"
             :isRaised="true"
-            :isFlat="false"
+            :isFlat="true"
           />
         </div>
-        <div class="col-6 offset-3">
-          <nuxt-link to="all-posts" class="btn btn-uv mx-auto d-block"
-            >Ver mais artigos</nuxt-link
-          >
+        <div class="col-md-6 offset-md-3 col-8 offset-2">
+          <nuxt-link to="all-posts" class="btn btn-uv mx-auto d-block">
+            Ver mais artigos
+          </nuxt-link>
         </div>
       </div>
     </div>
@@ -54,26 +54,47 @@
         Pesquisar
       </nuxt-link>
     </div>
-    <div>
-      <Stories />
+    <div class="container px-md-0 my-3">
+      <h2>
+        <span
+          class="marker marker-title"
+          :class="isDarkMode ? 'marker-light' : 'marker-dark'"
+        >
+          <strong> <em> Podcast</em></strong>
+        </span>
+      </h2>
+      <Podcast />
     </div>
-
-    <DuotoneFilters />
+    <div class="my-4">
+      <div class="container px-md-0 mb-3">
+        <h2>
+          <span
+            class="marker marker-title"
+            :class="isDarkMode ? 'marker-light' : 'marker-dark'"
+          >
+            <strong> <em> Especiais</em></strong>
+          </span>
+        </h2>
+      </div>
+      <div v-for="(story, i) in stories" :key="i" class="mb-4">
+        <Stories :story="story" />
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 import { mapGetters } from "vuex";
 
-import DuotoneFilters from "@/components/DuotoneFilters";
 import NewCards from "@/components/Cards";
 import Stories from "@/components/StoriesCard";
+import Podcast from "@/components/Podcast";
 
 import { format } from "date-fns";
 import { ptBR } from "date-fns/locale";
 
 export default {
-  components: { DuotoneFilters, NewCards, Stories },
+  components: { NewCards, Stories, Podcast },
   async asyncData({ $content, params }) {
     const featureds = await $content({ deep: true }, params.slug)
       .only([
@@ -84,10 +105,11 @@ export default {
         "dir",
         "channel",
         "updatedAt",
+        "isStories",
         "isFeatured",
       ])
       .sortBy("updatedAt", "desc")
-      .where({ isFeatured: true })
+      .where({ isFeatured: true, isStories: false })
       .limit(1)
       .fetch();
 
@@ -96,20 +118,40 @@ export default {
         "title",
         "img",
         "imgAlt",
-        "channel",
         "slug",
         "dir",
-        "isFeatured",
+        "channel",
         "updatedAt",
+        "isStories",
+        "isFeatured",
       ])
       .sortBy("updatedAt", "desc")
-      .where({ isFeatured: "" })
+      .where({ isFeatured: false })
       .limit(9)
       .fetch();
 
+    const stories = await $content({ deep: true }, params.slug)
+      .only([
+        "title",
+        "description",
+        "img",
+        "imgAlt",
+        "slug",
+        "dir",
+        "channel",
+        "updatedAt",
+        "isStories",
+        "isFeatured",
+      ])
+      .sortBy("updatedAt", "desc")
+      .where({ isFeatured: true, isStories: true })
+      .limit(3)
+      .fetch();
+    console.log(stories);
     return {
       featureds,
       articles,
+      stories,
     };
   },
 
@@ -122,29 +164,6 @@ export default {
 
   computed: {
     ...mapGetters(["isDarkMode"]),
-  },
-
-  watch: {
-    async query(query) {
-      if (!query) {
-        this.results = [];
-        return;
-      }
-
-      this.results = await this.$content({ deep: true })
-        .only([
-          "title",
-          "img",
-          "imgAlt",
-          "channel",
-          "slug",
-          "isFeatured",
-          "updatedAt",
-        ])
-        .sortBy("updatedAt", "desc")
-        .search(query)
-        .fetch();
-    },
   },
 
   methods: {

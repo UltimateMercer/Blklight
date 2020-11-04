@@ -14,15 +14,17 @@
         </div>
       </div>
     </div>
+    <Author />
   </div>
 </template>
 <script>
 import HeaderLayout from "@/components/HeaderLayout";
+import Author from "@/components/Author";
 
 import { mapGetters } from "vuex";
 
 export default {
-  components: { HeaderLayout },
+  components: { HeaderLayout, Author },
 
   async asyncData({ $content, params }) {
     const article = await $content("nerdstation", params.slug).fetch();
