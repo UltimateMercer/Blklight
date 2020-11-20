@@ -28,7 +28,7 @@
           </h5>
           <span class="d-flex mb-2">
             <span class="badge badge-dark">
-              {{ formatDate(article.updatedAt) }}
+              {{ formatDate(article.createdAt) }}
             </span>
             <ChannelBadge :channel="article.channel" />
           </span>

@@ -3,47 +3,45 @@
     class="card mb-4"
     :class="isDarkMode ? 'hover-stories-yellow' : 'hover-stories-uv'"
   >
-    <div class="view">
-      <img
-        v-lazy="imageSrc(story)"
-        :alt="story.title"
-        class="card-image-stories cyberpunk-effect"
-      />
-      <div class="mask texture-mask-4"></div>
-      <div class="card-img-overlay d-flex flex-column">
-        <div class="d-flex mb-2">
-          <span class="badge badge-dark badge-tag">
-            {{ formatDate(story.updatedAt) }}
-          </span>
-          <ChannelBadge :channel="story.channel" :isTag="true" />
-        </div>
+    <img
+      v-lazy="imageSrc(story)"
+      :alt="story.title"
+      class="card-image-stories cyberpunk-effect"
+    />
+    <div class="mask texture-mask-4"></div>
+    <div class="card-img-overlay d-flex flex-column">
+      <div class="d-flex mb-2">
+        <span class="badge badge-dark badge-tag mr-2">
+          {{ formatDate(story.createdAt) }}
+        </span>
+        <ChannelBadge :channel="story.channel" :isTag="true" />
+      </div>
 
-        <h3>
-          <span class="marker marker-dark marker-title">
-            <strong>
-              <em>{{ story.title }}</em>
-            </strong>
-          </span>
-        </h3>
-        <p v-if="story.description">
-          <span class="marker marker-dark">
-            {{ story.description }}
-          </span>
-        </p>
-        <div></div>
+      <h3>
+        <span class="marker marker-dark marker-title">
+          <strong>
+            <em>{{ story.title }}</em>
+          </strong>
+        </span>
+      </h3>
+      <p v-if="story.description">
+        <span class="marker marker-dark">
+          {{ story.description }}
+        </span>
+      </p>
+      <div></div>
 
-        <div class="mt-auto ml-auto">
-          <nuxt-link
-            tag="a"
-            :to="{
-              name: `${slugName}-slug`,
-              params: { slug: `${story.slug}` },
-            }"
-            class="btn btn-uv btn-rounded"
-          >
-            Ler mais...
-          </nuxt-link>
-        </div>
+      <div class="mt-auto ml-auto">
+        <nuxt-link
+          tag="a"
+          :to="{
+            name: `${slugName}-slug`,
+            params: { slug: `${story.slug}` },
+          }"
+          class="btn btn-uv btn-rounded"
+        >
+          Ler mais...
+        </nuxt-link>
       </div>
     </div>
   </div>
@@ -96,13 +94,13 @@ export default {
   &-uv {
     &:hover {
       transition: all ease-in-out 0.2s;
-      box-shadow: 0px 0px 1px 6px rgba(75, 0, 255, 1);
+      box-shadow: 0px 0px 0px 8px rgba(75, 0, 255, 1);
     }
   }
   &-yellow {
     &:hover {
       transition: all ease-in-out 0.2s;
-      box-shadow: 0px 0px 1px 6px rgba(255, 255, 0, 1);
+      box-shadow: 0px 0px 0px 8px rgba(255, 255, 0, 1);
     }
   }
 }

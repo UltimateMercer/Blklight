@@ -1,40 +1,19 @@
 <template>
-  <b-navbar tag="nav" toggleable="md" type="dark" variant="uv">
+  <b-navbar tag="nav" toggleable="md" type="light" variant="neon-yellow">
     <div class="container">
       <b-navbar-brand>
-        <nuxt-link to="/" class="navbar-brand mx-2 py-2 exo-font">
-          <strong>
-            BLKLIGHT
-          </strong>
+        <nuxt-link to="/" class="navbar-brand py-2">
+          <strong><em>BLKLIGHT</em></strong>
         </nuxt-link>
       </b-navbar-brand>
-      <template
-        v-if="
-          this.$route.name === 'dev-corporation-index' ||
-          this.$route.name === 'dev-corporation-index-category' ||
-          this.$route.name === 'dev-corporation-index-search'
-        "
-      >
-        <b-nav-text>
-          <nuxt-link :to="this.$route.path">
-            /Dev Corporation
-          </nuxt-link>
-        </b-nav-text>
-      </template>
-      <template v-if="this.$route.path === '/nerdstation'">
-        <b-nav-text>
-          <nuxt-link :to="this.$route.path">
-            /Nerdstation
-          </nuxt-link>
-        </b-nav-text>
-      </template>
+
       <b-navbar-nav class="ml-auto">
         <b-nav-form>
-          <nuxt-link to="/search" class="btn btn-outline-light">
+          <nuxt-link to="/search" class="btn btn-outline-dark">
             <font-awesome-icon :icon="['fas', 'search']" />
           </nuxt-link>
           <button
-            class="btn btn-outline-light"
+            class="btn btn-outline-dark"
             title="Modo noturno"
             @click.prevent="darkMode"
           >
@@ -102,6 +81,11 @@ export default {
     }
   }
 }
+
+// .navbar-brand {
+//   padding-top: 0.125rem !important;
+//   padding-bottom: 0.125rem !important;
+// }
 
 .bg-transparent-dark {
   background-color: rgba(18, 18, 18, 0.5);

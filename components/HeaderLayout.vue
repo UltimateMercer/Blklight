@@ -1,13 +1,14 @@
 <template>
   <div>
     <div v-if="headerTemplate === 'portrait-left'">
-      <div class="header-content header-h-full d-md-inline-flex mb-4">
-        <div class="header-image-half header-h-full header-border-right view">
+      <div class="header-content header-h-full d-md-inline-flex">
+        <div
+          class="header-image-half header-h-full header-border-right hover-header"
+        >
           <div
             v-lazy:background-image="imageSrc"
-            class="header-image-background header-h-full"
+            class="header-image-background header-h-full cyberpunk-effect"
           ></div>
-          <div class="mask texture-mask-4"></div>
         </div>
         <div class="header-info-half header-h-full">
           <div class="h-100 d-flex flex-column justify-content-end">
@@ -55,7 +56,7 @@
     </div>
 
     <div v-if="headerTemplate === 'portrait-right'">
-      <div class="header-content header-h-full d-md-inline-flex mb-4">
+      <div class="header-content header-h-full d-md-inline-flex">
         <div class="header-info-half header-h-full">
           <div class="h-100 d-flex flex-column justify-content-end">
             <h1 class="blog-title">
@@ -100,25 +101,24 @@
             </div>
           </div>
         </div>
-        <div class="header-image-half header-h-full header-border-left view">
+        <div
+          class="header-image-half header-h-full header-border-left hover-header"
+        >
           <div
             v-lazy:background-image="imageSrc"
-            class="header-image-background header-h-full"
+            class="header-image-background header-h-full cyberpunk-effect"
           ></div>
-          <div class="mask texture-mask-4"></div>
         </div>
       </div>
     </div>
 
     <div v-if="headerTemplate === 'landscape'">
-      <div
-        class="header-content header-h-full d-md-inline-flex shadow-image mb-4"
-      >
+      <div class="header-content header-h-full d-md-inline-flex hover-header">
         <div class="header-info header-h-full">
           <div class="h-100 d-flex flex-column justify-content-end">
             <h1 class="blog-title">
               <span class="marker marker-dark marker-title">
-                {{ article.title }}
+                <em> {{ article.title }} </em>
               </span>
             </h1>
             <h5 class="blog-meta">
@@ -152,18 +152,17 @@
             </div>
           </div>
         </div>
-        <div class="header-image header-h-full view">
+        <div class="header-image header-h-full">
           <div
             v-lazy:background-image="imageSrc"
-            class="header-image-background header-h-full"
+            class="header-image-background header-h-full cyberpunk-effect"
           ></div>
-          <div class="mask texture-mask-4"></div>
         </div>
       </div>
     </div>
 
     <div v-if="headerTemplate === 'parallax'">
-      <div class="header-simple mb-4">
+      <div class="header-simple">
         <div
           class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1 p-lg-0 col-md-10 offset-md-1 p-md-0 col-12"
         >
@@ -217,17 +216,17 @@
             </div>
           </div>
         </div>
-        <div
-          v-lazy:background-image="imageSrc"
-          class="header-simple-image-parallax view mb-2"
-        >
-          <div class="mask parallax-mask texture-mask-4"></div>
+        <div class="hover-header">
+          <div
+            v-lazy:background-image="imageSrc"
+            class="header-simple-image-parallax cyberpunk-effect"
+          ></div>
         </div>
       </div>
     </div>
 
     <div v-if="headerTemplate === 'square-profile'">
-      <div class="container-fluid p-0 mb-4">
+      <div class="container-fluid p-0">
         <div class="container p-0">
           <div class="col-12 pt-lg-3 py-2 px-3">
             <div class="header-profile">
@@ -240,7 +239,7 @@
                     <img
                       :data-src="imageSrc"
                       width="325"
-                      class="rounded shadow-image img-fluid mx-auto d-block mb-4"
+                      class="rounded img-fluid mx-auto d-block mb-4"
                       :alt="article.title"
                     />
                   </div>
@@ -306,7 +305,7 @@
     </div>
 
     <div v-if="headerTemplate === 'circle-profile'">
-      <div class="container-fluid p-0 mb-4">
+      <div class="container-fluid p-0">
         <div class="container p-0">
           <div class="col-12 pt-lg-3 py-2 px-3">
             <div class="header-profile">
@@ -377,26 +376,22 @@
     </div>
 
     <div v-if="headerTemplate === 'image-top'">
-      <div class="container-fluid p-0 mb-4">
+      <div class="container-fluid p-0">
         <div class="col-lg-10 offset-lg-1 col-12 p-lg-0">
           <div class="header-simple">
-            <div
-              v-lazy-container="{ selector: 'img' }"
-              class="view shadow-image"
-            >
+            <div v-lazy-container="{ selector: 'img' }" class="hover-header">
               <img
                 :data-src="imageSrc"
                 alt=""
-                class="header-simple-image-top"
+                class="header-simple-image-top cyberpunk-effect"
               />
-              <div class="mask texture-mask-4"></div>
             </div>
           </div>
         </div>
         <div
           class="col-xl-6 offset-xl-3 col-lg-8 offset-lg-2 p-lg-0 col-md-10 offset-md-1 p-md-0 col-12"
         >
-          <div class="header-simple-info mt-3 mb-0 mx-lg-0">
+          <div class="header-simple-info mt-2 mb-0 mx-lg-0">
             <h1 class="blog-title exo-font" style="font-style: italic;">
               <span
                 class="marker marker-title"

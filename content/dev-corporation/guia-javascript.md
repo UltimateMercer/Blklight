@@ -1,12 +1,12 @@
 ---
-title: "Prototype Series - Análise"
-description: Learning how to use @nuxt/content to create a blog
-img: https://i.imgur.com/HWFTcVA.jpg
+title: "Guia para estudar Javascript"
+description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ultricies finibus lorem nec porta. Aenean sit amet iaculis felis. Donec neque felis, venenatis quis felis at, ornare eleifend tortor. "
+img: https://i.imgur.com/OI6Iuq2.jpg
 imgAlt: ""
 alt: my first blog post
-channel: "nerdstation"
+channel: "dev-corporation"
 category: "LPJ"
-isFeatured: false
+isStories: true
 headerLayout: "landscape"
 author:
   name: "Ultimate Mercer"
@@ -24,6 +24,16 @@ sed et infectis decipere a. Clausit sub quid mediis tenuit, medendi gemitu
 purpureum vana una pius tradiderat stabat omnia pater conplecti. Arma undas cui
 Atrides ramos Quid, data mundi hoc Dixerat [ipsis](#hac) verticibus aliquid
 tamen facit.
+
+title: Mockup Frontmatter
+description: Learning how to use @nuxt/content to create a blog
+img: https://i.imgur.com/ofsYttz.jpg
+imgAlt: ""
+alt: my first blog post
+channel: "dev-corporation"
+category: "LPJ"
+isFeatured: ""
+headerLayout: ""
 
 > Tenere tundit, ora causa milite pretiumque adpellare ad dubio. Voce pericli
 > ibat; iamque animos, eras Nyseus bello nimia faciem ab guttur pictae facta

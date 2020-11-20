@@ -87,9 +87,9 @@ export default {
           "dir",
           "slug",
           "isFeatured",
-          "updatedAt",
+          "createdAt",
         ])
-        .sortBy("updatedAt", "desc")
+        .sortBy("createdAt", "desc")
         .search(query)
         .fetch();
     },

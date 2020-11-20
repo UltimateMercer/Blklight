@@ -6,8 +6,12 @@ imgAlt: ""
 alt: my first blog post
 channel: "dev-corporation"
 category: "LPJ"
-isFeatured: true
+isFeatured: false
 headerLayout: "image-top"
+author:
+  name: "Ultimate Mercer"
+  bio: "Ultimate Awakening"
+  avatar: https://i.imgur.com/diuV6oy.jpg
 ---
 
 # Descendunt signa noviens

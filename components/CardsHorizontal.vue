@@ -5,14 +5,11 @@
   >
     <div class="row">
       <div class="col-md-5 col-12">
-        <div class="view">
-          <img
-            v-lazy="imageSrc(article)"
-            class="card-img-fit cyberpunk-effect"
-            style="height: 300px !important; width: 100% !important;"
-          />
-          <div class="mask texture-mask-2"></div>
-        </div>
+        <img
+          v-lazy="imageSrc(article)"
+          class="card-img-fit cyberpunk-effect"
+          style="height: 300px !important; width: 100% !important;"
+        />
       </div>
       <div class="col-md-7 col-12">
         <div class="p-3" :class="isDarkMode ? 'text-light' : ''">
@@ -27,7 +24,7 @@
           </h3>
           <div class="card-subinfo mb-2">
             <span class="badge badge-dark">
-              {{ formatDate(article.updatedAt) }}
+              {{ formatDate(article.createdAt) }}
             </span>
           </div>
           <p class="mb-3">

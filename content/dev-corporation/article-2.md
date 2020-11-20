@@ -8,6 +8,10 @@ channel: "dev-corporation"
 category: "front-end"
 isFeatured: true
 headerLayout: ""
+author:
+  name: "Ultimate Mercer"
+  bio: "Ultimate Awakening"
+  avatar: https://i.imgur.com/diuV6oy.jpg
 ---
 
 # Amorem Ixione

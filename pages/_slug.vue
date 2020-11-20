@@ -36,7 +36,7 @@ export default {
     headerInfo(article) {
       return {
         title: this.article.title,
-        date: this.article.updatedAt,
+        date: this.article.createdAt,
         description: this.article.description,
         category: this.article.category,
         // type: this.article.attributes.type,

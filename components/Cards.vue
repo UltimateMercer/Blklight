@@ -1,7 +1,7 @@
 <template>
   <div>
     <div
-      class="card card-background view mb-4"
+      class="card card-background mb-4"
       :class="[
         { 'card-featured-post': isFeatured },
         { 'card-flat': isFlat },
@@ -15,30 +15,20 @@
         :class="{ 'featured-image': isFeatured }"
         :alt="article.title"
       />
-      <div class="mask texture-mask-2"></div>
       <div
         class="card-img-overlay h-100 d-flex flex-column justify-content-end"
       >
-        <ChannelBadge :channel="article.channel" :isTag="true" />
-        <template v-if="isFeatured">
-          <h4 class="exo-font mt-2" style="font-style: italic;">
-            <span class="marker marker-dark marker-title">
-              <strong>
-                {{ article.title }}
-              </strong>
-            </span>
-          </h4>
-        </template>
-        <template v-else>
-          <h5 class="exo-font mt-2" style="font-style: italic;">
-            <span class="marker marker-dark px-1">
+        <ChannelBadge :channel="article.channel" :isTag="isFeatured" />
+        <h4 class="exo-font mt-2" style="font-style: italic;">
+          <span class="marker marker-dark marker-title">
+            <strong>
               {{ article.title }}
-            </span>
-          </h5>
-        </template>
+            </strong>
+          </span>
+        </h4>
         <div class="d-flex justify-content-between">
           <span class="badge badge-dark badge-tag">
-            {{ formatDate(article.updatedAt) }}
+            {{ formatDate(article.createdAt) }}
           </span>
           <nuxt-link
             tag="a"
@@ -46,7 +36,7 @@
               name: `${slugName}-slug`,
               params: { slug: `${article.slug}` },
             }"
-            class="btn btn-uv btn-sm"
+            class="btn btn-uv btn-flat btn-sm"
           >
             Ler mais...
           </nuxt-link>
@@ -117,15 +107,102 @@ export default {
 .hover-card {
   &-uv {
     &:hover {
-      transition: all ease-in-out 0.2s;
-      box-shadow: 6px 6px 1px 1px rgba(75, 0, 255, 1);
+      -webkit-animation: shadow-pop-br-uv 0.3s
+        cubic-bezier(0.47, 0, 0.745, 0.715) both;
+      animation: shadow-pop-br-uv 0.3s cubic-bezier(0.47, 0, 0.745, 0.715) both;
     }
   }
   &-yellow {
     &:hover {
-      transition: all ease-in-out 0.2s;
-      box-shadow: 6px 6px 1px 1px rgba(255, 255, 0, 1);
+      // transition: all ease-in-out 0.2s;
+      // box-shadow: 6px 6px 1px 1px rgba(255, 255, 0, 1);
+      -webkit-animation: shadow-pop-br-yellow 0.3s
+        cubic-bezier(0.47, 0, 0.745, 0.715) both;
+      animation: shadow-pop-br-yellow 0.3s cubic-bezier(0.47, 0, 0.745, 0.715)
+        both;
     }
+  }
+}
+
+@-webkit-keyframes shadow-pop-br-yellow {
+  0% {
+    -webkit-box-shadow: 0 0 #ffff00, 0 0 #ffff00, 0 0 #ffff00, 0 0 #ffff00,
+      0 0 #ffff00, 0 0 #ffff00, 0 0 #ffff00, 0 0 #ffff00;
+    box-shadow: 0 0 #ffff00, 0 0 #ffff00, 0 0 #ffff00, 0 0 #ffff00, 0 0 #ffff00,
+      0 0 #ffff00, 0 0 #ffff00, 0 0 #ffff00;
+    -webkit-transform: translateX(0) translateY(0);
+    transform: translateX(0) translateY(0);
+  }
+  100% {
+    -webkit-box-shadow: 1px 1px #ffff00, 2px 2px #ffff00, 3px 3px #ffff00,
+      4px 4px #ffff00, 5px 5px #ffff00, 6px 6px #ffff00, 7px 7px #ffff00,
+      8px 8px #ffff00;
+    box-shadow: 1px 1px #ffff00, 2px 2px #ffff00, 3px 3px #ffff00,
+      4px 4px #ffff00, 5px 5px #ffff00, 6px 6px #ffff00, 7px 7px #ffff00,
+      8px 8px #ffff00;
+    -webkit-transform: translateX(-8px) translateY(-8px);
+    transform: translateX(-8px) translateY(-8px);
+  }
+}
+@keyframes shadow-pop-br-yellow {
+  0% {
+    -webkit-box-shadow: 0 0 #ffff00, 0 0 #ffff00, 0 0 #ffff00, 0 0 #ffff00,
+      0 0 #ffff00, 0 0 #ffff00, 0 0 #ffff00, 0 0 #ffff00;
+    box-shadow: 0 0 #ffff00, 0 0 #ffff00, 0 0 #ffff00, 0 0 #ffff00, 0 0 #ffff00,
+      0 0 #ffff00, 0 0 #ffff00, 0 0 #ffff00;
+    -webkit-transform: translateX(0) translateY(0);
+    transform: translateX(0) translateY(0);
+  }
+  100% {
+    -webkit-box-shadow: 1px 1px #ffff00, 2px 2px #ffff00, 3px 3px #ffff00,
+      4px 4px #ffff00, 5px 5px #ffff00, 6px 6px #ffff00, 7px 7px #ffff00,
+      8px 8px #ffff00;
+    box-shadow: 1px 1px #ffff00, 2px 2px #ffff00, 3px 3px #ffff00,
+      4px 4px #ffff00, 5px 5px #ffff00, 6px 6px #ffff00, 7px 7px #ffff00,
+      8px 8px #ffff00;
+    -webkit-transform: translateX(-8px) translateY(-8px);
+    transform: translateX(-8px) translateY(-8px);
+  }
+}
+
+@-webkit-keyframes shadow-pop-br-uv {
+  0% {
+    -webkit-box-shadow: 0 0 #4c00ff, 0 0 #4c00ff, 0 0 #4c00ff, 0 0 #4c00ff,
+      0 0 #4c00ff, 0 0 #4c00ff, 0 0 #4c00ff, 0 0 #4c00ff;
+    box-shadow: 0 0 #4c00ff, 0 0 #4c00ff, 0 0 #4c00ff, 0 0 #4c00ff, 0 0 #4c00ff,
+      0 0 #4c00ff, 0 0 #4c00ff, 0 0 #4c00ff;
+    -webkit-transform: translateX(0) translateY(0);
+    transform: translateX(0) translateY(0);
+  }
+  100% {
+    -webkit-box-shadow: 1px 1px #4c00ff, 2px 2px #4c00ff, 3px 3px #4c00ff,
+      4px 4px #4c00ff, 5px 5px #4c00ff, 6px 6px #4c00ff, 7px 7px #4c00ff,
+      8px 8px #4c00ff;
+    box-shadow: 1px 1px #4c00ff, 2px 2px #4c00ff, 3px 3px #4c00ff,
+      4px 4px #4c00ff, 5px 5px #4c00ff, 6px 6px #4c00ff, 7px 7px #4c00ff,
+      8px 8px #4c00ff;
+    -webkit-transform: translateX(-8px) translateY(-8px);
+    transform: translateX(-8px) translateY(-8px);
+  }
+}
+@keyframes shadow-pop-br-uv {
+  0% {
+    -webkit-box-shadow: 0 0 #4c00ff, 0 0 #4c00ff, 0 0 #4c00ff, 0 0 #4c00ff,
+      0 0 #4c00ff, 0 0 #4c00ff, 0 0 #4c00ff, 0 0 #4c00ff;
+    box-shadow: 0 0 #4c00ff, 0 0 #4c00ff, 0 0 #4c00ff, 0 0 #4c00ff, 0 0 #4c00ff,
+      0 0 #4c00ff, 0 0 #4c00ff, 0 0 #4c00ff;
+    -webkit-transform: translateX(0) translateY(0);
+    transform: translateX(0) translateY(0);
+  }
+  100% {
+    -webkit-box-shadow: 1px 1px #4c00ff, 2px 2px #4c00ff, 3px 3px #4c00ff,
+      4px 4px #4c00ff, 5px 5px #4c00ff, 6px 6px #4c00ff, 7px 7px #4c00ff,
+      8px 8px #4c00ff;
+    box-shadow: 1px 1px #4c00ff, 2px 2px #4c00ff, 3px 3px #4c00ff,
+      4px 4px #4c00ff, 5px 5px #4c00ff, 6px 6px #4c00ff, 7px 7px #4c00ff,
+      8px 8px #4c00ff;
+    -webkit-transform: translateX(-8px) translateY(-8px);
+    transform: translateX(-8px) translateY(-8px);
   }
 }
 </style>

@@ -26,7 +26,7 @@
               </h5>
               <div class="card-subinfo">
                 <span class="badge badge-dark">
-                  {{ formatDate(article.updatedAt) }}
+                  {{ formatDate(article.createdAt) }}
                 </span>
               </div>
               <nuxt-link
@@ -57,9 +57,9 @@ export default {
         "channel",
         "category",
         "slug",
-        "updatedAt",
+        "createdAt",
       ])
-      .sortBy("updatedAt", "desc")
+      .sortBy("createdAt", "desc")
       .where({ channel: "dev-corporation", category: "front-end" })
       .fetch();
 

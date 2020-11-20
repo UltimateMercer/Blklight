@@ -1,10 +1,87 @@
 <template>
   <div>
-    <header
+    <div class="card my-0">
+      <div class="view">
+        <img
+          src="https://i.imgur.com/Ifkb1b5.png"
+          class="card-image-header cyberpunk-effect"
+          style="height: 300px !important;"
+        />
+        <div class="mask texture-mask-4"></div>
+        <div class="card-img-overlay d-flex flex-column">
+          <div class="container">
+            <h1>
+              <span class="marker marker-dark marker-title">
+                <strong>
+                  <em>Nerdstation</em>
+                </strong>
+              </span>
+            </h1>
+          </div>
+        </div>
+        <div
+          class="card-img-overlay h-100 d-flex flex-column justify-content-end"
+        >
+          <div class="container">
+            <!-- <div class="d-flex">
+              <span class="badge badge-dark badge-tag">
+                <font-awesome-icon :icon="['fas', 'home']" />
+              </span>
+              <span class="badge badge-dark badge-tag">
+                <font-awesome-icon :icon="['fas', 'home']" />
+              </span>
+              <span class="badge badge-success badge-tag ml-auto">
+                <font-awesome-icon :icon="['fas', 'home']" />
+              </span>
+              <span class="badge badge-success badge-tag">
+                Sobre
+              </span>
+            </div> -->
+            <div class="d-flex">
+              <span class="btn btn-dark">
+                <font-awesome-icon :icon="['fas', 'home']" />
+              </span>
+              <span class="btn btn-dark">
+                <font-awesome-icon :icon="['fas', 'home']" />
+              </span>
+              <span class="btn btn-dark ml-auto">
+                <font-awesome-icon :icon="['fas', 'home']" />
+              </span>
+              <span class="btn btn-dark">
+                Sobre
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <b-navbar tag="nav" toggleable="md" type="light" variant="orange">
+      <div class="container">
+        <b-navbar-brand>
+          <nuxt-link
+            to="/dev-corporation"
+            class="navbar-brand mx-2 py-2 exo-font"
+          >
+            <strong>
+              <font-awesome-icon :icon="['fas', 'home']" />
+            </strong>
+          </nuxt-link>
+        </b-navbar-brand>
+
+        <b-navbar-nav class="ml-auto">
+          <b-nav-form>
+            <nuxt-link to="/search" class="btn btn-outline-dark">
+              <font-awesome-icon :icon="['fas', 'search']" />
+            </nuxt-link>
+          </b-nav-form>
+        </b-navbar-nav>
+      </div>
+    </b-navbar> -->
+    <!-- <header
       class="bg-orange shadow-image mb-4"
       style="width: 100%; min-height: 150px;"
     >
-      <div class="container mt-2 pt-5">
+      <div class="container mt-2">
         <div class="card card-plain">
           <div class="card-body px-0">
             <h1 class="mb-3">
@@ -82,7 +159,7 @@
           </div>
         </div>
       </div>
-    </header>
+    </header> -->
     <div class="container mb-4">
       <h2 class="mt-3 mb-5"><strong> Artigos recentes </strong></h2>
       <div class="row">
@@ -106,7 +183,7 @@
                 </span>
               </h4>
               <span class="badge badge-dark">
-                {{ formatDate(article.updatedAt) }}
+                {{ formatDate(article.createdAt) }}
               </span>
 
               <nuxt-link
@@ -128,8 +205,8 @@
 export default {
   async asyncData({ $content, params }) {
     const articles = await $content("nerdstation", params.slug)
-      .only(["title", "img", "imgAlt", "channel", "slug", "updatedAt"])
-      .sortBy("updatedAt", "desc")
+      .only(["title", "img", "imgAlt", "channel", "slug", "createdAt"])
+      .sortBy("createdAt", "desc")
       .where({ channel: "nerdstation" })
       .fetch();
 

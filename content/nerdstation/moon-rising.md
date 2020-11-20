@@ -6,9 +6,12 @@ imgAlt: ""
 alt: my first blog post
 channel: "nerdstation"
 category: "LPJ"
-isFeatured: true
 isStories: true
 headerLayout: "landscape"
+author:
+  name: "Ultimate Mercer"
+  bio: "Ultimate Awakening"
+  avatar: https://i.imgur.com/diuV6oy.jpg
 ---
 
 # Descendunt signa noviens

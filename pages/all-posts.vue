@@ -42,9 +42,18 @@ export default {
   components: { DuotoneFilters, NewCards },
   async asyncData({ $content, params }) {
     const articles = await $content({ deep: true }, params.slug)
-      .only(["title", "img", "imgAlt", "channel", "slug", "dir", "updatedAt"])
-      .sortBy("updatedAt", "desc")
-
+      .only([
+        "title",
+        "img",
+        "imgAlt",
+        "channel",
+        "slug",
+        "dir",
+        "createdAt",
+        "isFeatured",
+      ])
+      .sortBy("createdAt", "desc")
+      .where({ isFeatured: true && false })
       .fetch();
 
     return {
@@ -78,9 +87,9 @@ export default {
           "channel",
           "slug",
           "isFeatured",
-          "updatedAt",
+          "createdAt",
         ])
-        .sortBy("updatedAt", "desc")
+        .sortBy("createdAt", "desc")
         .search(query)
         .fetch();
     },

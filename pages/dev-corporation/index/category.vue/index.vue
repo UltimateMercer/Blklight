@@ -32,9 +32,9 @@ export default {
           "channel",
           "category",
           "slug",
-          "updatedAt",
+          "createdAt",
         ])
-        .sortBy("updatedAt", "desc")
+        .sortBy("createdAt", "desc")
         .where({ channel: "dev-corporation" })
         .fetch();
 
@@ -51,9 +51,9 @@ export default {
         "channel",
         "category",
         "slug",
-        "updatedAt",
+        "createdAt",
       ])
-      .sortBy("updatedAt", "desc")
+      .sortBy("createdAt", "desc")
       .where({ channel: "dev-corporation", category: params.category })
       .fetch();
 

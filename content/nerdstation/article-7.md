@@ -8,6 +8,10 @@ channel: "nerdstation"
 category: "Atr"
 isFeatured: false
 headerLayout: ""
+author:
+  name: "Ultimate Mercer"
+  bio: "Ultimate Awakening"
+  avatar: https://i.imgur.com/diuV6oy.jpg
 ---
 
 # Continuo supra

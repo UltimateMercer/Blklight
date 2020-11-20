@@ -1,21 +1,20 @@
 <template>
   <div :class="{ 'bg-dark': isDarkMode }">
     <HeaderLayout :article="headerInfo" />
-    <div class="container-fluid px-lg-0 px-md-0 pb-4">
+    <div class="container-fluid px-md-0 py-4">
       <div
         class="col-xl-6 offset-xl-3 col-lg-8 offset-lg-2 p-lg-0 col-md-10 offset-md-1 p-md-0 col-12"
       >
         <div class="page">
           <div class="post monospace" :class="{ 'dark-post': isDarkMode }">
             <nuxt-content :document="article" />
-            <p>{{ this.$route.n }}</p>
 
             <!-- <pre>{{ article }}</pre> -->
           </div>
         </div>
       </div>
     </div>
-    <Author />
+    <Author :author="authorInfo" />
   </div>
 </template>
 <script>
@@ -43,7 +42,7 @@ export default {
     headerInfo(article) {
       return {
         title: this.article.title,
-        date: this.article.updatedAt,
+        date: this.article.createdAt,
         description: this.article.description,
         category: this.article.category,
         channel: this.article.channel,
@@ -51,6 +50,14 @@ export default {
         img: this.article.img,
         imgAlt: this.article.imgAlt,
         headerLayout: this.article.headerLayout,
+      };
+    },
+
+    authorInfo(article) {
+      return {
+        name: this.article.author.name,
+        bio: this.article.author.bio,
+        avatar: this.article.author.avatar,
       };
     },
   },

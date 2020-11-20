@@ -8,6 +8,10 @@ channel: "dev-corporation"
 category: "design"
 isFeatured: false
 headerLayout: "square-profile"
+author:
+  name: "Ultimate Mercer"
+  bio: "Ultimate Awakening"
+  avatar: https://i.imgur.com/diuV6oy.jpg
 ---
 
 ```javascript

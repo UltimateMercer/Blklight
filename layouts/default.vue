@@ -1,7 +1,7 @@
 <template>
   <div
     class="d-flex flex-column h-100"
-    :class="isDarkMode ? 'bg-dark' : 'bg-light'"
+    :class="isDarkMode ? 'bg-dark' : 'bg-polen'"
   >
     <Navbar />
     <Nuxt />

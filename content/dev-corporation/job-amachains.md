@@ -8,6 +8,10 @@ channel: "dev-corporation"
 category: "jobs"
 isFeatured: false
 headerLayout: "square-profile"
+author:
+  name: "Ultimate Mercer"
+  bio: "Ultimate Awakening"
+  avatar: https://i.imgur.com/diuV6oy.jpg
 ---
 
 A Amachains (Amachains – Amazônia Blockchain Solutions) é uma startup que tem como missão levar transparência e confiança para as pessoas através do desenvolvimento de redes de negócios sustentáveis com blockchain.

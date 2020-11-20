@@ -17,7 +17,7 @@
             </h5>
             <div class="card-subinfo">
               <span class="badge badge-dark">
-                {{ formatDate(article.updatedAt) }}
+                {{ formatDate(article.createdAt) }}
               </span>
             </div>
             <nuxt-link :to="article.slug" class="stretched-link"></nuxt-link>
@@ -34,8 +34,8 @@
 export default {
   async asyncData({ $content, params }) {
     const articles = await $content({ deep: true }, params.slug)
-      .only(["title", "img", "slug", "updatedAt"])
-      .sortBy("updatedAt", "desc")
+      .only(["title", "img", "slug", "createdAt"])
+      .sortBy("createdAt", "desc")
       .where({ category: "LPJ" })
       .fetch();
 

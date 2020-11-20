@@ -6,8 +6,12 @@ imgAlt: https://i.imgur.com/uIY2t68.jpg
 alt: my first blog post
 channel: "dev-corporation"
 category: "design"
-isFeatured: false
+isFeatured: true
 headerLayout: "square-profile"
+author:
+  name: "Ultimate Mercer"
+  bio: "Ultimate Awakening"
+  avatar: https://i.imgur.com/diuV6oy.jpg
 ---
 
 ## **Estética do poster: Construtivismo Russo**

@@ -8,6 +8,10 @@ channel: "dev-corporation"
 category: "LPJ"
 isFeatured: false
 headerLayout: "portrait-left"
+author:
+  name: "Ultimate Mercer"
+  bio: "Ultimate Awakening"
+  avatar: https://i.imgur.com/diuV6oy.jpg
 ---
 
 Projeto desenvolvido utilizando:

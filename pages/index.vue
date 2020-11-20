@@ -6,15 +6,17 @@
         v-for="(featured, i) in featureds"
         :key="i"
       >
-        <NewCards :article="featured" :isFeatured="true" :isFlat="true" />
+        <Cards
+          :article="featured"
+          :isFeatured="true"
+          :isFlat="true"
+          :isRaised="false"
+        />
       </div>
     </div>
 
-    <div
-      v-if="results.length === 0 && !query"
-      class="container px-md-0 px-4 mt-4 mb-4"
-    >
-      <h2>
+    <div class="container px-md-0 px-4 mt-4 mb-4">
+      <h2 class="mb-3">
         <span
           class="marker marker-title"
           :class="isDarkMode ? 'marker-light' : 'marker-dark'"
@@ -28,15 +30,15 @@
           :key="i"
           class="col-lg-4 col-md-6 col-12"
         >
-          <NewCards
+          <Cards
             :article="article"
             :isFeatured="true"
-            :isRaised="true"
+            :isRaised="false"
             :isFlat="true"
           />
         </div>
         <div class="col-md-6 offset-md-3 col-8 offset-2">
-          <nuxt-link to="all-posts" class="btn btn-uv mx-auto d-block">
+          <nuxt-link to="all-posts" class="btn btn-uv btn-flat mx-auto d-block">
             Ver mais artigos
           </nuxt-link>
         </div>
@@ -55,7 +57,7 @@
       </nuxt-link>
     </div>
     <div class="container px-md-0 my-3">
-      <h2>
+      <h2 class="mb-4">
         <span
           class="marker marker-title"
           :class="isDarkMode ? 'marker-light' : 'marker-dark'"
@@ -66,8 +68,8 @@
       <Podcast />
     </div>
     <div class="my-4">
-      <div class="container px-md-0 mb-3">
-        <h2>
+      <div class="container px-md-0">
+        <h2 class="mb-4">
           <span
             class="marker marker-title"
             :class="isDarkMode ? 'marker-light' : 'marker-dark'"
@@ -86,7 +88,7 @@
 <script>
 import { mapGetters } from "vuex";
 
-import NewCards from "@/components/Cards";
+import Cards from "@/components/Cards";
 import Stories from "@/components/StoriesCard";
 import Podcast from "@/components/Podcast";
 
@@ -94,7 +96,9 @@ import { format } from "date-fns";
 import { ptBR } from "date-fns/locale";
 
 export default {
-  components: { NewCards, Stories, Podcast },
+  transition: "bounce",
+
+  components: { Cards, Stories, Podcast },
   async asyncData({ $content, params }) {
     const featureds = await $content({ deep: true }, params.slug)
       .only([
@@ -104,12 +108,12 @@ export default {
         "slug",
         "dir",
         "channel",
-        "updatedAt",
+        "createdAt",
         "isStories",
         "isFeatured",
       ])
-      .sortBy("updatedAt", "desc")
-      .where({ isFeatured: true, isStories: false })
+      .sortBy("createdAt", "desc")
+      .where({ isFeatured: true })
       .limit(1)
       .fetch();
 
@@ -121,11 +125,11 @@ export default {
         "slug",
         "dir",
         "channel",
-        "updatedAt",
+        "createdAt",
         "isStories",
         "isFeatured",
       ])
-      .sortBy("updatedAt", "desc")
+      .sortBy("createdAt", "desc")
       .where({ isFeatured: false })
       .limit(9)
       .fetch();
@@ -139,15 +143,15 @@ export default {
         "slug",
         "dir",
         "channel",
-        "updatedAt",
+        "createdAt",
         "isStories",
         "isFeatured",
       ])
-      .sortBy("updatedAt", "desc")
-      .where({ isFeatured: true, isStories: true })
+      .sortBy("createdAt", "desc")
+      .where({ isStories: true })
       .limit(3)
       .fetch();
-    console.log(stories);
+
     return {
       featureds,
       articles,
