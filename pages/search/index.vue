@@ -9,7 +9,7 @@
           <input
             v-model="query"
             type="search"
-            class="form-control form-control-lg form-light text-light bg-transparent"
+            class="form-control form-control-lg form-light text-light"
             placeholder="Pesquisar"
             aria-label="Pesquisar"
             aria-describedby="search"

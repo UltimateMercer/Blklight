@@ -94,13 +94,13 @@ export default {
   &-uv {
     &:hover {
       transition: all ease-in-out 0.2s;
-      box-shadow: 0px 0px 0px 8px rgba(75, 0, 255, 1);
+      box-shadow: 0px 0px 0px 10px rgba(75, 0, 255, 1);
     }
   }
   &-yellow {
     &:hover {
       transition: all ease-in-out 0.2s;
-      box-shadow: 0px 0px 0px 8px rgba(255, 255, 0, 1);
+      box-shadow: 0px 0px 0px 10px rgba(255, 255, 0, 1);
     }
   }
 }

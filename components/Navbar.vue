@@ -1,20 +1,34 @@
 <template>
-  <b-navbar tag="nav" toggleable="md" type="light" variant="neon-yellow">
+  <b-navbar
+    tag="nav"
+    toggleable="md"
+    :type="isDarkMode ? 'light' : 'dark'"
+    :variant="isDarkMode ? 'neon-yellow' : 'dark'"
+  >
     <div class="container">
       <b-navbar-brand>
-        <nuxt-link to="/" class="navbar-brand py-2">
+        <nuxt-link
+          to="/"
+          class="navbar-brand ml-1 py-2"
+          :class="isDarkMode ? '' : 'text-neon-yellow'"
+        >
           <strong><em>BLKLIGHT</em></strong>
         </nuxt-link>
       </b-navbar-brand>
 
       <b-navbar-nav class="ml-auto">
         <b-nav-form>
-          <nuxt-link to="/search" class="btn btn-outline-dark">
+          <nuxt-link
+            to="/search"
+            class="btn"
+            :class="isDarkMode ? 'btn-outline-dark' : 'btn-outline-neon-yellow'"
+          >
             <font-awesome-icon :icon="['fas', 'search']" />
           </nuxt-link>
           <button
-            class="btn btn-outline-dark"
+            class="btn"
             title="Modo noturno"
+            :class="isDarkMode ? 'btn-outline-dark' : 'btn-outline-neon-yellow'"
             @click.prevent="darkMode"
           >
             <font-awesome-icon :icon="['fas', 'adjust']" />

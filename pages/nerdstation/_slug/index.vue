@@ -6,7 +6,7 @@
         class="col-xl-6 offset-xl-3 col-lg-8 offset-lg-2 p-lg-0 col-md-10 offset-md-1 p-md-0 col-12"
       >
         <div class="page">
-          <div class="post base" :class="{ 'dark-post': isDarkMode }">
+          <div class="post monospace" :class="{ 'dark-post': isDarkMode }">
             <nuxt-content :document="article" />
 
             <!-- <pre>{{ article }}</pre> -->

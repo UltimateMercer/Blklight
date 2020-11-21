@@ -107,18 +107,18 @@ export default {
 .hover-card {
   &-uv {
     &:hover {
-      -webkit-animation: shadow-pop-br-uv 0.3s
+      -webkit-animation: shadow-pop-br-uv 0.2s
         cubic-bezier(0.47, 0, 0.745, 0.715) both;
-      animation: shadow-pop-br-uv 0.3s cubic-bezier(0.47, 0, 0.745, 0.715) both;
+      animation: shadow-pop-br-uv 0.2s cubic-bezier(0.47, 0, 0.745, 0.715) both;
     }
   }
   &-yellow {
     &:hover {
       // transition: all ease-in-out 0.2s;
       // box-shadow: 6px 6px 1px 1px rgba(255, 255, 0, 1);
-      -webkit-animation: shadow-pop-br-yellow 0.3s
+      -webkit-animation: shadow-pop-br-yellow 0.2s
         cubic-bezier(0.47, 0, 0.745, 0.715) both;
-      animation: shadow-pop-br-yellow 0.3s cubic-bezier(0.47, 0, 0.745, 0.715)
+      animation: shadow-pop-br-yellow 0.2s cubic-bezier(0.47, 0, 0.745, 0.715)
         both;
     }
   }

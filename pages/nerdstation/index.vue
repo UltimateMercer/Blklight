@@ -38,16 +38,16 @@
               </span>
             </div> -->
             <div class="d-flex">
-              <span class="btn btn-dark">
+              <span class="btn btn-dark btn-sm">
                 <font-awesome-icon :icon="['fas', 'home']" />
               </span>
-              <span class="btn btn-dark">
+              <span class="btn btn-dark btn-sm">
                 <font-awesome-icon :icon="['fas', 'home']" />
               </span>
-              <span class="btn btn-dark ml-auto">
+              <span class="btn btn-dark btn-sm ml-auto">
                 <font-awesome-icon :icon="['fas', 'home']" />
               </span>
-              <span class="btn btn-dark">
+              <span class="btn btn-dark btn-sm">
                 Sobre
               </span>
             </div>
@@ -161,40 +161,20 @@
       </div>
     </header> -->
     <div class="container mb-4">
-      <h2 class="mt-3 mb-5"><strong> Artigos recentes </strong></h2>
+      <h2 class="mt-3">
+        <span
+          class="marker marker-title"
+          :class="isDarkMode ? 'marker-light' : 'marker-dark'"
+          ><strong> Artigos recentes </strong></span
+        >
+      </h2>
       <div class="row">
         <div
           v-for="(article, i) in articles"
           :key="i"
           class="col-lg-4 col-md-6 col-12"
         >
-          <div class="card card-raised text-dark mb-5">
-            <div class="card-picture narrow">
-              <img
-                class="card-img card-img-fit rounded"
-                :src="imageSrc(article)"
-                alt="Card image cap"
-              />
-            </div>
-            <div class="card-body">
-              <h4 class="">
-                <span class="marker marker-dark marker-title">
-                  {{ article.title }}
-                </span>
-              </h4>
-              <span class="badge badge-dark">
-                {{ formatDate(article.createdAt) }}
-              </span>
-
-              <nuxt-link
-                :to="{
-                  name: `${article.channel}-slug`,
-                  params: { slug: `${article.slug}` },
-                }"
-                class="stretched-link"
-              ></nuxt-link>
-            </div>
-          </div>
+          <Cards :article="article" :isFlat="true" />
         </div>
       </div>
     </div>
@@ -202,10 +182,13 @@
 </template>
 
 <script>
+import Cards from "~/components/Cards";
 export default {
+  components: { Cards },
+
   async asyncData({ $content, params }) {
     const articles = await $content("nerdstation", params.slug)
-      .only(["title", "img", "imgAlt", "channel", "slug", "createdAt"])
+      .only(["title", "img", "imgAlt", "dir", "channel", "slug", "createdAt"])
       .sortBy("createdAt", "desc")
       .where({ channel: "nerdstation" })
       .fetch();
