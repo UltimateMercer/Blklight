@@ -35,7 +35,7 @@
         <nuxt-link
           tag="a"
           :to="{
-            name: `${slugName}-slug`,
+            name: `${slugName(story.dir)}-slug`,
             params: { slug: `${story.slug}` },
           }"
           class="btn btn-uv btn-rounded"
@@ -65,11 +65,6 @@ export default {
 
   computed: {
     ...mapGetters(["isDarkMode"]),
-
-    slugName() {
-      const link = this.story.dir.replace("/", "");
-      return link;
-    },
   },
 
   methods: {
@@ -85,6 +80,12 @@ export default {
       const image = story.imgAlt ? story.imgAlt : story.img;
 
       return image;
+    },
+    slugName(dir) {
+      if (dir.startsWith("/stories/")) {
+        const link = dir.replace("/stories/", "");
+        return link;
+      }
     },
   },
 };

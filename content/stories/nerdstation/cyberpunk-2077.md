@@ -1,5 +1,5 @@
 ---
-title: "Cyberpunk 2077 - Tudo sobre o jogo"
+title: "Cyberpunk 2077 - Tudo sobre o universo do jogo"
 description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ultricies finibus lorem nec porta. Aenean sit amet iaculis felis. Donec neque felis, venenatis quis felis at, ornare eleifend tortor. "
 img: https://i.imgur.com/Gduoi7D.jpg?1
 imgAlt: ""

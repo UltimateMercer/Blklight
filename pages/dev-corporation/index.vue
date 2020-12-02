@@ -1,216 +1,127 @@
 <template>
   <div>
-    <div class="card my-0">
-      <div class="view">
-        <img
-          src="https://i.imgur.com/Te8hqVv.jpg"
-          class="card-image-header cyberpunk-effect"
-        />
-        <div class="mask texture-mask-4"></div>
-        <div class="card-img-overlay d-flex flex-column">
-          <div class="container">
-            <div class="d-flex mb-2">
-              <!-- <span class="badge badge-dark badge-tag mr-2">
-                Teste
-              </span> -->
-              <!-- <ChannelBadge :channel="story.channel" :isTag="true" /> -->
-            </div>
+    <ChannelHeader :routeName="this.$route.name" />
 
-            <h1>
-              <span class="marker marker-dark marker-title">
-                <strong>
-                  <em>Dev Corporation</em>
-                </strong>
-              </span>
-            </h1>
+    <div :class="{ 'bg-dark': isDarkMode }">
+      <div class="container-fluid pt-4 pb-2">
+        <div
+          class="col-xl-10 col-lg-12 col-md-12 col-12 offset-xl-1 offset-lg-0 offset-md-0 offset-0 p-md-0 px-1"
+        >
+          <div class="row">
+            <div
+              class="col-lg-6 col-12"
+              v-for="(featured, i) in featureds"
+              :key="i"
+            >
+              <Cards :article="featured" :isFeatured="true" :isFlat="true" />
+            </div>
           </div>
+        </div>
+      </div>
+      <div class="container px-md-0 px-4 pb-4">
+        <h2 class="pt-3 mb-2" :class="isDarkMode ? 'text-light' : ''">
+          <strong> Artigos recentes </strong>
+        </h2>
+        <div class="row">
+          <div
+            v-for="(article, i) in articles"
+            :key="i"
+            class="col-lg-4 col-md-6 col-12"
+          >
+            <Cards :article="article" :isFlat="true" />
+          </div>
+        </div>
+      </div>
+      <div class="my-4">
+        <div class="container px-md-0">
+          <h2 class="mb-4">
+            <span
+              class="marker marker-title"
+              :class="isDarkMode ? 'marker-light' : 'marker-dark'"
+            >
+              <strong> <em> Especiais</em></strong>
+            </span>
+          </h2>
+        </div>
+        <div v-for="(story, i) in stories" :key="i" class="mb-4">
+          <Stories :story="story" />
         </div>
       </div>
     </div>
-    <b-navbar tag="nav" toggleable="md" type="dark" variant="primary">
-      <div class="container">
-        <b-navbar-brand>
-          <nuxt-link to="/dev-corporation" class="navbar-brand">
-            <strong>
-              /Dev Corporation
-            </strong>
-          </nuxt-link>
-        </b-navbar-brand>
-        <b-navbar-nav>
-          <b-nav-item to="/dev-corporation">
-            Sobre
-          </b-nav-item>
-        </b-navbar-nav>
-
-        <b-navbar-nav class="ml-auto">
-          <b-nav-form>
-            <nuxt-link to="/search" class="btn btn-outline-light">
-              <font-awesome-icon :icon="['fas', 'search']" />
-            </nuxt-link>
-          </b-nav-form>
-        </b-navbar-nav>
-      </div>
-    </b-navbar>
-    <!-- <header class="bg-primary mt-3" style="width: 100%; min-height: 150px;">
-      <div class="container">
-        <div class="card card-plain my-0">
-          <div class="card-body px-0">
-            <h1 class="mb-3">
-              <nuxt-link to="">
-                <strong>
-                  <span
-                    class="marker marker-dark border-badge-dark marker-link"
-                  >
-                    Dev Corporation
-                  </span>
-                </strong>
-              </nuxt-link>
-            </h1>
-            <div class="d-lg-flex mb-3">
-              <nuxt-link
-                :to="{ name: 'dev-corporation-index' }"
-                class="badge badge-tag badge-dark border-badge-dark my-1"
-              >
-                <font-awesome-icon :icon="['fas', 'home']" />
-              </nuxt-link>
-              <nuxt-link
-                class="badge badge-tag badge-dark border-badge-dark my-1"
-                :to="{
-                  name: 'dev-corporation-index-front-end',
-                }"
-              >
-                Front-end
-              </nuxt-link>
-              <nuxt-link
-                class="badge badge-tag badge-dark border-badge-dark my-1"
-                :to="{
-                  name: 'dev-corporation-index-category',
-                  params: { category: 'back-end' },
-                }"
-                title="Acessar facebook"
-              >
-                Back-end
-              </nuxt-link>
-              <nuxt-link
-                class="badge badge-tag badge-light border-badge-dark my-1"
-                :to="{
-                  name: 'dev-corporation-index-category',
-                  params: { category: 'design' },
-                }"
-                title="Behance"
-              >
-                Design
-              </nuxt-link>
-              <nuxt-link
-                class="badge badge-tag badge-light border-badge-dark my-1"
-                :to="{
-                  name: 'dev-corporation-index-category',
-                  params: { category: 'jobs' },
-                }"
-                title="Linkedin"
-              >
-                Jobs
-              </nuxt-link>
-            </div>
-            <form @submit.prevent="onSearch">
-              <div class="input-group mb-2">
-                <div class="input-group-prepend">
-                  <span id="search" class="input-group-text">
-                    <font-awesome-icon :icon="['fas', 'search']" size="lg" />
-                  </span>
-                </div>
-                <input
-                  type="search"
-                  class="form-control bg-transparent text-light form-dark"
-                  placeholder="Pesquisar"
-                  aria-label="Username"
-                  aria-describedby="search"
-                />
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </header> -->
-
-    <!-- <div class="container">
-      <p>{{ this.$route.name }}</p>
-    </div> -->
-
-    <!-- <h3 v-if="categories">
-      Not Null
-    </h3>
-
-    <ul v-if="results.length">
-      <li v-for="result of results" :key="result.slug">
-        <NuxtLink
-          :to="{ name: 'blog-slug', params: { slug: result.slug } }"
-          class="text-dark"
-          >{{ result.title }}</NuxtLink
-        >
-      </li>
-    </ul> -->
-    <nuxt-child />
   </div>
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+
+import ChannelHeader from "~/components/ChannelHeader";
+import Cards from "~/components/Cards";
+import Stories from "~/components/StoriesCard";
+
 export default {
-  data() {
+  components: { Cards, Stories, ChannelHeader },
+
+  async asyncData({ $content, params }) {
+    const featureds = await $content("dev-corporation", params.slug)
+      .only([
+        "title",
+        "img",
+        "imgAlt",
+        "slug",
+        "dir",
+        "channel",
+        "createdAt",
+
+        "isFeatured",
+      ])
+      .sortBy("createdAt", "desc")
+      .where({ isFeatured: true })
+      .limit(2)
+      .fetch();
+
+    const articles = await $content("dev-corporation", params.slug)
+      .only([
+        "title",
+        "img",
+        "imgAlt",
+        "slug",
+        "dir",
+        "channel",
+        "createdAt",
+
+        "isFeatured",
+      ])
+      .sortBy("createdAt", "desc")
+      .where({ isFeatured: false })
+      .limit(9)
+      .fetch();
+
+    const stories = await $content("dev-corporation", params.slug)
+      .only([
+        "title",
+        "description",
+        "img",
+        "imgAlt",
+        "slug",
+        "dir",
+        "channel",
+        "createdAt",
+        "isStories",
+      ])
+      .sortBy("createdAt", "desc")
+      .where({ isStories: true })
+      .limit(3)
+      .fetch();
+
     return {
-      search: "",
-      categories: "",
-      results: [],
+      featureds,
+      articles,
+      stories,
     };
   },
 
-  watch: {
-    async category(categories) {
-      if (!categories) {
-        this.results = [];
-        return;
-      }
-
-      this.results = await this.$content("dev-corporation")
-        .only(["title", "channel", "category", "slug"])
-        .sortBy("createdAt", "asc")
-        .where({ channel: "dev-corporation" })
-        .search("category", categories)
-        .fetch();
-    },
-  },
-
-  methods: {
-    onSearch() {
-      this.$router.push({
-        name: "dev-corporation-index-search",
-        params: { search: this.search },
-      });
-    },
-
-    getCategory(category) {
-      this.categories = category;
-    },
+  computed: {
+    ...mapGetters(["isDarkMode"]),
   },
 };
 </script>
-<style lang="scss">
-.border-badge-light {
-  border: 2px solid #eaeaea;
-}
-
-.border-badge-dark {
-  border: 2px solid #121212;
-}
-
-::placeholder {
-  /* Chrome, Firefox, Opera, Safari 10.1+ */
-  color: #eaeaea !important;
-}
-
-.card-image-header {
-  width: 100%;
-  height: 250px;
-  object-fit: cover;
-}
-</style>

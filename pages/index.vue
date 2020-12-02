@@ -1,8 +1,13 @@
 <template>
   <div :class="{ 'bg-dark': isDarkMode }">
-    <div class="container-fluid pt-4 pb-2">
+    <div class="container">
+      <h1 :class="isDarkMode ? 'text-light' : 'text-dark'">
+        <strong> <em> Prototyping</em></strong>
+      </h1>
+    </div>
+    <div class="container-fluid py-2">
       <div
-        class="col-xl-10 col-lg-12 col-md-12 col-12 offset-xl-1 offset-lg-0 offset-md-0 offset-0 p-md-0 px-1"
+        class="col-xl-10 col-12 offset-xl-1 offset-0 px-xl-0 px-1"
         v-for="(featured, i) in featureds"
         :key="i"
       >
@@ -69,14 +74,21 @@
     </div>
     <div class="my-4">
       <div class="container px-md-0">
-        <h2 class="mb-4">
-          <span
-            class="marker marker-title"
-            :class="isDarkMode ? 'marker-light' : 'marker-dark'"
-          >
-            <strong> <em> Especiais</em></strong>
-          </span>
-        </h2>
+        <div class="d-flex">
+          <h2 class="mb-4">
+            <span
+              class="marker marker-title"
+              :class="isDarkMode ? 'marker-light' : 'marker-dark'"
+            >
+              <strong> <em> Especiais</em></strong>
+            </span>
+          </h2>
+          <div class="ml-auto">
+            <nuxt-link to="/all-stories" class="btn btn-uv btn-flat">
+              Ver stories
+            </nuxt-link>
+          </div>
+        </div>
       </div>
       <div v-for="(story, i) in stories" :key="i" class="mb-4">
         <Stories :story="story" />
@@ -100,7 +112,7 @@ export default {
 
   components: { Cards, Stories, Podcast },
   async asyncData({ $content, params }) {
-    const featureds = await $content({ deep: true }, params.slug)
+    const featureds = await $content("articles", { deep: true }, params.slug)
       .only([
         "title",
         "img",
@@ -109,15 +121,15 @@ export default {
         "dir",
         "channel",
         "createdAt",
-        "isStories",
+        "updatedAt",
         "isFeatured",
       ])
-      .sortBy("createdAt", "desc")
+      .sortBy("updatedAt", "desc")
       .where({ isFeatured: true })
       .limit(1)
       .fetch();
 
-    const articles = await $content({ deep: true }, params.slug)
+    const articles = await $content("articles", { deep: true }, params.slug)
       .only([
         "title",
         "img",
@@ -126,15 +138,15 @@ export default {
         "dir",
         "channel",
         "createdAt",
-        "isStories",
+        "updatedAt",
         "isFeatured",
       ])
-      .sortBy("createdAt", "desc")
+      .sortBy("updatedAt", "desc")
       .where({ isFeatured: false })
       .limit(9)
       .fetch();
 
-    const stories = await $content({ deep: true }, params.slug)
+    const stories = await $content("stories", { deep: true }, params.slug)
       .only([
         "title",
         "description",

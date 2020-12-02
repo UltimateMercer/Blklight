@@ -2,20 +2,34 @@
   <div>
     <div class="container py-4">
       <div
-        class="card card-flat p-1 mb-4"
-        :class="isDarkMode ? 'bg-darkest ' : 'bg-dark '"
+        class="card card-flat card-body bg-dark border border-neon-yellow mb-5"
       >
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text px-3" id="basic-addon1"
+              ><font-awesome-icon :icon="['fas', 'search']" size="lg"
+            /></span>
+          </div>
+          <input
+            v-model="query"
+            type="search"
+            class="form-control form-control-lg form-light bg-transparent text-light"
+            placeholder="Pesquisar aqui"
+          />
+        </div>
+      </div>
+      <!-- <div class="card card-flat bg-dark border border-neon-yellow p-1 mb-4">
         <div class="card-body">
           <input
             v-model="query"
             type="search"
-            class="form-control form-control-lg form-light text-light"
+            class="form-control form-control-lg form-light bg-transparent text-light"
             placeholder="Pesquisar"
             aria-label="Pesquisar"
             aria-describedby="search"
           />
         </div>
-      </div>
+      </div> -->
       <h1
         v-if="results.length === 0 && !query"
         class="text-center py-5"
@@ -26,6 +40,16 @@
           Pesquise um assunto de seu interesse...
         </strong>
       </h1>
+      <h2 v-if="query" class="mb-3">
+        <span
+          class="marker marker-title"
+          :class="isDarkMode ? 'marker-light' : 'marker-dark'"
+        >
+          <strong>
+            <em> Resultados encontrados para "{{ query }}"</em></strong
+          >
+        </span>
+      </h2>
       <div class="row">
         <div
           v-for="(result, i) in results"
@@ -45,7 +69,7 @@
           class="text-center py-5"
           :class="isDarkMode ? 'text-light' : 'text-dark'"
         >
-          <strong> :( Nada encontrado!</strong>
+          <strong> :( Nada encontrado para "{{ query }}"!</strong>
         </h1>
       </div>
     </div>

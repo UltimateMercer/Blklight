@@ -1,5 +1,5 @@
 ---
-title: "Guia para colher Valberry - Genshin Impact"
+title: "Guia para encontrar Valberry - Genshin Impact"
 img: https://s2.glbimg.com/-2xapRwXDmlKwCMG51_fiD1M21A=/0x0:1704x957/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_08fbf48bc0524877943fe86e43087e7a/internal_photos/bs/2020/k/g/TNZTOiTSqbUAZFrQbB2g/genshin-impact-lancamento-the-squad.jpg
 imgAlt: ""
 alt: my first blog post

@@ -27,7 +27,10 @@ export default {
   components: { HeaderLayout, Author },
 
   async asyncData({ $content, params }) {
-    const article = await $content("dev-corporation", params.slug).fetch();
+    const article = await $content(
+      "articles/dev-corporation",
+      params.slug
+    ).fetch();
     // console.log(name, params.slug);
     return { article };
   },
