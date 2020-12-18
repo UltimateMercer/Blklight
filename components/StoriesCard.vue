@@ -1,6 +1,6 @@
 <template>
   <div
-    class="card mb-4"
+    class="card card-flat mb-4"
     :class="isDarkMode ? 'hover-stories-yellow' : 'hover-stories-uv'"
   >
     <img
@@ -35,10 +35,10 @@
         <nuxt-link
           tag="a"
           :to="{
-            name: `${slugName(story.dir)}-slug`,
+            name: `${slugName}-slug`,
             params: { slug: `${story.slug}` },
           }"
-          class="btn btn-uv btn-rounded"
+          class="btn btn-uv btn-flat"
         >
           Ler mais...
         </nuxt-link>
@@ -65,6 +65,10 @@ export default {
 
   computed: {
     ...mapGetters(["isDarkMode"]),
+    slugName() {
+      const link = this.story.dir.replace("/", "");
+      return link;
+    },
   },
 
   methods: {
@@ -81,12 +85,6 @@ export default {
 
       return image;
     },
-    slugName(dir) {
-      if (dir.startsWith("/stories/")) {
-        const link = dir.replace("/stories/", "");
-        return link;
-      }
-    },
   },
 };
 </script>
@@ -95,13 +93,13 @@ export default {
   &-uv {
     &:hover {
       transition: all ease-in-out 0.2s;
-      box-shadow: 0px 0px 0px 10px rgba(75, 0, 255, 1);
+      box-shadow: 0px 0px 0px 8px rgba(75, 0, 255, 1);
     }
   }
   &-yellow {
     &:hover {
       transition: all ease-in-out 0.2s;
-      box-shadow: 0px 0px 0px 10px rgba(255, 255, 0, 1);
+      box-shadow: 0px 0px 0px 8px rgba(255, 255, 0, 1);
     }
   }
 }

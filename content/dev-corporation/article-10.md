@@ -14,8 +14,6 @@ author:
   avatar: https://i.imgur.com/diuV6oy.jpg
 ---
 
-# Descendunt signa noviens
-
 ## Undis Helenamque formae laetitiam usque
 
 Lorem markdownum equos praecipitem ignavi. Nam notam hunc Oleniae vesper, in
@@ -61,3 +59,7 @@ salutem namque caelitibus, at ecce sed deos pericla captus cur soror vos.
 Spatio in, fuit non litora infelix fleverunt partim, non Achivi elementa
 maerentes quoque tendentes! Simillima casus tamen retro antiquum deus nefas,
 fati poscitur pervigilem moenibus meruit.
+
+<a href="https://i.imgur.com/PfaL9wP.jpg" target="_blank">
+  <img src="https://i.imgur.com/PfaL9wP.jpg" class="img-fluid mx-auto d-block mb-3" />
+</a>

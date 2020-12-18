@@ -9,10 +9,24 @@
     </span>
     <span
       v-if="channel === 'nerdstation'"
-      class="badge badge-orange"
+      class="badge badge-dark text-danger"
       :class="isTag ? 'badge-tag' : ''"
     >
-      Nerdstation
+      Danger Zone
+    </span>
+    <span
+      v-if="channel === 'arts'"
+      class="badge badge-indigo"
+      :class="isTag ? 'badge-tag' : ''"
+    >
+      Arts
+    </span>
+    <span
+      v-if="channel === 'redlight'"
+      class="badge badge-pink"
+      :class="isTag ? 'badge-tag' : ''"
+    >
+      Redlight
     </span>
     <!-- <span v-else class="badge badge-dark"> {{ channel }}</span> -->
   </div>

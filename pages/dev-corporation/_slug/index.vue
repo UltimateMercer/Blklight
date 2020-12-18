@@ -1,7 +1,7 @@
 <template>
   <div :class="{ 'bg-dark': isDarkMode }">
     <HeaderLayout :article="headerInfo" />
-    <div class="container-fluid px-md-0 py-4">
+    <div class="container-fluid px-md-0 pb-4">
       <div
         class="col-xl-6 offset-xl-3 col-lg-8 offset-lg-2 p-lg-0 col-md-10 offset-md-1 p-md-0 col-12"
       >
@@ -28,7 +28,8 @@ export default {
 
   async asyncData({ $content, params }) {
     const article = await $content(
-      "articles/dev-corporation",
+      "dev-corporation",
+      { deep: true },
       params.slug
     ).fetch();
     // console.log(name, params.slug);

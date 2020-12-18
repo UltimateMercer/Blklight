@@ -26,14 +26,16 @@
             </strong>
           </span>
         </h4>
+
         <div class="d-flex justify-content-between">
           <span class="badge badge-dark badge-tag">
             {{ formatDate(article.createdAt) }}
           </span>
+
           <nuxt-link
             tag="a"
             :to="{
-              name: `${slugName(article.dir)}-slug`,
+              name: `${slugName}-slug`,
               params: { slug: `${article.slug}` },
             }"
             class="btn btn-uv btn-flat btn-sm"
@@ -79,6 +81,10 @@ export default {
 
   computed: {
     ...mapGetters(["isDarkMode"]),
+    slugName() {
+      const link = this.article.dir.replace("/", "").replace("/articles", "");
+      return link;
+    },
   },
 
   methods: {
@@ -95,12 +101,11 @@ export default {
 
       return image;
     },
-    slugName(dir) {
-      if (dir.startsWith("/articles/")) {
-        const link = dir.replace("/articles/", "");
-        return link;
-      }
-    },
+    // slugName(dir) {
+    //   const link = dir.replace("articles", "");
+    //   console.log(link);
+    //   return link;
+    // },
   },
 };
 </script>

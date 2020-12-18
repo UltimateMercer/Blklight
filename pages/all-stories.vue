@@ -9,22 +9,10 @@
           <strong> <em> Todos os artigos</em></strong>
         </span>
       </h2>
-      <div class="row">
-        <div
-          v-for="(article, i) in articles"
-          :key="i"
-          class="col-lg-4 col-md-6 col-12"
-        >
-          <NewCards
-            :article="article"
-            :isFeatured="true"
-            :isRaised="true"
-            :isFlat="true"
-          />
-        </div>
-      </div>
     </div>
-
+    <div v-for="(story, i) in stories" :key="i" class="mb-4">
+      <Stories :story="story" />
+    </div>
     <DuotoneFilters />
   </div>
 </template>
@@ -33,31 +21,34 @@
 import { mapGetters } from "vuex";
 
 import DuotoneFilters from "@/components/DuotoneFilters";
-import NewCards from "@/components/Cards";
+import Stories from "@/components/StoriesCard";
 
 import { format } from "date-fns";
 import { ptBR } from "date-fns/locale";
 
 export default {
-  components: { DuotoneFilters, NewCards },
+  components: { DuotoneFilters, Stories },
   async asyncData({ $content, params }) {
-    const articles = await $content("stories", { deep: true }, params.slug)
+    const stories = await $content({ deep: true }, params.slug)
       .only([
         "title",
+        "description",
         "img",
         "imgAlt",
         "channel",
         "slug",
         "dir",
         "createdAt",
+        "updatedAt",
+        "isStories",
         "isFeatured",
       ])
-      .sortBy("createdAt", "desc")
+      .sortBy("updatedAt", "desc")
       .where({ isStories: true })
       .fetch();
 
     return {
-      articles,
+      stories,
     };
   },
 

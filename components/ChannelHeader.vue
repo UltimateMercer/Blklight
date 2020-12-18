@@ -13,14 +13,20 @@
       </div>
       <div class="container mt-auto">
         <div class="d-flex">
-          <nuxt-link :to="channel.routes.home" class="btn btn-dark btn-sm">
+          <nuxt-link
+            :to="channel.routes.home"
+            class="btn btn-dark btn-flat btn-sm"
+          >
             <font-awesome-icon :icon="['fas', 'home']" />
           </nuxt-link>
 
-          <span class="btn btn-dark btn-sm ml-auto">
+          <span class="btn btn-dark btn-flat btn-sm ml-auto">
             <font-awesome-icon :icon="['fas', 'search']" />
           </span>
-          <nuxt-link :to="channel.routes.about" class="btn btn-dark btn-sm">
+          <nuxt-link
+            :to="channel.routes.about"
+            class="btn btn-dark btn-flat btn-sm"
+          >
             Sobre
           </nuxt-link>
         </div>
@@ -74,6 +80,33 @@ export default {
           },
           cover: "https://i.imgur.com/HzkfSgI.jpg",
         },
+        {
+          base: "blklist",
+          name: "Blklist",
+          routes: {
+            home: "/blklist",
+            about: "/blklist/about",
+          },
+          cover: "https://i.imgur.com/HzkfSgI.jpg",
+        },
+        {
+          base: "arts",
+          name: "Arts",
+          routes: {
+            home: "/arts",
+            about: "/arts/about",
+          },
+          cover: "https://i.imgur.com/E2xsDvG.jpg",
+        },
+        {
+          base: "redlight",
+          name: "Redlight",
+          routes: {
+            home: "/redlight",
+            about: "/redlight/about",
+          },
+          cover: "https://i.imgur.com/1k8By32.png",
+        },
       ],
     };
   },
@@ -100,7 +133,7 @@ export default {
 <style lang="scss">
 .card-image-header {
   width: 100%;
-  height: 275px;
+  height: 225px;
   object-fit: cover;
 }
 </style>

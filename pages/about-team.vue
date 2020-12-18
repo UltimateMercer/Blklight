@@ -1,6 +1,12 @@
 <template>
   <div class="container" :class="isDarkMode ? 'text-light' : 'text-dark'">
     <div class="my-3">
+      <img
+        src="~/static/blklight-base-w.svg"
+        width="200"
+        class="img-fluid mx-auto d-block my-3"
+        alt=""
+      />
       <h1 class="">
         <strong><em>Ultimate Awakening</em></strong>
       </h1>

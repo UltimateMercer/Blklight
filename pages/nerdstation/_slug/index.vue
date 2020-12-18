@@ -27,7 +27,16 @@ export default {
   components: { HeaderLayout, Author },
 
   async asyncData({ $content, params }) {
-    const article = await $content("articles/nerdstation", params.slug).fetch();
+    // if (params.slug.startsWith("/stories/")) {
+    //     const slug = params.slug.replace("/stories/", "");
+    //     const dir= params.slug.replace("")
+    //   }
+    console.log(params.slug);
+    const article = await $content(
+      "nerdstation",
+      { deep: true },
+      params.slug
+    ).fetch();
 
     return { article };
   },

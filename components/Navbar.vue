@@ -1,10 +1,9 @@
 <template>
   <b-navbar tag="nav" toggleable="md" type="dark" variant="uv">
     <div class="container">
-      <b-navbar-brand>
-        <nuxt-link to="/" class="navbar-brand ml-1 py-2">
-          <strong><em>BLKLIGHT</em></strong>
-        </nuxt-link>
+      <b-navbar-brand to="/">
+        <img src="~/static/blklight-base-w.svg" width="50" alt="" />
+        <strong><em>BLKLIGHT</em></strong>
       </b-navbar-brand>
 
       <b-navbar-nav class="ml-auto">
