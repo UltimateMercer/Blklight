@@ -50,9 +50,10 @@ export default {
         "slug",
         "dir",
         "createdAt",
+        "updatedAt",
         "isFeatured",
       ])
-      .sortBy("createdAt", "desc")
+      .sortBy("updatedAt", "desc")
       .where({ isFeatured: true && false })
       .fetch();
 
