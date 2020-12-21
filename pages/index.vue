@@ -7,13 +7,8 @@
         v-for="(featured, i) in featureds"
         :key="i"
       >
-        <h2 class="my-3">
-          <span
-            class="marker marker-title"
-            :class="isDarkMode ? 'marker-light' : 'marker-dark'"
-          >
-            <strong><em>Destaque</em></strong>
-          </span>
+        <h2 class="my-3" :class="isDarkMode ? 'text-light' : 'text-dark'">
+          <strong><em>Destaque</em></strong>
         </h2>
         <Cards
           :article="featured"
@@ -25,7 +20,7 @@
     </div>
 
     <div class="container px-md-0 px-4 mt-4 mb-4">
-      <h2 class="mb-3">
+      <h2 class="mb-3" :class="isDarkMode ? 'text-light' : 'text-dark'">
         <span
           class="marker marker-title"
           :class="isDarkMode ? 'marker-light' : 'marker-dark'"
