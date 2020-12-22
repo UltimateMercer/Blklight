@@ -338,7 +338,7 @@ export default {};
   &-yellow {
     &:hover {
       .cyberpunk-effect {
-        transition: 1s ease-in;
+        animation: ease-in-out 0.2s;
         filter: url("#cyberpunk-ultw");
       }
     }
@@ -350,7 +350,6 @@ export default {};
   &-yellow {
     &:hover {
       .cyberpunk-effect {
-        transition: 1s ease-in;
         filter: url("#cyberpunk-ultw");
       }
     }
@@ -360,7 +359,6 @@ export default {};
 .hover-header {
   &:hover {
     .cyberpunk-effect {
-      transition: 1s ease-in;
       filter: url("#cyberpunk-ultw");
     }
   }

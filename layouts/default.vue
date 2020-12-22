@@ -112,4 +112,23 @@ export default {
     opacity: 1;
   }
 }
+
+.hover-card {
+  &-uv,
+  &-yellow {
+    .card-img-border {
+      border-radius: 0.5rem;
+    }
+  }
+
+  &-uv,
+  &-yellow {
+    &:hover {
+      .card-img-border {
+        // transition: ease-in 0.1s;
+        border-radius: 0 !important;
+      }
+    }
+  }
+}
 </style>

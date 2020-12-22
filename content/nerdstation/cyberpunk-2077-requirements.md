@@ -2,7 +2,7 @@
 title: "Cyberpunk 2077 - Requisitos de sistema liberados"
 description: Learning how to use @nuxt/content to create a blog
 img: https://i.imgur.com/bDN6AB9.jpg
-imgAlt: ""
+imgAlt: https://i.imgur.com/ZTcUbBn.jpg
 alt: my first blog post
 channel: "nerdstation"
 category: "LPJ"

@@ -17,9 +17,9 @@
         >
           <NewCards
             :article="article"
-            :isFeatured="false"
+            :isFeatured="true"
             :isRaised="true"
-            :isFlat="true"
+            :isFlat="false"
           />
         </div>
       </div>

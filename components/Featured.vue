@@ -1,9 +1,8 @@
 <template>
   <div>
     <div
-      class="card card-background mb-4"
+      class="card card-featured-post card-background mb-4"
       :class="[
-        { 'card-featured-post': isFeatured },
         { 'card-raised': isRaised },
         isFlat ? 'card-flat' : 'card-img-border',
         isDarkMode ? 'hover-card-yellow' : 'hover-card-uv',
@@ -11,24 +10,22 @@
     >
       <img
         v-lazy="imageSrc(article)"
-        class="card-background-image cyberpunk-effect"
-        :class="[
-          { 'featured-image': isFeatured },
-          isFlat ? '' : 'card-img-border',
-        ]"
+        class="card-background-image featured-image cyberpunk-effect"
         :alt="article.title"
+        :class="isFlat ? '' : 'card-img-border'"
+        style="height: 600px !important;"
       />
       <div
         class="card-img-overlay h-100 d-flex flex-column justify-content-end"
       >
-        <ChannelBadge :channel="article.channel" :isTag="isFeatured" />
-        <h4 class="exo-font mt-2" style="font-style: italic;">
+        <ChannelBadge :channel="article.channel" :isTag="true" />
+        <h3 class="exo-font mt-2" style="font-style: italic;">
           <span class="marker marker-dark marker-title">
             <strong>
               {{ article.title }}
             </strong>
           </span>
-        </h4>
+        </h3>
 
         <div class="d-flex justify-content-between">
           <span class="badge badge-dark badge-tag">
@@ -59,7 +56,7 @@ import { ptBR } from "date-fns/locale";
 import ChannelBadge from "@/components/ChannelBadge";
 
 export default {
-  name: "Cards",
+  name: "Featured",
 
   components: { ChannelBadge },
 
@@ -67,10 +64,6 @@ export default {
     article: {
       type: Object,
       default: null,
-    },
-    isFeatured: {
-      type: Boolean,
-      default: false,
     },
     isRaised: {
       type: Boolean,

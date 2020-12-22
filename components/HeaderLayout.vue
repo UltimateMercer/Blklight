@@ -468,9 +468,7 @@ export default {
     ...mapGetters(["isDarkMode"]),
 
     imageSrc() {
-      const image = this.article.imgAlt
-        ? this.article.imgAlt
-        : this.article.img;
+      const image = this.article.img ? this.article.img : this.article.imgAlt;
 
       return image;
     },

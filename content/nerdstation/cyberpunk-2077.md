@@ -1,7 +1,7 @@
 ---
 title: "Cyberpunk 2077 - Tudo sobre o universo do jogo"
 description: "Embarque no mundo de Cyberpunk 2077 — um RPG narrativo e de mundo aberto em um futuro sombrio idealizado pela CD PROJEKT RED, criadores da série de jogos The Witcher."
-img: https://i.imgur.com/Gduoi7D.jpg?1
+img: https://i.imgur.com/X6INuFY.jpg
 imgAlt: ""
 alt: my first blog post
 channel: "nerdstation"
