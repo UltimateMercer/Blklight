@@ -1,14 +1,13 @@
 <template>
   <div
-    class="card card-flat mb-4"
-    :class="isDarkMode ? 'hover-card-yellow' : 'hover-card-uv'"
+    class="card mb-4"
+    :class="isDarkMode ? 'hover-card-yellow' : 'hover-card-uv card-raised'"
   >
     <img
       v-lazy="imageSrc(story)"
       :alt="story.title"
       class="card-image-stories card-img-border cyberpunk-effect"
     />
-    <div class="mask texture-mask-4"></div>
     <div class="card-img-overlay d-flex flex-column">
       <div class="d-flex mb-2">
         <span class="badge badge-dark badge-tag mr-2">

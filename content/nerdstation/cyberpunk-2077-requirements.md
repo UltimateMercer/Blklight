@@ -7,7 +7,7 @@ alt: my first blog post
 channel: "nerdstation"
 category: "LPJ"
 isFeatured: true
-headerLayout: "parallax"
+headerLayout: "landscape"
 author:
   name: "Ultimate Mercer"
   bio: "Ultimate Awakening"

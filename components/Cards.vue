@@ -5,8 +5,8 @@
       :class="[
         { 'card-featured-post': isFeatured },
         { 'card-raised': isRaised },
-        isFlat ? 'card-flat' : 'card-img-border',
-        isDarkMode ? 'hover-card-yellow' : 'hover-card-uv',
+        isFlat ? 'card-flat' : '',
+        isDarkMode ? 'hover-card-yellow' : 'hover-card-uv card-raised',
       ]"
     >
       <img
@@ -113,6 +113,9 @@ export default {
 };
 </script>
 <style lang="scss">
+.card {
+  border-radius: 0.5rem !important;
+}
 .hover-card {
   &-uv {
     &:hover {

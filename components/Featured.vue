@@ -2,11 +2,7 @@
   <div>
     <div
       class="card card-featured-post card-background mb-4"
-      :class="[
-        { 'card-raised': isRaised },
-        isFlat ? 'card-flat' : 'card-img-border',
-        isDarkMode ? 'hover-card-yellow' : 'hover-card-uv',
-      ]"
+      :class="[isDarkMode ? 'hover-card-yellow' : 'hover-card-uv card-raised']"
     >
       <img
         v-lazy="imageSrc(article)"
@@ -64,14 +60,6 @@ export default {
     article: {
       type: Object,
       default: null,
-    },
-    isRaised: {
-      type: Boolean,
-      default: false,
-    },
-    isFlat: {
-      type: Boolean,
-      default: false,
     },
   },
 

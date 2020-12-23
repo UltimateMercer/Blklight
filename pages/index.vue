@@ -1,6 +1,22 @@
 <template>
   <div :class="{ 'bg-dark': isDarkMode }">
-    <div class="container-fluid">
+    <div class="container-fluid mb-4">
+      <div class="col-xl-10 col-12 offset-xl-1 offset-0 px-xl-0 px-1">
+        <img
+          v-if="isDarkMode"
+          src="~/static/blklight-base-w.svg"
+          width="175"
+          class="mx-auto d-block mt-3"
+          alt=""
+        />
+        <img
+          v-else
+          src="~/static/blklight-base.svg"
+          width="175"
+          class="mx-auto d-block mt-3"
+          alt=""
+        />
+      </div>
       <div class="col-xl-10 col-12 offset-xl-1 offset-0 px-xl-0 px-1">
         <div class="row py-3">
           <div class="col-lg-7 col-md-6 col-12 px-md-4 px-3 mb-3">
@@ -12,12 +28,7 @@
                 <strong><em>Destaque</em></strong>
               </h2>
               <template v-for="(featured, i) in featureds">
-                <Featured
-                  :article="featured"
-                  :isFlat="false"
-                  :isRaised="false"
-                  :key="i"
-                />
+                <Featured :article="featured" :key="i" />
               </template>
               <!-- <img
               src="https://i.imgur.com/38XSkDw.jpg"
@@ -42,14 +53,7 @@
                 :key="i"
               />
             </template>
-            <div class="col-md-8 offset-md-2 col-8 offset-2">
-              <nuxt-link
-                to="all-posts"
-                class="btn btn-uv btn-flat mx-auto d-block"
-              >
-                Ver mais artigos
-              </nuxt-link>
-            </div>
+
             <!-- <img
               src="https://i.imgur.com/ZTcUbBn.jpg"
               class="mx-auto d-block mb-3"
@@ -70,116 +74,39 @@
             /> -->
           </div>
         </div>
-      </div>
-    </div>
-    <div class="container-fluid">
-      <div class="col-xl-10 col-12 offset-xl-1 offset-0 px-xl-0 px-1">
-        <h2 class="mt-3 mb-3" :class="isDarkMode ? 'text-light' : 'text-dark'">
-          <strong><em>Podcast</em></strong>
-        </h2>
-        <Podcast />
-      </div>
-    </div>
-    <div class="container-fluid">
-      <div class="col-xl-10 col-12 offset-xl-1 offset-0 px-xl-0 px-1">
-        <h2 class="mt-3 mb-3" :class="isDarkMode ? 'text-light' : 'text-dark'">
-          <strong><em>Especiais</em></strong>
-        </h2>
-        <div v-for="(story, i) in stories" :key="i" class="mb-4">
-          <Stories :story="story" />
-        </div>
-      </div>
-    </div>
-    <div class="container-fluid py-1">
-      <div
-        class="col-xl-10 col-12 offset-xl-1 offset-0 px-xl-0 px-1"
-        v-for="(featured, i) in featureds"
-        :key="i"
-      >
-        <h2 class="my-3" :class="isDarkMode ? 'text-light' : 'text-dark'">
-          <strong><em>Destaque</em></strong>
-        </h2>
-        <Cards
-          :article="featured"
-          :isFeatured="true"
-          :isFlat="true"
-          :isRaised="false"
-        />
-      </div>
-    </div>
-
-    <div class="container px-md-0 px-4 mt-4 mb-4">
-      <h2 class="mb-3" :class="isDarkMode ? 'text-light' : 'text-dark'">
-        <span
-          class="marker marker-title"
-          :class="isDarkMode ? 'marker-light' : 'marker-dark'"
-        >
-          <strong> <em> Últimas notícias</em></strong>
-        </span>
-      </h2>
-      <div class="row">
-        <div
-          v-for="(article, i) in articles"
-          :key="i"
-          class="col-lg-4 col-md-6 col-12"
-        >
-          <Cards
-            :article="article"
-            :isFeatured="true"
-            :isRaised="false"
-            :isFlat="false"
-          />
-        </div>
-        <div class="col-md-6 offset-md-3 col-8 offset-2">
+        <div class="col-lg-6 offset-lg-3 col-md-8 offset-md-2 col-8 offset-2">
           <nuxt-link to="all-posts" class="btn btn-uv btn-flat mx-auto d-block">
             Ver mais artigos
           </nuxt-link>
         </div>
       </div>
     </div>
-    <div class="container my-3">
-      <nuxt-link to="/dev-corporation" class="btn btn-primary btn-raised">
-        Dev Corporation
-      </nuxt-link>
-      <nuxt-link to="/nerdstation" class="btn btn-orange btn-raised">
-        Nerdstation
-      </nuxt-link>
-      <nuxt-link to="/search" class="btn btn-outline-v2-dark btn-raised">
-        <font-awesome-icon :icon="['fas', 'search']" />
-        Pesquisar
-      </nuxt-link>
-    </div>
-    <div class="container px-md-0 my-3">
-      <h2 class="mb-4">
-        <span
-          class="marker marker-title"
-          :class="isDarkMode ? 'marker-light' : 'marker-dark'"
-        >
-          <strong> <em> Podcast</em></strong>
-        </span>
-      </h2>
-      <Podcast />
-    </div>
-    <div class="my-4">
-      <div class="container px-md-0">
-        <div class="d-flex">
-          <h2 class="mb-3">
-            <span
-              class="marker marker-title"
-              :class="isDarkMode ? 'marker-light' : 'marker-dark'"
-            >
-              <strong> <em> Especiais</em></strong>
-            </span>
-          </h2>
-          <div class="ml-auto">
-            <nuxt-link to="/all-stories" class="btn btn-uv btn-flat">
-              Ver stories
-            </nuxt-link>
-          </div>
+
+    <div class="container-fluid mb-4">
+      <div class="col-xl-10 col-12 offset-xl-1 offset-0 px-xl-0 px-1">
+        <h2 class="mb-3" :class="isDarkMode ? 'text-light' : 'text-dark'">
+          <strong><em>Especiais</em></strong>
+        </h2>
+
+        <div v-for="(story, i) in stories" :key="i" class="mb-4">
+          <Stories :story="story" />
+        </div>
+        <div class="col-lg-6 offset-lg-3 col-md-8 offset-md-2 col-8 offset-2">
+          <nuxt-link
+            to="/all-stories"
+            class="btn btn-uv btn-flat mx-auto d-block"
+          >
+            Ver mais stories
+          </nuxt-link>
         </div>
       </div>
-      <div v-for="(story, i) in stories" :key="i" class="mb-4">
-        <Stories :story="story" />
+    </div>
+    <div class="container-fluid mb-4">
+      <div class="col-xl-10 col-12 offset-xl-1 offset-0 px-xl-0 px-1">
+        <h2 class="mt-3 mb-3" :class="isDarkMode ? 'text-light' : 'text-dark'">
+          <strong><em>Podcast</em></strong>
+        </h2>
+        <Podcast />
       </div>
     </div>
   </div>

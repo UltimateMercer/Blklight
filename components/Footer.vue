@@ -36,12 +36,17 @@
             <ul class="list-unstyled text-small">
               <li>
                 <nuxt-link class="text-light" to="/about-team">
-                  Team Blklight
+                  Projeto Blklight
                 </nuxt-link>
               </li>
               <li>
                 <nuxt-link class="text-light" to="/about-team">
                   Site
+                </nuxt-link>
+              </li>
+              <li>
+                <nuxt-link class="text-light" to="/old-home">
+                  Home (Layout antigo)
                 </nuxt-link>
               </li>
             </ul>
