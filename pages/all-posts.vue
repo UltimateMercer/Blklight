@@ -1,26 +1,23 @@
 <template>
   <div :class="{ 'bg-dark': isDarkMode }">
-    <div class="container px-md-0 px-4 pt-3 mb-4">
-      <h2>
-        <span
-          class="marker marker-title"
-          :class="isDarkMode ? 'marker-light' : 'marker-dark'"
-        >
-          <strong> <em> Todos os artigos</em></strong>
-        </span>
-      </h2>
-      <div class="row">
-        <div
-          v-for="(article, i) in articles"
-          :key="i"
-          class="col-lg-4 col-md-6 col-12"
-        >
-          <NewCards
-            :article="article"
-            :isFeatured="true"
-            :isRaised="true"
-            :isFlat="false"
-          />
+    <div class="container-fluid pt-3 mb-4">
+      <div class="col-xl-10 col-12 offset-xl-1 offset-0 px-xl-0 px-1">
+        <h2>
+          <span
+            class="marker marker-title"
+            :class="isDarkMode ? 'marker-light' : 'marker-dark'"
+          >
+            <strong> <em> Todos os artigos</em></strong>
+          </span>
+        </h2>
+        <div class="row">
+          <div
+            v-for="(article, i) in articles"
+            :key="i"
+            class="col-lg-4 col-md-6 col-12"
+          >
+            <NewCards :article="article" :isFeatured="true" />
+          </div>
         </div>
       </div>
     </div>
@@ -54,7 +51,7 @@ export default {
         "isFeatured",
       ])
       .sortBy("updatedAt", "desc")
-      .where({ isFeatured: true && false })
+
       .fetch();
 
     return {

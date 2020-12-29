@@ -29,22 +29,24 @@
       </div>
     </div>
 
-    <div class="container mb-4 px-md-0 px-4">
-      <h2 class="mt-3">
-        <span
-          class="marker marker-title"
-          :class="isDarkMode ? 'marker-light' : 'marker-dark'"
-        >
-          <strong> Artigos recentes </strong>
-        </span>
-      </h2>
-      <div class="row">
-        <div
-          v-for="(article, i) in articles"
-          :key="i"
-          class="col-lg-4 col-md-6 col-12"
-        >
-          <Cards :article="article" :isFlat="true" />
+    <div class="container-fluid mb-4">
+      <div class="col-xl-10 col-12 offset-xl-1 offset-0 px-xl-0 px-1">
+        <h2 class="mt-3">
+          <span
+            class="marker marker-title"
+            :class="isDarkMode ? 'marker-light' : 'marker-dark'"
+          >
+            <strong> Artigos recentes </strong>
+          </span>
+        </h2>
+        <div class="row">
+          <div
+            v-for="(article, i) in articles"
+            :key="i"
+            class="col-lg-4 col-md-6 col-12"
+          >
+            <Cards :article="article" />
+          </div>
         </div>
       </div>
     </div>

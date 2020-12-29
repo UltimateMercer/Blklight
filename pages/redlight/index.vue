@@ -1,7 +1,7 @@
 <template>
   <div>
     <ChannelHeader :routeName="this.$route.name" />
-    <div :class="{ 'bg-dark': isDarkMode }" style="width: 100%; height: 275px;">
+    <div :class="{ 'bg-dark': isDarkMode }" style="width: 100%; height: 275px">
       <div class="container">
         <h1 class="my-5" :class="{ 'text-light': isDarkMode }">
           Nada no momento...
@@ -19,7 +19,7 @@
               v-for="(featured, i) in featureds"
               :key="i"
             >
-              <Cards :article="featured" :isFeatured="true" :isFlat="true" />
+              <Cards :article="featured" :isFeatured="true"  />
             </div>
           </div>
         </div>
@@ -34,7 +34,7 @@
             :key="i"
             class="col-lg-4 col-md-6 col-12"
           >
-            <Cards :article="article" :isFlat="true" />
+            <Cards :article="article"  />
           </div>
         </div>
       </div>

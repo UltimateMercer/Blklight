@@ -1,76 +1,62 @@
 <template>
   <div>
-    <div class="container py-4">
-      <div
-        class="card card-flat card-body bg-dark border border-neon-yellow mb-5"
-      >
-        <div class="input-group">
-          <div class="input-group-prepend">
-            <span class="input-group-text px-3" id="basic-addon1"
-              ><font-awesome-icon :icon="['fas', 'search']" size="lg"
-            /></span>
-          </div>
-          <input
-            v-model="query"
-            type="search"
-            class="form-control form-control-lg form-light bg-transparent text-light"
-            placeholder="Pesquisar aqui"
-          />
-        </div>
-      </div>
-      <!-- <div class="card card-flat bg-dark border border-neon-yellow p-1 mb-4">
-        <div class="card-body">
-          <input
-            v-model="query"
-            type="search"
-            class="form-control form-control-lg form-light bg-transparent text-light"
-            placeholder="Pesquisar"
-            aria-label="Pesquisar"
-            aria-describedby="search"
-          />
-        </div>
-      </div> -->
-      <h1
-        v-if="results.length === 0 && !query"
-        class="text-center py-5"
-        :class="isDarkMode ? 'text-light' : 'text-dark'"
-      >
-        <strong>
-          <font-awesome-icon :icon="['fas', 'search']" />
-          Pesquise um assunto de seu interesse...
-        </strong>
-      </h1>
-      <h2 v-if="query" class="mb-3">
-        <span
-          class="marker marker-title"
-          :class="isDarkMode ? 'marker-light' : 'marker-dark'"
-        >
-          <strong>
-            <em> Resultados encontrados para "{{ query }}"</em></strong
-          >
-        </span>
-      </h2>
-      <div class="row">
+    <div class="container-fluid py-4">
+      <div class="col-xl-10 col-12 offset-xl-1 offset-0 px-xl-0 px-1">
         <div
-          v-for="(result, i) in results"
-          :key="i"
-          class="col-lg-4 col-md-6 col-12"
+          class="card card-flat card-body bg-dark border border-neon-yellow mb-5"
         >
-          <Cards :article="result" :isFlat="true" :isRaised="true" />
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text px-3"
+                ><font-awesome-icon :icon="['fas', 'search']" size="lg"
+              /></span>
+            </div>
+            <input
+              v-model="query"
+              type="search"
+              class="form-control form-control-lg form-light bg-transparent text-light"
+              placeholder="Pesquisar aqui"
+            />
+          </div>
         </div>
-      </div>
-
-      <!-- <div v-for="(result, i) in results" :key="i">
-        <CardsHorizontal :article="result" />
-      </div> -->
-
-      <div v-if="results.length === 0 && query" class="container">
         <h1
+          v-if="results.length === 0 && !query"
           class="text-center py-5"
           :class="isDarkMode ? 'text-light' : 'text-dark'"
         >
-          <strong> :( Nada encontrado para "{{ query }}"!</strong>
+          <strong>
+            <font-awesome-icon :icon="['fas', 'search']" />
+            Pesquise um assunto de seu interesse...
+          </strong>
         </h1>
+        <h2 v-if="query" class="mb-3">
+          <span
+            class="marker marker-title"
+            :class="isDarkMode ? 'marker-light' : 'marker-dark'"
+          >
+            <strong>
+              <em> Resultados encontrados para "{{ query }}"</em></strong
+            >
+          </span>
+        </h2>
+        <div class="row">
+          <div
+            v-for="(result, i) in results"
+            :key="i"
+            class="col-lg-4 col-md-6 col-12"
+          >
+            <Cards :article="result" />
+          </div>
+        </div>
+
+        <div v-if="results.length === 0 && query" class="container">
+          <h1
+            class="text-center py-5"
+            :class="isDarkMode ? 'text-light' : 'text-dark'"
+          >
+            <strong> :( Nada encontrado para "{{ query }}"!</strong>
+          </h1>
+        </div>
       </div>
     </div>
   </div>

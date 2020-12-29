@@ -1,25 +1,44 @@
 <template>
-  <b-navbar tag="nav" toggleable="md" type="dark" variant="uv">
-    <div class="container">
-      <b-navbar-brand to="/">
-        <img src="~/static/blklight-base-w.svg" width="50" alt="" />
-        <strong><em>BLKLIGHT</em></strong>
-      </b-navbar-brand>
+  <b-navbar
+    tag="nav"
+    toggleable="md"
+    :type="isDarkMode ? 'dark' : 'light'"
+    :variant="isDarkMode ? 'dark' : 'polen'"
+  >
+    <div class="col-xl-10 col-12 offset-xl-1 offset-0 px-xl-0 px-2">
+      <div class="container-fluid">
+        <b-navbar-brand to="/">
+          <img
+            v-if="isDarkMode"
+            src="~/static/blklight-base-w.svg"
+            width="50"
+            alt=""
+          />
+          <img v-else src="~/static/blklight-base.svg" width="50" alt="" />
 
-      <b-navbar-nav class="ml-auto">
-        <b-nav-form>
-          <nuxt-link to="/search" class="btn btn-outline-light">
-            <font-awesome-icon :icon="['fas', 'search']" />
-          </nuxt-link>
-          <button
-            class="btn btn-outline-light"
-            title="Modo noturno"
-            @click.prevent="darkMode"
-          >
-            <font-awesome-icon :icon="['fas', 'adjust']" />
-          </button>
-        </b-nav-form>
-      </b-navbar-nav>
+          <strong><em>BLKLIGHT</em></strong>
+        </b-navbar-brand>
+
+        <b-navbar-nav class="ml-auto">
+          <b-nav-form>
+            <nuxt-link
+              to="/search"
+              class="btn"
+              :class="isDarkMode ? 'btn-outline-light' : 'btn-outline-dark'"
+            >
+              <font-awesome-icon :icon="['fas', 'search']" />
+            </nuxt-link>
+            <button
+              class="btn"
+              title="Modo noturno"
+              @click.prevent="darkMode"
+              :class="isDarkMode ? 'btn-outline-light' : 'btn-outline-dark'"
+            >
+              <font-awesome-icon :icon="['fas', 'adjust']" />
+            </button>
+          </b-nav-form>
+        </b-navbar-nav>
+      </div>
     </div>
   </b-navbar>
 </template>

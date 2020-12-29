@@ -2,33 +2,37 @@
   <div class="card mt-0 mb-4">
     <img v-lazy="channel.cover" class="card-image-header cyberpunk-header" />
     <div class="card-img-overlay d-flex flex-column">
-      <div class="container">
-        <h1>
-          <span class="marker marker-dark marker-title">
-            <strong>
-              <em>{{ channel.name }}</em>
-            </strong>
-          </span>
-        </h1>
+      <div class="container-fluid">
+        <div class="col-xl-10 col-12 offset-xl-1 offset-0 px-xl-0 px-1">
+          <h1>
+            <span class="marker marker-dark marker-title">
+              <strong>
+                <em>{{ channel.name }}</em>
+              </strong>
+            </span>
+          </h1>
+        </div>
       </div>
-      <div class="container mt-auto">
-        <div class="d-flex">
-          <nuxt-link
-            :to="channel.routes.home"
-            class="btn btn-dark btn-flat btn-sm"
-          >
-            <font-awesome-icon :icon="['fas', 'home']" />
-          </nuxt-link>
+      <div class="container-fluid mt-auto">
+        <div class="col-xl-10 col-12 offset-xl-1 offset-0 px-xl-0 px-1">
+          <div class="d-flex">
+            <nuxt-link
+              :to="channel.routes.home"
+              class="btn btn-dark btn-flat btn-sm"
+            >
+              <font-awesome-icon :icon="['fas', 'home']" />
+            </nuxt-link>
 
-          <span class="btn btn-dark btn-flat btn-sm ml-auto">
-            <font-awesome-icon :icon="['fas', 'search']" />
-          </span>
-          <nuxt-link
-            :to="channel.routes.about"
-            class="btn btn-dark btn-flat btn-sm"
-          >
-            Sobre
-          </nuxt-link>
+            <span class="btn btn-dark btn-flat btn-sm ml-auto">
+              <font-awesome-icon :icon="['fas', 'search']" />
+            </span>
+            <nuxt-link
+              :to="channel.routes.about"
+              class="btn btn-dark btn-flat btn-sm"
+            >
+              Sobre
+            </nuxt-link>
+          </div>
         </div>
       </div>
     </div>
@@ -133,7 +137,7 @@ export default {
 <style lang="scss">
 .card-image-header {
   width: 100%;
-  height: 225px;
+  height: 250px;
   object-fit: cover;
 }
 </style>

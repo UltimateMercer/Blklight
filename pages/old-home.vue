@@ -9,12 +9,7 @@
         <h2 class="my-3" :class="isDarkMode ? 'text-light' : 'text-dark'">
           <strong><em>Destaque</em></strong>
         </h2>
-        <Cards
-          :article="featured"
-          :isFeatured="true"
-          :isFlat="true"
-          :isRaised="false"
-        />
+        <Cards :article="featured" :isFeatured="true" />
       </div>
     </div>
 
@@ -33,12 +28,7 @@
           :key="i"
           class="col-lg-4 col-md-6 col-12"
         >
-          <Cards
-            :article="article"
-            :isFeatured="true"
-            :isRaised="false"
-            :isFlat="false"
-          />
+          <Cards :article="article" :isFeatured="true" />
         </div>
         <div class="col-md-6 offset-md-3 col-8 offset-2">
           <nuxt-link to="all-posts" class="btn btn-uv btn-flat mx-auto d-block">

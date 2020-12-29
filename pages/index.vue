@@ -2,20 +2,22 @@
   <div :class="{ 'bg-dark': isDarkMode }">
     <div class="container-fluid mb-4">
       <div class="col-xl-10 col-12 offset-xl-1 offset-0 px-xl-0 px-1">
-        <img
-          v-if="isDarkMode"
-          src="~/static/blklight-base-w.svg"
-          width="175"
-          class="mx-auto d-block mt-3"
-          alt=""
-        />
-        <img
-          v-else
-          src="~/static/blklight-base.svg"
-          width="175"
-          class="mx-auto d-block mt-3"
-          alt=""
-        />
+        <template v-if="isDarkMode">
+          <img
+            src="~/static/blklight-base-w.svg"
+            width="160"
+            class="mx-auto d-block mt-2"
+            alt=""
+          />
+        </template>
+        <template v-else>
+          <img
+            src="~/static/blklight-base.svg"
+            width="160"
+            class="mx-auto d-block mt-2"
+            alt=""
+          />
+        </template>
       </div>
       <div class="col-xl-10 col-12 offset-xl-1 offset-0 px-xl-0 px-1">
         <div class="row py-3">
@@ -28,13 +30,8 @@
                 <strong><em>Destaque</em></strong>
               </h2>
               <template v-for="(featured, i) in featureds">
-                <Featured :article="featured" :key="i" />
+                <Featured :key="i" :article="featured" />
               </template>
-              <!-- <img
-              src="https://i.imgur.com/38XSkDw.jpg"
-              class="img-fluid mx-auto d-block mb-3"
-              alt=""
-            /> -->
             </div>
           </div>
           <div class="col-lg-5 col-md-6 col-12 px-md-4 px-3">
@@ -45,33 +42,8 @@
               <strong> <em> Últimas notícias</em></strong>
             </h2>
             <template v-for="(article, i) in articles">
-              <Cards
-                :article="article"
-                :isFeatured="true"
-                :isRaised="false"
-                :isFlat="false"
-                :key="i"
-              />
+              <Cards :key="i" :article="article" :isFeatured="true" />
             </template>
-
-            <!-- <img
-              src="https://i.imgur.com/ZTcUbBn.jpg"
-              class="mx-auto d-block mb-3"
-              style="width: 100%; height: 525px; object-fit: cover;"
-              alt=""
-            />
-            <img
-              src="https://i.imgur.com/ZTcUbBn.jpg"
-              class="mx-auto d-block mb-3"
-              style="width: 100%; height: 525px; object-fit: cover;"
-              alt=""
-            />
-            <img
-              src="https://i.imgur.com/ZTcUbBn.jpg"
-              class="mx-auto d-block mb-3"
-              style="width: 100%; height: 525px; object-fit: cover;"
-              alt=""
-            /> -->
           </div>
         </div>
         <div class="col-lg-6 offset-lg-3 col-md-8 offset-md-2 col-8 offset-2">
@@ -156,7 +128,7 @@ export default {
       ])
       .sortBy("updatedAt", "desc")
       .where({ isFeatured: false })
-      .limit(6)
+      .limit(5)
       .fetch();
 
     const stories = await $content({ deep: true }, params.slug)

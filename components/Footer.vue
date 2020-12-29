@@ -1,27 +1,33 @@
 <template>
   <footer class="mt-auto">
-    <div class="container-fluid mt-4 bg-dark text-light">
+    <div
+      class="container-fluid mt-4"
+      :class="isDarkMode ? 'bg-dark text-light' : 'bg-polen text-dark'"
+    >
       <div class="container py-5">
         <div class="row">
           <div class="col-12 col-md">
-            <img src="~/static/blklight-base-w.svg" width="60" alt="" />
-
+            <img
+              v-if="isDarkMode"
+              src="~/static/blklight-base-w.svg"
+              width="60"
+              alt=""
+            />
+            <img v-else src="~/static/blklight-base.svg" width="60" alt="" />
             <small class="d-block mb-3 text-muted">&copy;2020</small>
           </div>
           <div class="col-6 col-md">
-            <h5>
-              <span class="marker marker-light marker-title">
-                Redes sociais
-              </span>
+            <h5 :class="isDarkMode ? 'text-light' : 'text-dark'">
+              <strong><em> Redes sociais </em></strong>
             </h5>
             <ul class="list-unstyled">
               <li class="">
                 <a
-                  href="mailto:juliancunha2010@hotmail.com"
-                  class="text-light"
+                  href="#"
                   target="_blank"
                   rel="noopener"
                   title="E-mail"
+                  :class="isDarkMode ? 'text-light' : 'text-dark'"
                 >
                   <font-awesome-icon :icon="['fas', 'envelope']" size="lg" />
                   E-mail
@@ -30,22 +36,31 @@
             </ul>
           </div>
           <div class="col-6 col-md">
-            <h5>
-              <span class="marker marker-light marker-title">Sobre</span>
+            <h5 :class="isDarkMode ? 'text-light' : 'text-dark'">
+              <strong><em>Sobre</em></strong>
             </h5>
             <ul class="list-unstyled text-small">
               <li>
-                <nuxt-link class="text-light" to="/about-team">
+                <nuxt-link
+                  :class="isDarkMode ? 'text-light' : 'text-dark'"
+                  to="/about-team"
+                >
                   Projeto Blklight
                 </nuxt-link>
               </li>
               <li>
-                <nuxt-link class="text-light" to="/about-team">
+                <nuxt-link
+                  :class="isDarkMode ? 'text-light' : 'text-dark'"
+                  to="/about-team"
+                >
                   Site
                 </nuxt-link>
               </li>
               <li>
-                <nuxt-link class="text-light" to="/old-home">
+                <nuxt-link
+                  :class="isDarkMode ? 'text-light' : 'text-dark'"
+                  to="/old-home"
+                >
                   Home (Layout antigo)
                 </nuxt-link>
               </li>
@@ -57,7 +72,12 @@
   </footer>
 </template>
 <script>
+import { mapGetters } from "vuex";
+
 export default {
   name: "Footer",
+  computed: {
+    ...mapGetters(["isDarkMode"]),
+  },
 };
 </script>

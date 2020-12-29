@@ -6,16 +6,15 @@
     >
       <img
         v-lazy="imageSrc(article)"
-        class="card-background-image featured-image cyberpunk-effect"
+        class="card-background-image featured-image card-img-border cyberpunk-effect"
         :alt="article.title"
-        :class="isFlat ? '' : 'card-img-border'"
-        style="height: 600px !important;"
+        style="height: 600px !important"
       />
       <div
         class="card-img-overlay h-100 d-flex flex-column justify-content-end"
       >
         <ChannelBadge :channel="article.channel" :isTag="true" />
-        <h3 class="exo-font mt-2" style="font-style: italic;">
+        <h3 class="exo-font mt-2" style="font-style: italic">
           <span class="marker marker-dark marker-title">
             <strong>
               {{ article.title }}

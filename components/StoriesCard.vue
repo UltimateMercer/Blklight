@@ -23,7 +23,7 @@
           </strong>
         </span>
       </h3>
-      <p v-if="story.description">
+      <p v-if="story.description" class="d-none d-sm-block">
         <span class="marker marker-dark">
           {{ story.description }}
         </span>

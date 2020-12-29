@@ -4,25 +4,20 @@
       class="card card-background mb-4"
       :class="[
         { 'card-featured-post': isFeatured },
-        { 'card-raised': isRaised },
-        isFlat ? 'card-flat' : '',
         isDarkMode ? 'hover-card-yellow' : 'hover-card-uv card-raised',
       ]"
     >
       <img
         v-lazy="imageSrc(article)"
-        class="card-background-image cyberpunk-effect"
-        :class="[
-          { 'featured-image': isFeatured },
-          isFlat ? '' : 'card-img-border',
-        ]"
+        class="card-background-image card-img-border cyberpunk-effect"
+        :class="[{ 'featured-image': isFeatured }]"
         :alt="article.title"
       />
       <div
         class="card-img-overlay h-100 d-flex flex-column justify-content-end"
       >
         <ChannelBadge :channel="article.channel" :isTag="isFeatured" />
-        <h4 class="exo-font mt-2" style="font-style: italic;">
+        <h4 class="exo-font mt-2" style="font-style: italic">
           <span class="marker marker-dark marker-title">
             <strong>
               {{ article.title }}
@@ -69,14 +64,6 @@ export default {
       default: null,
     },
     isFeatured: {
-      type: Boolean,
-      default: false,
-    },
-    isRaised: {
-      type: Boolean,
-      default: false,
-    },
-    isFlat: {
       type: Boolean,
       default: false,
     },

@@ -11,11 +11,12 @@
                   class="rounded mx-auto mb-4 d-block"
                   alt="article.title"
                   style="
-                    width: 350px;
-                    height: 350px;
+                    width: 300px;
+                    height: 300px;
 
                     object-fit: cover;
                   "
+                  :class="isDarkMode ? '' : 'shadow-image'"
                 />
                 <div class="text-center">
                   <h1 class="blog-title">

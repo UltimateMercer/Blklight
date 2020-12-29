@@ -1,7 +1,7 @@
 <template>
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    style="display: block; width: auto !important; height: 0 !important;"
+    style="display: block; width: auto !important; height: 0 !important"
   >
     <filter
       id="cyberpunk-ult"
