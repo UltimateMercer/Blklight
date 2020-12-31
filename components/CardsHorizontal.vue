@@ -1,21 +1,31 @@
 <template>
   <div
-    class="card card-flat card-raised mb-4"
-    :class="isDarkMode ? 'bg-darkest hover-card-yellow' : 'hover-card-uv'"
+    class="card mb-4"
+    :class="
+      isDarkMode ? 'card-plain hover-card-yellow' : 'hover-card-uv card-raised'
+    "
   >
     <div class="row">
       <div class="col-md-5 col-12">
         <img
-          v-lazy="imageSrc(article)"
+          v-lazy="article.multimedia[0]['url']"
           class="card-img-fit cyberpunk-effect"
-          style="height: 300px !important; width: 100% !important;"
+          style="height: 350px !important; width: 100% !important"
         />
       </div>
       <div class="col-md-7 col-12">
-        <div class="p-3" :class="isDarkMode ? 'text-light' : ''">
-          <ChannelBadge :channel="article.channel" :isTag="true" />
+        <div class="px-md-4 px-3 py-3" :class="isDarkMode ? 'text-light' : ''">
+          <span
+            class="badge badge-primary badge-tag mb-2"
+            style="text-transform: capitalize"
+          >
+            {{ article.section }}
+          </span>
+          <span class="badge badge-primary badge-tag">
+            {{ formatDate(article.updated_date) }}
+          </span>
 
-          <h3 class="exo-font mt-1 mb-2" style="font-style: italic;">
+          <h3 class="exo-font mt-1 mb-3" style="font-style: italic">
             <span class="">
               <strong>
                 {{ article.title }}
@@ -23,25 +33,23 @@
             </span>
           </h3>
           <div class="card-subinfo mb-2">
-            <span class="badge badge-dark">
-              {{ formatDate(article.createdAt) }}
-            </span>
+            <!-- <span class="badge badge-dark">
+              {{ dateFormat }}
+            </span> -->
           </div>
           <p class="mb-3">
-            {{ article.description }}
+            {{ article.abstract }}
           </p>
 
           <div class="text-right mb-2">
-            <nuxt-link
-              :to="{
-                name: `${article.channel}-slug`,
-                params: { slug: `${article.slug}` },
-              }"
+            <a
+              :href="article.short_url"
+              target="_blank"
               class="btn"
               :class="isDarkMode ? 'btn-outline-neon-yellow' : 'btn-outline-uv'"
             >
-              Leia mais...
-            </nuxt-link>
+              Read more...
+            </a>
           </div>
         </div>
       </div>
@@ -55,12 +63,8 @@ import { mapGetters } from "vuex";
 import { format } from "date-fns";
 import { ptBR } from "date-fns/locale";
 
-import ChannelBadge from "@/components/ChannelBadge";
-
 export default {
   name: "CardsHorizontal",
-
-  components: { ChannelBadge },
 
   props: {
     article: {
@@ -71,6 +75,13 @@ export default {
 
   computed: {
     ...mapGetters(["isDarkMode"]),
+    // dateFormat() {
+    //   const formattedDate = format(
+    //     new Date(this.article.updated_date),
+    //     "dd MMM yyyy"
+    //   );
+    //   return formattedDate;
+    // },
   },
 
   methods: {

@@ -14,12 +14,10 @@
         class="card-img-overlay h-100 d-flex flex-column justify-content-end"
       >
         <ChannelBadge :channel="article.channel" :isTag="true" />
-        <h3 class="exo-font mt-2" style="font-style: italic">
-          <span class="marker marker-dark marker-title">
-            <strong>
-              {{ article.title }}
-            </strong>
-          </span>
+        <h3 class="marker marker-dark marker-title mt-2">
+          <strong>
+            <em> {{ article.title }} </em>
+          </strong>
         </h3>
 
         <div class="d-flex justify-content-between">
@@ -93,6 +91,16 @@ export default {
 };
 </script>
 <style lang="scss">
+// .card {
+//   .hover-card {
+//     &-uv {
+//       &:hover {
+//         border: 1px solid #4c00ff !important;
+//       }
+//     }
+//   }
+// }
+
 .hover-card {
   &-uv {
     &:hover {
@@ -100,6 +108,7 @@ export default {
         cubic-bezier(0.47, 0, 0.745, 0.715) both;
       animation: shadow-pop-br-uv 0.2s cubic-bezier(0.47, 0, 0.745, 0.715) both;
       border-radius: 0 !important;
+      border: 1px solid #4c00ff;
     }
   }
   &-yellow {
@@ -111,6 +120,7 @@ export default {
       animation: shadow-pop-br-yellow 0.2s cubic-bezier(0.47, 0, 0.745, 0.715)
         both;
       border-radius: 0 !important;
+      border: 1px solid #ffff00;
     }
   }
 }

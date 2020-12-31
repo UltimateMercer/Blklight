@@ -81,6 +81,32 @@
         <Podcast />
       </div>
     </div>
+    <div class="container-fluid mb-4">
+      <div class="col-xl-10 col-12 offset-xl-1 offset-0 px-xl-0 px-1 my-3">
+        <h2 class="mb-3" :class="isDarkMode ? 'text-light' : 'text-dark'">
+          <strong><em>Extras / Em desenvolvimento</em></strong>
+        </h2>
+        <nuxt-link to="/new-york-times" class="btn btn-neon-yellow btn-raised">
+          New York Times API
+        </nuxt-link>
+        <nuxt-link to="/dev-corporation" class="btn btn-neon-yellow btn-raised">
+          Dev Corporation
+        </nuxt-link>
+        <nuxt-link to="/arts" class="btn btn-neon-yellow btn-raised">
+          Arts
+        </nuxt-link>
+        <nuxt-link to="/redlight" class="btn btn-neon-yellow btn-raised">
+          Redlight
+        </nuxt-link>
+        <nuxt-link to="/nerdstation" class="btn btn-neon-yellow btn-raised">
+          Nerdstation
+        </nuxt-link>
+        <nuxt-link to="/search" class="btn btn-neon-yellow btn-raised">
+          <font-awesome-icon :icon="['fas', 'search']" />
+          Pesquisar
+        </nuxt-link>
+      </div>
+    </div>
   </div>
 </template>
 

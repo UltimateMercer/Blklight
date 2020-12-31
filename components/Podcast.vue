@@ -1,7 +1,7 @@
 <template>
   <div>
     <iframe
-      class="card-raised"
+      class="card-raised rounded"
       width="100%"
       height="350"
       scrolling="no"

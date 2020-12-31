@@ -9,22 +9,22 @@
       class="card-image-stories card-img-border cyberpunk-effect"
     />
     <div class="card-img-overlay d-flex flex-column">
-      <div class="d-flex mb-2">
+      <div class="d-flex mb-3">
         <span class="badge badge-dark badge-tag mr-2">
           {{ formatDate(story.createdAt) }}
         </span>
         <ChannelBadge :channel="story.channel" :isTag="true" />
       </div>
 
-      <h3>
-        <span class="marker marker-dark marker-title">
+      <h3 class="marker marker-dark marker-title mb-2">
+        <span>
           <strong>
             <em>{{ story.title }}</em>
           </strong>
         </span>
       </h3>
-      <p v-if="story.description" class="d-none d-sm-block">
-        <span class="marker marker-dark">
+      <p v-if="story.description" class="marker marker-dark d-none d-sm-block">
+        <span class="">
           {{ story.description }}
         </span>
       </p>

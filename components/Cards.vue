@@ -17,12 +17,12 @@
         class="card-img-overlay h-100 d-flex flex-column justify-content-end"
       >
         <ChannelBadge :channel="article.channel" :isTag="isFeatured" />
-        <h4 class="exo-font mt-2" style="font-style: italic">
-          <span class="marker marker-dark marker-title">
-            <strong>
+        <h4 class="mt-2 marker marker-dark marker-title">
+          <strong>
+            <em>
               {{ article.title }}
-            </strong>
-          </span>
+            </em>
+          </strong>
         </h4>
 
         <div class="d-flex justify-content-between">
@@ -110,6 +110,7 @@ export default {
         cubic-bezier(0.47, 0, 0.745, 0.715) both;
       animation: shadow-pop-br-uv 0.2s cubic-bezier(0.47, 0, 0.745, 0.715) both;
       border-radius: 0 !important;
+      border: 1px solid #4c00ff;
     }
   }
   &-yellow {
@@ -121,6 +122,7 @@ export default {
       animation: shadow-pop-br-yellow 0.2s cubic-bezier(0.47, 0, 0.745, 0.715)
         both;
       border-radius: 0 !important;
+      border: 1px solid #ffff00;
     }
   }
 }
