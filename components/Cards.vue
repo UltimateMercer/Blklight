@@ -16,7 +16,12 @@
       <div
         class="card-img-overlay h-100 d-flex flex-column justify-content-end"
       >
-        <ChannelBadge :channel="article.channel" :isTag="isFeatured" />
+        <div class="d-flex">
+          <span class="badge badge-dark badge-tag ml-0">
+            {{ formatDate(article.createdAt) }}
+          </span>
+          <ChannelBadge :channel="article.channel" :isTag="isFeatured" />
+        </div>
         <h4 class="mt-2 marker marker-dark marker-title">
           <strong>
             <em>
@@ -24,19 +29,20 @@
             </em>
           </strong>
         </h4>
-
-        <div class="d-flex justify-content-between">
-          <span class="badge badge-dark badge-tag">
-            {{ formatDate(article.createdAt) }}
+        <p>
+          <span class="marker marker-dark">
+            {{ article.description }}
           </span>
+        </p>
 
+        <div class="text-right">
           <nuxt-link
             tag="a"
             :to="{
               name: `${slugName}-slug`,
               params: { slug: `${article.slug}` },
             }"
-            class="btn btn-uv btn-flat btn-sm"
+            class="btn btn-uv btn-sm"
           >
             Ler mais...
           </nuxt-link>

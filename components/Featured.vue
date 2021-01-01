@@ -8,30 +8,37 @@
         v-lazy="imageSrc(article)"
         class="card-background-image featured-image card-img-border cyberpunk-effect"
         :alt="article.title"
-        style="height: 600px !important"
+        style="height: 650px !important"
       />
       <div
         class="card-img-overlay h-100 d-flex flex-column justify-content-end"
       >
-        <ChannelBadge :channel="article.channel" :isTag="true" />
+        <div class="d-flex">
+          <span class="badge badge-dark badge-tag ml-0">
+            {{ formatDate(article.createdAt) }}
+          </span>
+          <ChannelBadge :channel="article.channel" :isTag="true" />
+        </div>
+
         <h3 class="marker marker-dark marker-title mt-2">
           <strong>
             <em> {{ article.title }} </em>
           </strong>
         </h3>
-
-        <div class="d-flex justify-content-between">
-          <span class="badge badge-dark badge-tag">
-            {{ formatDate(article.createdAt) }}
+        <p>
+          <span class="marker marker-dark">
+            {{ article.description }}
           </span>
+        </p>
 
+        <div class="text-right">
           <nuxt-link
             tag="a"
             :to="{
               name: `${slugName}-slug`,
               params: { slug: `${article.slug}` },
             }"
-            class="btn btn-uv btn-flat btn-sm"
+            class="btn btn-uv btn-sm"
           >
             Ler mais...
           </nuxt-link>

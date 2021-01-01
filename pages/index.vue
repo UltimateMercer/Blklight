@@ -126,6 +126,7 @@ export default {
     const featureds = await $content({ deep: true }, params.slug)
       .only([
         "title",
+        "description",
         "img",
         "imgAlt",
         "slug",
@@ -143,6 +144,8 @@ export default {
     const articles = await $content({ deep: true }, params.slug)
       .only([
         "title",
+        "description",
+
         "img",
         "imgAlt",
         "slug",
