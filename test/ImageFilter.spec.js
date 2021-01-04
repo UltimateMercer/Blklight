@@ -1,9 +1,18 @@
-import { mount } from '@vue/test-utils'
-import ImageFilter from '@/components/ImageFilter.vue'
+import { shallowMount } from "@vue/test-utils";
+import ImageFilter from "@/components/ImageFilter.vue";
 
-describe('ImageFilter', () => {
-  test('is a Vue instance', () => {
-    const wrapper = mount(ImageFilter)
-    expect(wrapper.vm).toBeTruthy()
-  })
-})
+const factory = () => {
+  return shallowMount(ImageFilter, {});
+};
+
+describe("ImageFilter", () => {
+  test("mounts properly", () => {
+    const wrapper = factory();
+    expect(wrapper.find("svg").vm).toBeTruthy();
+  });
+
+  test("renders properly", () => {
+    const wrapper = factory();
+    expect(wrapper.html()).toMatchSnapshot();
+  });
+});

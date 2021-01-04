@@ -89,6 +89,9 @@
         <nuxt-link to="/new-york-times" class="btn btn-neon-yellow btn-raised">
           New York Times API
         </nuxt-link>
+        <nuxt-link to="/playground" class="btn btn-neon-yellow btn-raised">
+          Playground
+        </nuxt-link>
         <nuxt-link to="/dev-corporation" class="btn btn-neon-yellow btn-raised">
           Dev Corporation
         </nuxt-link>

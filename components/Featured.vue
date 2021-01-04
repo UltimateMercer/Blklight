@@ -13,19 +13,21 @@
       <div
         class="card-img-overlay h-100 d-flex flex-column justify-content-end"
       >
-        <div class="d-flex">
+        <div class="d-flex mb-2">
           <span class="badge badge-dark badge-tag ml-0">
             {{ formatDate(article.createdAt) }}
           </span>
           <ChannelBadge :channel="article.channel" :isTag="true" />
         </div>
 
-        <h3 class="marker marker-dark marker-title mt-2">
-          <strong>
-            <em> {{ article.title }} </em>
-          </strong>
+        <h3>
+          <span class="marker marker-dark py-1">
+            <strong>
+              <em> {{ article.title }} </em>
+            </strong>
+          </span>
         </h3>
-        <p>
+        <p class="d-none d-sm-block mb-1">
           <span class="marker marker-dark">
             {{ article.description }}
           </span>

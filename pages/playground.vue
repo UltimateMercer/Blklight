@@ -172,7 +172,7 @@
               </div>
             </div>
             <div class="card-body px-4" :class="isDarkMode ? 'text-light' : ''">
-              <h4>
+              <h4 class="mb-3">
                 <strong
                   ><em>{{ article.title }}</em></strong
                 >
@@ -181,12 +181,12 @@
                 {{ article.abstract }}
               </p>
               <span
-                class="badge badge-primary badge-tag mb-2"
+                class="badge badge-uv badge-tag mb-2"
                 style="text-transform: capitalize"
               >
                 {{ article.section }}
               </span>
-              <span class="badge badge-primary badge-tag">
+              <span class="badge badge-uv badge-tag">
                 {{ formatDate(article.updated_date) }}
               </span>
               <div class="text-right mb-2">
@@ -223,7 +223,7 @@
               v-lazy="article.multimedia[0]['url']"
               class="card-img-top card-img-fit cyberpunk-effect"
               alt="..."
-              style="height: 325px !important"
+              style="height: 350px !important"
             />
             <div class="card-body px-4" :class="isDarkMode ? 'text-light' : ''">
               <h4>
@@ -235,12 +235,12 @@
                 {{ article.abstract }}
               </p>
               <span
-                class="badge badge-primary badge-tag mb-2"
+                class="badge badge-uv badge-tag mb-2"
                 style="text-transform: capitalize"
               >
                 {{ article.section }}
               </span>
-              <span class="badge badge-primary badge-tag">
+              <span class="badge badge-uv badge-tag">
                 {{ formatDate(article.updated_date) }}
               </span>
               <div class="text-right mb-2">
