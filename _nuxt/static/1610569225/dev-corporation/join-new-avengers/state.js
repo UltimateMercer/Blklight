@@ -1,0 +1,1 @@
+window.__NUXT__=(function(a){return {staticAssetsBase:"\u002FBlklight\u002F_nuxt\u002Fstatic\u002F1610569225",layout:"default",error:null,state:{isDark:a},serverRendered:a,routePath:"\u002Fdev-corporation\u002Fjoin-new-avengers",config:{content:{dbHash:"021e8be0"}}}}(true));
