@@ -10,7 +10,7 @@ export default {
    */
   target: "static",
   router: {
-    base: "/Blklight.github.io/",
+    base: "/Blklight/",
   },
   /*
    ** Headers of the page

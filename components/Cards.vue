@@ -16,7 +16,7 @@
       <div
         class="card-img-overlay h-100 d-flex flex-column justify-content-end"
       >
-        <div class="d-flex mb-2">
+        <div class="d-flex mb-1">
           <span class="badge badge-dark badge-tag ml-0">
             {{ formatDate(article.createdAt) }}
           </span>
@@ -34,18 +34,19 @@
             {{ article.description }}
           </span>
         </p>
-
-        <div class="text-right">
-          <nuxt-link
-            tag="a"
-            :to="{
-              name: `${slugName}-slug`,
-              params: { slug: `${article.slug}` },
-            }"
-            class="btn btn-uv btn-sm"
-          >
-            Ler mais...
-          </nuxt-link>
+        <div class="d-flex mb-2">
+          <div class="ml-auto">
+            <nuxt-link
+              tag="a"
+              :to="{
+                name: `${slugName}-slug`,
+                params: { slug: `${article.slug}` },
+              }"
+              class="badge badge-uv badge-tag"
+            >
+              Ler mais...
+            </nuxt-link>
+          </div>
         </div>
       </div>
     </div>
@@ -108,6 +109,8 @@ export default {
 <style lang="scss">
 .card {
   border-radius: 0.5rem !important;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
 }
 .hover-card {
   &-uv {
@@ -123,9 +126,9 @@ export default {
     &:hover {
       // transition: all ease-in-out 0.2s;
       // box-shadow: 6px 6px 1px 1px rgba(255, 255, 0, 1);
-      -webkit-animation: shadow-pop-br-yellow 0.2s
+      -webkit-animation: shadow-pop-br-yellow 0.3s
         cubic-bezier(0.47, 0, 0.745, 0.715) both;
-      animation: shadow-pop-br-yellow 0.2s cubic-bezier(0.47, 0, 0.745, 0.715)
+      animation: shadow-pop-br-yellow 0.3s cubic-bezier(0.47, 0, 0.745, 0.715)
         both;
       border-radius: 0 !important;
       border: 1px solid #ffff00;

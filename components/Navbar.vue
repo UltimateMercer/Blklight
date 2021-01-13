@@ -59,28 +59,12 @@ export default {
 
   computed: {
     ...mapGetters(["isDarkMode"]),
-    navbarVariant() {
-      if (this.$route.name === "dev-corporation-index-*") {
-        console.log(this.$route.params);
-        return "primary";
-      } else if (this.$route.path === "/nerdstation") {
-        return "orange";
-      } else {
-        return "dark";
-      }
-    },
   },
 
   methods: {
     ...mapMutations({
       darkMode: "darkMode",
     }),
-
-    // darkMode() {
-    //   this.isDark = !this.isDark;
-    //   localStorage.setItem("isDark", this.isDark);
-    //   this.$store.commit("isDark");
-    // },
   },
 };
 </script>

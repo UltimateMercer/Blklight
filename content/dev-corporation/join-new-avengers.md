@@ -7,7 +7,7 @@ alt: my first blog post
 channel: "dev-corporation"
 category: "design"
 isFeatured: true
-headerLayout: "square-profile"
+headerLayout: "arts"
 author:
   name: "Ultimate Mercer"
   bio: "Ultimate Awakening"
