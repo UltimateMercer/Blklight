@@ -73,14 +73,14 @@
         </div>
       </div>
     </div>
-    <div class="container-fluid mb-4">
+    <!-- <div class="container-fluid mb-4">
       <div class="col-xl-10 col-12 offset-xl-1 offset-0 px-xl-0 px-1">
         <h2 class="mt-3 mb-3" :class="isDarkMode ? 'text-light' : 'text-dark'">
           <strong><em>Podcast</em></strong>
         </h2>
         <Podcast />
       </div>
-    </div>
+    </div> -->
     <div class="container-fluid mb-4">
       <div class="col-xl-10 col-12 offset-xl-1 offset-0 px-xl-0 px-1 my-3">
         <h2 class="mb-3" :class="isDarkMode ? 'text-light' : 'text-dark'">
@@ -121,10 +121,9 @@ import { ptBR } from "date-fns/locale";
 import Featured from "~/components/Featured";
 import Cards from "~/components/Cards";
 import Stories from "~/components/StoriesCard";
-import Podcast from "~/components/Podcast";
 
 export default {
-  components: { Featured, Cards, Stories, Podcast },
+  components: { Featured, Cards, Stories },
   async asyncData({ $content, params }) {
     const featureds = await $content({ deep: true }, params.slug)
       .only([
