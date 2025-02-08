@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/arts", {data:[{}],fetch:[],mutations:[]});
